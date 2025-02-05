@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "init.bat",
+    "reset": "prisma-migrate.bat",
     "start": "concurrently \"webpack --watch\" \"node --watch --env-file-if-exists=.node.env index.js\" \"npx @tailwindcss/cli -i ./src/styles.css -o ./public/styles.bundle.css --watch\""
   },
   "keywords": [],
