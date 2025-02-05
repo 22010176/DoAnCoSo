@@ -4,15 +4,17 @@ if exist certificate/key.key if exist certificate/certificate.crt if exist .env 
   exit
 )
 
-set "envFile=.node.env"
+set "envFile=.env"
 
 @echo off
 if exist %envFile% ( 
     rm -rf %envFile%
 )
 
-echo # mysql://root:admin@localhost:3306/test > %envFile%
-echo # postgresql://postgres:admin@localhost:5432/test >> %envFile%
+echo # Sửa lại theo dữ liệu cá nhân >> %envFile%
+echo # database://user:password@host:port/database >> %envFile%
+echo MYSQL_URL="mysql://root:admin@localhost:3306/test" >> %envFile%
+echo POSTGRES_URL="postgresql://postgres:admin@localhost:5432/test" >> %envFile%
 echo MODE="development" >> %envFile%
 echo PORT=443 >> %envFile%
 echo PRIVATE_KEY_PATH="certificate/key.key" >> %envFile%
