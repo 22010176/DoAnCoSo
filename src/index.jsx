@@ -8,7 +8,6 @@ import store from "./redux/store.js";
 import './styles.css';
 import App from "./pages/App.jsx"
 
-
 const root = document.getElementById('root');
 
 createRoot(root).render(

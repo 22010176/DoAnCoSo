@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 
 import Counter from "./Counter/ui";
+import Home from "./Home";
 
 function App() {
   useEffect(() => {
@@ -13,8 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<h1>Page Home</h1>} />
-        <Route path="/about" element={<h1 className="">Page About</h1>} />
+        <Route index element={<Home />} />
+        <Route path="/about" element={<h1>Page About</h1>} />
         <Route path="/counter" element={<Counter />} />
       </Routes>
     </BrowserRouter >

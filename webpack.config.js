@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.jsx',
   watch: true,
   watchOptions: {},
@@ -14,7 +14,7 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [],
   output: {
-    filename: 'main.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public')
   }
 }
