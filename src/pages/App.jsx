@@ -1,14 +1,19 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
+import axios from "axios";
 
 import Counter from "./Counter/ui";
 import Home from "./Home";
 
 function App() {
   useEffect(() => {
-    fetch('/api')
-      .then(res => res.json())
-      .then(data => console.log(data))
+    axios.get('/api')
+      .then(function (response) {
+        console.log(response)
+      })
+    // fetch('/api')
+    //   .then(res => res.json())
+    //   .then(data => console.log(data))
   }, [])
 
   return (

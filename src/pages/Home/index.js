@@ -4,50 +4,9 @@ import { height } from "@fortawesome/free-solid-svg-icons/fa0"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Affix, Button, Card, Divider, Input, Rate, Select } from "antd"
 
-function NavItem({ className, children, active, ...props }) {
-  return (
-    <a className={[className, active ? 'bg-cyan-500 text-white' : '', 'cursor-pointer px-8 py-2 rounded-2xl text-lg'].join(' ')} {...props}>
-      {children}
-    </a>
-  )
-}
-
-function Logo({ className }) {
-  return (
-    <div className={[className, "flex flex-col items-center gap-1"].join(' ')}>
-      <FontAwesomeIcon icon={faPaperPlane} size="2x" />
-      <p className="uppercase font-bold text-sm">travellingo</p>
-    </div>
-  )
-}
-
-function NavBar({ }) {
-  return (
-    <nav className="sticky w-full h-20 py-3 flex justify-around items-center bg-white">
-      <Logo />
-      <div className="flex gap-2">
-        <NavItem active>Trang chủ</NavItem>
-        <NavItem>Địa điểm du lịch</NavItem>
-        <NavItem>
-          Tour trong nước
-          <FontAwesomeIcon className="ps-1" icon={faAngleDown} />
-        </NavItem>
-        <NavItem>Tin tức</NavItem>
-      </div>
-      <div className="flex gap-3 items-center h-100">
-        <FontAwesomeIcon className="opacity-50" icon={faMagnifyingGlass} size="2x" />
-        <div className="h-10 rounded-full bg-gray-400" style={{ width: '2px' }}></div>
-        <FontAwesomeIcon className="opacity-50" icon={faCircleUser} size="2x" />
-        <div className="h-10 rounded-full bg-gray-400" style={{ width: '2px' }}></div>
-        <FontAwesomeIcon className="opacity-50" icon={faHeadset} size="2x" />
-        <div className="flex flex-col justify-center">
-          <p className="font-medium leading-5">Hotline</p>
-          <p className="text-blue-400 font-medium leading-5">0333.333.xxx</p>
-        </div>
-      </div>
-    </nav>
-  )
-}
+import Navbar from "../components/Navbar"
+import Logo from "../components/Logo"
+import Footer from "../components/Footer"
 
 const loaiHinh = [
   { value: 'sinhThai', label: 'Sinh thái' },
@@ -134,7 +93,7 @@ function NewsCard() {
 function Home() {
   return (
     <>
-      <NavBar />
+      <Navbar />
       <main className="w-full ">
         <div className="w-full h-auto">
           <img className="w-full object-cover" src="/imgs/bg.jpg" style={{ height: "500px" }} />
@@ -227,56 +186,7 @@ function Home() {
         </div>
       </main>
 
-      <footer className="flex justify-between px-30 py-10 bg-gray-300">
-        <div className="gap-8 items-start grid grid-cols-[auto_1fr]">
-          <Logo className="self-start col-span-2 w-min" />
-
-          <FontAwesomeIcon icon={faMapLocationDot} size="2x" />
-          <p className="text-lg">Phenikaa University, Hà Đông</p>
-
-          <FontAwesomeIcon icon={faPhone} size="2x" />
-          <p className="text-lg">0333.xxx.xxx</p>
-
-          <FontAwesomeIcon icon={faFax} size="2x" />
-          <p className="text-lg">Fax: 055.3876.222</p>
-
-          <FontAwesomeIcon icon={faMailBulk} size="2x" />
-          <p className="text-lg">travellingo@gmail.com</p>
-        </div>
-
-        <div className="gap-8 grid grid-cols-[auto_1fr]">
-          <div className="self-start col-span-2">
-            <p className="font-bold text-2xl mb-1">Truy cập nhanh</p>
-            <div className="w-1/2 h-0.5 bg-black"></div>
-          </div>
-
-          <FontAwesomeIcon className="relative translate-y-2" icon={faCaretRight} />
-          <p className="text-lg">Trang chủ</p>
-
-          <FontAwesomeIcon className="relative translate-y-2" icon={faCaretRight} />
-          <p className="text-lg">Điểm đến phổ biến</p>
-
-          <FontAwesomeIcon className="relative translate-y-2" icon={faCaretRight} />
-          <p className="text-lg">Cẩm nang</p>
-
-          <FontAwesomeIcon className="relative translate-y-2" icon={faCaretRight} />
-          <p className="text-lg">Tin tức</p>
-        </div>
-
-        <div className="flex flex-col gap-5 items-start">
-          <div className="self-start col-span-2">
-            <p className="font-bold text-2xl mb-1">Theo dõi chúng tôi</p>
-            <div className="w-1/2 h-0.5 bg-black"></div>
-          </div>
-
-          <div className="flex gap-8">
-            <FontAwesomeIcon icon={faXTwitter} size="2x" />
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
-            <FontAwesomeIcon icon={faYoutube} size="2x" />
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

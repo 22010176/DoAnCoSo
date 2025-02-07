@@ -4,6 +4,7 @@
   "scripts": {
     "init": "init.bat",
     "reset": "prisma-migrate.bat",
+    "migrate": "npx prisma migrate dev",
     "start": "concurrently \"webpack --watch\" \"node --watch --env-file-if-exists=.env index.js\" \"npx @tailwindcss/cli -i ./src/styles.css -o ./public/styles.bundle.css --watch\""
   },
   "keywords": [],
@@ -22,6 +23,7 @@
     "@tailwindcss/cli": "^4.0.3",
     "@tailwindcss/postcss": "^4.0.3",
     "@vis.gl/react-google-maps": "^1.5.1",
+    "axios": "^1.7.9",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "morgan": "^1.10.0",

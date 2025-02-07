@@ -5,3 +5,4 @@ certificate
 prisma/migrations
 *.bundle.js
 *.bundle.css
+googleAPI.json
