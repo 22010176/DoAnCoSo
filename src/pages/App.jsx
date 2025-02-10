@@ -4,8 +4,12 @@ import axios from "axios";
 
 import Counter from "./Counter/ui";
 import Home from "./Home";
+import BaoMatPage from "./BaoMat";
+import { useDispatch } from "react-redux";
 
 function App() {
+
+
   useEffect(() => {
     axios.get('/api')
       .then(function (response) {
@@ -20,6 +24,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
+        <Route path="/baomat" element={<BaoMatPage />} />
         <Route path="/about" element={<h1>Page About</h1>} />
         <Route path="/counter" element={<Counter />} />
       </Routes>
