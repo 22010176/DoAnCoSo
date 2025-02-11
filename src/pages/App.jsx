@@ -11,24 +11,25 @@ function App() {
 
 
   useEffect(() => {
-    axios.get('/api')
-      .then(function (response) {
-        console.log(response)
-      })
+    // axios.get('/api')
+    //   .then(function (response) {
+    //     console.log(response)
+    //   })
     // fetch('/api')
     //   .then(res => res.json())
     //   .then(data => console.log(data))
   }, [])
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/baomat" element={<BaoMatPage />} />
-        <Route path="/about" element={<h1>Page About</h1>} />
-        <Route path="/counter" element={<Counter />} />
-      </Routes>
-    </BrowserRouter >
+    <BaoMatPage />
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route index element={<Home />} />
+    //     <Route path="/baomat" element={<BaoMatPage />} />
+    //     <Route path="/about" element={<h1>Page About</h1>} />
+    //     <Route path="/counter" element={<Counter />} />
+    //   </Routes>
+    // </BrowserRouter >
   );
 }
 
