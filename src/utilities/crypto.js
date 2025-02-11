@@ -1,3 +1,13 @@
+export const cypherName = [
+  { lower: 'caesar', upper: 'CAESAR', cap: 'Caesar' },
+  { lower: 'affine', upper: 'AFFINE', cap: 'Affine' },
+  { lower: 'hill', upper: 'HILL', cap: 'Hill' },
+  { lower: 'vigenere', upper: 'VIGENERE', cap: 'Vigenere' },
+  { lower: 'des', upper: 'DES', cap: 'DES' },
+  { lower: 'aes', upper: 'AES', cap: 'AES' },
+  { lower: 'rsa', upper: 'RSA', cap: 'RSA' },
+]
+
 export function affineCipher(text, a, b, encode = true) {
   const alphabet =
     'abcdefghijklmnopqrstuvwxyz'
@@ -19,3 +29,4 @@ export function affineCipher(text, a, b, encode = true) {
     return alphabet[Math.floor(index / a)]
   }).join('')
 }
+

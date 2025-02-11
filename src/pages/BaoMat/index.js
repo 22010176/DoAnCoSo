@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { faBookmark, faClipboard, faFileArrowUp, faKey } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Alert, Button, Col, Divider, Flex, Form, Input, Row, Select, Watermark, Typography, InputNumber, Empty } from 'antd'
@@ -10,6 +10,8 @@ import CryptoJS from '../../utilities/cryptojs'
 import AffineInput from './components/AffineInput';
 import VigenereInput from './components/VigenereInput';
 import CaesarInput from './components/CeasarInput';
+
+import { getCypher } from '../../redux/selectors'
 import cypherSlice from './baomatReducer';
 
 
@@ -19,19 +21,30 @@ function DefaultInput({ }) {
   )
 }
 
+
+function CypherInput({ cypher = '' }) {
+  console.log(cypher)
+  switch (cypher?.toLowerCase?.()) {
+    case 'caesar': return <CaesarInput />
+    default: return <DefaultInput />
+  }
+}
+
+
 function BaoMatPage() {
   const dispatch = useDispatch()
-  const CypherInputs = useRef({
-    caesar: <CaesarInput />,
-    affine: <AffineInput />,
-    vigenere: <VigenereInput />
-  })
+  const [cypher, setCypher] = useState('caesar')
 
+  useEffect(function () {
+    dispatch(cypherSlice.actions.changeCypher({ cypherName: cypher }))
+  }, [])
+  console.log(useSelector(getCypher))
 
 
   function onCypherChange(e) {
     console.log(e)
     dispatch(cypherSlice.actions.changeCypher({ cypherName: e }))
+    setCypher(useSelector(getCypher))
   }
 
   console.log(AES, CryptoJS)
@@ -55,10 +68,7 @@ function BaoMatPage() {
         </Flex>
 
         <div className='border rounded-lg w-full bg-white shadow p-3'>
-          {/* <VigenereInput /> */}
-          <CaesarInput />
-          {CypherInput.current[useSelector(getCypher).cypher]}
-          {/* <DefaultInput /> */}
+          <CypherInput cypher={cypher} />
         </div>
 
         <div className='flex flex-col gap-3 border rounded-lg w-full p-3 bg-white shadow'>
