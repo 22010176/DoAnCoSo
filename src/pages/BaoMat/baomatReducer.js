@@ -14,8 +14,8 @@ const cypherSlice = createSlice({
       b: 0,               // affine
       matrix: [],         // hill
       key: '',            // vigenere, des, aes
-      p: 0,               // rsa
-      q: 0,               // rsa
+      p: 1,               // rsa
+      q: 1,               // rsa
       message: '',
     },
     output: ''

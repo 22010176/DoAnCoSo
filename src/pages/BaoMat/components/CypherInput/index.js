@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { Col, Empty, Input, InputNumber, Row } from "antd"
 
 import { useDispatch, useSelector } from "react-redux"
-import { getCaesarInput, getCypherName } from "../../../../redux/selectors"
+import { getAffineInput, getCaesarInput, getCypherName, getKeyInput, getRSAInput } from "../../../../redux/selectors"
 import cypherSlice from "../../baomatReducer"
 
 function CaesarInput({ }) {
@@ -23,12 +23,28 @@ function CaesarInput({ }) {
 }
 
 function AffineInput() {
+  const dispatch = useDispatch()
+
+  const message = useSelector(getAffineInput)
+
+  function onAChange(e) {
+    dispatch(cypherSlice.actions.updateInput({ a: e }))
+  }
+
+  function onBChange(e) {
+    dispatch(cypherSlice.actions.updateInput({ b: e }))
+  }
+
   return (
-    <div className='grid grid-cols-[auto_1fr] mx-10 gap-4 items-center'>
-      <h1 className='text-xl font-bold'>A:</h1>
-      <InputNumber style={{ width: "20%" }} defaultValue={1} value={0} min={0} changeOnWheel />
-      <h1 className='text-xl font-bold'>B:</h1>
-      <InputNumber style={{ width: "20%" }} defaultValue={1} value={0} min={0} changeOnWheel />
+    <div className='grid grid-cols-2 mx-10 gap-4 items-center'>
+      <div className="flex gap-4">
+        <h1 className='text-xl font-bold'>A:</h1>
+        <InputNumber defaultValue={1} value={message.a} min={0} changeOnWheel onChange={onAChange} />
+      </div>
+      <div className="flex gap-4">
+        <h1 className='text-xl font-bold'>B:</h1>
+        <InputNumber defaultValue={1} value={message.b} min={0} changeOnWheel onChange={onBChange} />
+      </div>
     </div>
   )
 }
@@ -65,11 +81,18 @@ function HillInput({ }) {
   )
 }
 
-function KeyInput() {
+function KeyInput({ }) {
+  const dispatch = useDispatch()
+  const message = useSelector(getKeyInput)
+
+  function onChange(e) {
+    dispatch(cypherSlice.actions.updateInput({ key: e.target.value }))
+  }
+
   return (
     <div className="flex gap-5">
       <h1 className="text-lg font-bold">Key:</h1>
-      <Input />
+      <Input value={message.key} onChange={onChange} />
     </div>
   )
 }
@@ -83,13 +106,24 @@ function KeyResult({ value = [] }) {
 }
 
 function RSAInput({ }) {
+  const dispatch = useDispatch()
+  const message = useSelector(getRSAInput)
+
+  function onPChange(e) {
+    dispatch(cypherSlice.actions.updateInput({ p: e }))
+  }
+
+  function onQChange(e) {
+    dispatch(cypherSlice.actions.updateInput({ q: e }))
+  }
+
   return (
     <div className="flex gap-20">
       <div className="grid grid-cols-[auto_1fr] gap-x-10 gap-y-3">
         <h1 className="text-xl font-bold">P:</h1>
-        <InputNumber />
+        <InputNumber value={message.p} min={0} onChange={onPChange} />
         <h1 className="text-xl font-bold">Q:</h1>
-        <InputNumber />
+        <InputNumber value={message.q} min={0} onChange={onQChange} />
       </div>
       <div className="flex-grow grid grid-cols-2">
         <div>
