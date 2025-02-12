@@ -8,12 +8,12 @@ export const cypherName = [
   { lower: 'rsa', upper: 'RSA', cap: 'RSA' },
 ]
 
-export function affineCipher(text, a, b, encode = true) {
-  const alphabet =
-    'abcdefghijklmnopqrstuvwxyz'
-    + 'abcdefghijklmnopqrstuvwxyz'.toUpperCase()
-    + '0123456789'
+export const alphabetOptions = ['a-z', 'A-Z', '0-9']
+export const lowercaseAlphabet = 'abcdefghijklmnopqrstuvwxyz'
+export const uppercaseAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+export const number = '0123456789 \n'
 
+export function affineCipher(text, a, b, alphabet = '', encode = true) {
   const len = alphabet.length
 
   // Mã hóa Affine

@@ -1,23 +1,18 @@
 import { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router";
 
-import Counter from "./Counter/ui";
+import Counter from "./Counter";
 import Home from "./Home";
 import BaoMatPage from "./BaoMat";
-import { useDispatch } from "react-redux";
 
 function App() {
-
-
   useEffect(() => {
     // axios.get('/api')
     //   .then(function (response) {
     //     console.log(response)
     //   })
-    // fetch('/api')
-    //   .then(res => res.json())
-    //   .then(data => console.log(data))
   }, [])
 
   return (

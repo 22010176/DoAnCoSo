@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { getCounter } from "../../../redux/selectors";
+import { getCounter } from "../../redux/selectors";
 import counter from "./counterReducer";
 import { Button } from "antd";
 
@@ -13,7 +13,9 @@ function Counter() {
     <Button onClick={function (e) {
       dispatch(counter.actions.increment(Math.random()))
     }}>Tang</Button>
+
     <p>{count.value + ''}</p>
+
     <Button onClick={function (e) {
       dispatch(counter.actions.decrement(Math.random()))
     }}>Giam</Button>

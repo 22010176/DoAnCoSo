@@ -11,6 +11,14 @@ function GlobalSettings({ }) {
     dispatch(cypherSlice.actions.changeCypher(e))
   }
 
+  function enscriptOnClick(e) {
+    dispatch(cypherSlice.actions.enscript())
+  }
+
+  function descriptOnClick(e) {
+    dispatch(cypherSlice.actions.descript())
+  }
+
   return (
     <Flex className='w-full gap-2'>
       <Select
@@ -18,8 +26,8 @@ function GlobalSettings({ }) {
         defaultValue="caesar"
         onChange={changeCypherMode}
         options={cypherName.map(i => ({ value: i.lower, label: i.cap }))} />
-      <Button variant='filled' color='cyan'>Enscript</Button>
-      <Button variant='filled' color='red'>Descript</Button>
+      <Button variant='filled' color='cyan' onClick={enscriptOnClick}>Enscript</Button>
+      <Button variant='filled' color='red' onClick={descriptOnClick}>Descript</Button>
     </Flex>
   )
 }
