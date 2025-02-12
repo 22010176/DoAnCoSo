@@ -7,22 +7,16 @@ import ResultOutput from './components/ResultOutput';
 import AlphabetSettings from './components/AlphabetSettings';
 import { Flex } from 'antd';
 
-
-console.log()
 function BaoMatPage() {
-  const dispatch = useDispatch()
-
   useEffect(function () {
   }, [])
 
   return (
-    <div className='w-screen h-screen bg-slate-300 p-40'>
-      <Flex className='w-full h-full' gap="middle" vertical>
-        <GlobalSettings />
-        <AlphabetSettings />
-        <CypherInput />
-        <ResultOutput />
-      </Flex>
+    <div className='flex gap-5 flex-col w-screen h-screen bg-slate-500 p-40'>
+      <GlobalSettings />
+      <AlphabetSettings />
+      <CypherInput />
+      <ResultOutput />
     </div>
   )
 }

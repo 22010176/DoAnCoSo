@@ -3,16 +3,19 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { cypherName } from "../../../../utilities/crypto"
 import cypherSlice from "../../baomatReducer"
+import { getCaesarInput, getCipherInput, getCypher, getCypherName } from "../../../../redux/selectors"
+import { useCallback, useMemo } from "react"
 
 function GlobalSettings({ }) {
   const dispatch = useDispatch()
+  const cinput = JSON.parse(useSelector(getCipherInput))
 
   function changeCypherMode(e) {
     dispatch(cypherSlice.actions.changeCypher(e))
   }
 
   function enscriptOnClick(e) {
-    dispatch(cypherSlice.actions.enscript())
+    dispatch(cypherSlice.actions.enscript(cinput))
   }
 
   function descriptOnClick(e) {

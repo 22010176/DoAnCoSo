@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { getAffineInput, getCaesarInput, getCypherName, getKeyInput, getRSAInput } from "../../../../redux/selectors"
 import cypherSlice from "../../baomatReducer"
 
-function CaesarInput({ }) {
+function CaesarInput() {
   const dispatch = useDispatch()
-
-  const message = useSelector(getCaesarInput)
+  const message = JSON.parse(useSelector(getCaesarInput))
 
   function onChange(e) {
     dispatch(cypherSlice.actions.updateInput({ k: e }))
@@ -24,8 +23,7 @@ function CaesarInput({ }) {
 
 function AffineInput() {
   const dispatch = useDispatch()
-
-  const message = useSelector(getAffineInput)
+  const message = JSON.parse(useSelector(getAffineInput))
 
   function onAChange(e) {
     dispatch(cypherSlice.actions.updateInput({ a: e }))
@@ -49,7 +47,7 @@ function AffineInput() {
   )
 }
 
-function HillInput({ }) {
+function HillInput() {
   const [row, setRow] = useState(1)
 
   function onChange(e) {
@@ -81,9 +79,9 @@ function HillInput({ }) {
   )
 }
 
-function KeyInput({ }) {
+function KeyInput() {
   const dispatch = useDispatch()
-  const message = useSelector(getKeyInput)
+  const message = JSON.parse(useSelector(getKeyInput))
 
   function onChange(e) {
     dispatch(cypherSlice.actions.updateInput({ key: e.target.value }))
@@ -101,13 +99,16 @@ function KeyResult({ value = [] }) {
   return (
     <div className="grid grid-cols-2 gap-2">
       {/* {value.map((i,j)=>)} */}
+      <p className="text-lg">
+        ({value.join(', ')})
+      </p>
     </div>
   )
 }
 
-function RSAInput({ }) {
+function RSAInput() {
   const dispatch = useDispatch()
-  const message = useSelector(getRSAInput)
+  const message = JSON.parse(useSelector(getRSAInput))
 
   function onPChange(e) {
     dispatch(cypherSlice.actions.updateInput({ p: e }))
@@ -127,11 +128,11 @@ function RSAInput({ }) {
       </div>
       <div className="flex-grow grid grid-cols-2">
         <div>
-          <h1 className="font-bold">Public Key</h1>
+          <h1 className="font-bold text-xl">Public Key</h1>
           <KeyResult value={[1, 4]} />
         </div>
         <div>
-          <h1 className="font-bold">Private Key</h1>
+          <h1 className="font-bold text-xl">Private Key</h1>
           <KeyResult value={[1, 4]} />
         </div>
       </div>
@@ -152,7 +153,7 @@ function CInput() {
   }
 }
 
-function CypherInput({ }) {
+function CypherInput() {
   return (
     <div className='border rounded-lg w-full bg-white shadow px-4 py-3'>
       <CInput />
