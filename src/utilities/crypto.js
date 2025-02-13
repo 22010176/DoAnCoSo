@@ -1,3 +1,5 @@
+import CryptoJS from "crypto-js"
+
 export const cypherName = [
   { lower: 'caesar', upper: 'CAESAR', cap: 'Caesar' },
   { lower: 'affine', upper: 'AFFINE', cap: 'Affine' },
@@ -64,4 +66,26 @@ export function vigenereCipher(message = '', key = '', alphabet = '', encode = t
     const result = alphabet.indexOf(i) - keyCharcode[j % keyCharcode.length]
     return alphabet[(result + len) % len]
   }).join('')
+}
+
+export function desCipher(message, key, encode) {
+  const _key = CryptoJS.enc.Hex.parse(key)
+
+  if (encode) {
+    const encrypted = CryptoJS.DES.encrypt(message, _key, { mode: CryptoJS.mode.ECB })
+
+    console.log('asfdasdf', encrypted)
+    return encrypted.ciphertext.toString();
+  }
+
+  const cipher = CryptoJS.enc.Hex.parse(message)
+  const decrypted = CryptoJS.DES.decrypt({ ciphertext: cipher }, _key, { mode: CryptoJS.mode.ECB })
+    .toString(CryptoJS.enc.Utf8);
+
+  return decrypted
+}
+
+export function aesCipher(message, key, encode) {
+  if (encode) return CryptoJS.AES.encrypt(message, key).toString()
+  return CryptoJS.AES.decrypt(message.key).toString()
 }

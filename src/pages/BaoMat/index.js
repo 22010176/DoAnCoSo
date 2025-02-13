@@ -6,6 +6,7 @@ import GlobalSettings from './components/GlobalSettings';
 import ResultOutput from './components/ResultOutput';
 import AlphabetSettings from './components/AlphabetSettings';
 import { Flex } from 'antd';
+import NoteValue from './components/NoteValue';
 
 function BaoMatPage() {
   useEffect(function () {

@@ -12,6 +12,7 @@ function GlobalSettings({ }) {
 
   function changeCypherMode(e) {
     dispatch(cypherSlice.actions.changeCypher(e))
+    dispatch(cypherSlice.actions.resetInput())
   }
 
   function enscriptOnClick(e) {
@@ -19,7 +20,7 @@ function GlobalSettings({ }) {
   }
 
   function descriptOnClick(e) {
-    dispatch(cypherSlice.actions.descript())
+    dispatch(cypherSlice.actions.descript(cinput))
   }
 
   return (

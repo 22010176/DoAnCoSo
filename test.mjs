@@ -1,15 +1,5 @@
-const { PrismaClient } = require('@prisma/client')
-const express = require('express')
+import CryptoJS from "crypto-js";
 
-const router = express.Router()
-
-const prisma = new PrismaClient()
-
-router.route('/').get(async (req, res) => {
-  res.json({ message: 'Hello from serverd!' })
-})
-
-const CryptoJS = require('crypto-js')
 const message = 'test'
 const key = 'test2'
 
@@ -28,4 +18,3 @@ console.log({
   encrypted: encrypted,
   decrypted: decrypted
 })
-module.exports = router
