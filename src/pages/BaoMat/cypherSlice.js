@@ -1,16 +1,46 @@
 import { useSelector } from "react-redux";
 import { getCaesarInput } from "../../redux/selectors";
 import { affineCipher, alphabetOptions, caesarCipher, desCipher, lowercaseAlphabet, number, uppercaseAlphabet, vigenereCipher } from "../../utilities/crypto";
+import axios from "axios";
 
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
-const fetchDESResult = createAsyncThunk(
-  'cypher/enscript',
+export const fetchDESEnscript = createAsyncThunk(
+  'cypher/desEnscript',
   async (input, thunkAPI) => {
-    const result = input;
-    return result
+    const result = await axios.post('api/cypher/des/enscript', input)
+    return result.data
   }
 )
+
+export const fetchDESDescript = createAsyncThunk(
+  'cypher/desDescript',
+  async (input, thunkAPI) => {
+    const result = await axios.post('api/cypher/des/descript', input)
+    return result.data
+  }
+)
+export const fetchAESEnscript = createAsyncThunk(
+  'cypher/aesEnscript',
+  async (input, thunkAPI) => {
+    input.key = input.key.padEnd(16)
+    const result = await axios.post('api/cypher/aes/enscript', input)
+    return result.data
+  }
+)
+
+export const fetchAESDescript = createAsyncThunk(
+  'cypher/aesDescript',
+  async (input, thunkAPI) => {
+    input.key = input.key.padEnd(16)
+    const result = await axios.post('api/cypher/aes/descript', input)
+    return result.data
+  }
+)
+
+function ModernCypher(state, action) {
+  state.output = action.payload.output
+}
 
 const initialState = {
   cipher: "des",
@@ -29,12 +59,13 @@ const initialState = {
   output: ''
 }
 const cypherSlice = createSlice({
-  name: "mainSlice",
+  name: "cypher",
   initialState,
   extraReducers(builder) {
-    builder.addCase(fetchDESResult.fulfilled, (state, action) => {
-      // state.
-    })
+    builder.addCase(fetchDESEnscript.fulfilled, ModernCypher)
+    builder.addCase(fetchDESDescript.fulfilled, ModernCypher)
+    builder.addCase(fetchAESEnscript.fulfilled, ModernCypher)
+    builder.addCase(fetchAESDescript.fulfilled, ModernCypher)
   },
   reducers: {
     changeCypher(state, action) {
@@ -55,7 +86,7 @@ const cypherSlice = createSlice({
       if (state.alphabet.includes('A-Z')) state.keys += uppercaseAlphabet
       if (state.alphabet.includes('0-9')) state.keys += number
     },
-    enscript(state, action) {
+    enscriptClassic(state, action) {
       const payload = action.payload
       switch (state.cipher) {
         case 'caesar':
@@ -70,18 +101,9 @@ const cypherSlice = createSlice({
         case 'vigenere':
           state.output = vigenereCipher(payload.message, payload.key, state.keys)
           break;
-        case 'des':
-          console.log('des', payload)
-          state.output = desCipher(payload.message, payload.key)
-          console.log(desCipher(payload.message, payload.key))
-          break;
-        case 'aes':
-          break;
-        case 'rsa':
-          break;
       }
     },
-    descript(state, action) {
+    descriptClassic(state, action) {
       const payload = action.payload
       switch (state.cipher) {
         case 'caesar':
@@ -96,15 +118,8 @@ const cypherSlice = createSlice({
         case 'vigenere':
           state.output = vigenereCipher(payload.message, payload.key, state.keys, false)
           break;
-        case 'des':
-          state.output = desCipher(payload.message, payload.key, false)
-          break;
-        case 'aes':
-          break;
-        case 'rsa':
-          break;
       }
-    },
+    }
   }
 })
 

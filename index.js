@@ -14,6 +14,7 @@ app.use(express.static('public'))
 app.use(require('cors')())
 app.use(require('morgan')('combined'))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
+app.use(express.json())
 
 app.use('/api', require('./src/api.js'))
 

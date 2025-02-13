@@ -3,7 +3,7 @@ import { Col, Empty, Input, InputNumber, Row } from "antd"
 
 import { useDispatch, useSelector } from "react-redux"
 import { getAffineInput, getCaesarInput, getCypherName, getKeyInput, getRSAInput } from "../../../../redux/selectors"
-import cypherSlice from "../../baomatReducer"
+import cypherSlice from "../../cypherSlice"
 
 function CaesarInput() {
   const dispatch = useDispatch()

@@ -4,7 +4,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faClipboard, faPen } from "@fortawesome/free-solid-svg-icons"
 import { useDispatch, useSelector } from "react-redux";
-import cypherSlice from "../../baomatReducer";
+import cypherSlice from "../../cypherSlice";
 import { getCypherOutput, getMessageInput } from "../../../../redux/selectors";
 import copySlice from "../../../reducers/copyReducer";
 import noteSlice from "../NoteValue/noteReducer";

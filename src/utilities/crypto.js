@@ -1,4 +1,5 @@
 import CryptoJS from "crypto-js"
+import aesjs from "aes-js"
 
 export const cypherName = [
   { lower: 'caesar', upper: 'CAESAR', cap: 'Caesar' },
@@ -68,13 +69,11 @@ export function vigenereCipher(message = '', key = '', alphabet = '', encode = t
   }).join('')
 }
 
-export function desCipher(message, key, encode) {
+export function desCipher(message = '', key = '', encode = true) {
   const _key = CryptoJS.enc.Hex.parse(key)
 
   if (encode) {
     const encrypted = CryptoJS.DES.encrypt(message, _key, { mode: CryptoJS.mode.ECB })
-
-    console.log('asfdasdf', encrypted)
     return encrypted.ciphertext.toString();
   }
 
@@ -85,7 +84,17 @@ export function desCipher(message, key, encode) {
   return decrypted
 }
 
-export function aesCipher(message, key, encode) {
-  if (encode) return CryptoJS.AES.encrypt(message, key).toString()
-  return CryptoJS.AES.decrypt(message.key).toString()
+export function aesCipher(message = '', key = '', encode = true) {
+  const _key = [...key].slice(0, 16).map(i => i.charCodeAt(0))
+  const aesCtr = new aesjs.ModeOfOperation.ctr(_key, new aesjs.Counter(5));
+
+  if (encode) {
+    const messageBytes = aesjs.utils.utf8.toBytes(message)
+    const result = aesCtr.encrypt(messageBytes)
+    return aesjs.utils.hex.fromBytes(result)
+  }
+
+  const messageBytes = aesjs.utils.hex.toBytes(message)
+  const result = aesCtr.decrypt(messageBytes)
+  return aesjs.utils.utf8.fromBytes(result)
 }
