@@ -116,7 +116,9 @@ function CInput() {
 function CypherInput() {
   return (
     <div className='flex gap-3 justify-between border rounded-lg w-full bg-white shadow px-4 py-3'>
-      <CInput />
+      <div className="flex-grow">
+        <CInput />
+      </div>
       <Button size="large" className="self-center" variant="filled" color="blue">
         <FontAwesomeIcon icon={faUnlockKeyhole} />
       </Button>
