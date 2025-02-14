@@ -19,6 +19,12 @@ function KeyResult({ value = [] }) {
   )
 }
 
+function CInput({ ...props }) {
+  return (
+    <input {...props} className={[props.className, "border rounded-md border-gray-200 px-3 h-7 w-25 focus:outline-none"].join(' ')} />
+  )
+}
+
 function RSAInput() {
   const dispatch = useDispatch()
   const message = JSON.parse(useSelector(getRSAInput))
@@ -27,36 +33,35 @@ function RSAInput() {
     [message.q, message.p])
 
   function onPChange(e) {
-    dispatch(cypherSlice.actions.changeP(e))
-
+    dispatch(cypherSlice.actions.changeP(e.target.value))
   }
 
   function onQChange(e) {
-    dispatch(cypherSlice.actions.changeQ(e))
+    dispatch(cypherSlice.actions.changeQ(e.target.value))
   }
 
   function onEChange(e) {
-    const _e = findNextE(message.p, message.q, e, e < message.e)
-    dispatch(cypherSlice.actions.updateInput({ e: _e, d: findNextD(message.p, message.q, _e) }))
+
   }
 
   function onDChange(e) {
-    dispatch(cypherSlice.actions.updateInput({ d: e }))
+
   }
 
   return (
     <div className="flex gap-20">
       <div className="grid grid-cols-[auto_1fr] gap-x-10 gap-y-3">
         <h1 className="text-xl font-bold">P:</h1>
-        <InputNumber value={message.p} min={0} onChange={onPChange} />
+        <CInput onBlur={onPChange} type="number" />
+        {/* <InputNumber value={message.p} min={0} onChange={onPChange} /> */}
         <h1 className="text-xl font-bold">Q:</h1>
-        <InputNumber value={message.q} min={0} onChange={onQChange} />
+        <CInput onBlur={onQChange} type="number" />
       </div>
       <div className="grid grid-cols-[auto_1fr] gap-x-10 gap-y-3">
         <h1 className="text-xl font-bold">E:</h1>
-        <InputNumber value={message.e} min={0} onChange={onEChange} disabled={!enableE_D} />
+        <CInput onBlur={onEChange} type="number" />
         <h1 className="text-xl font-bold">D:</h1>
-        <InputNumber value={message.d} min={0} onChange={onDChange} disabled={!enableE_D} />
+        <CInput onBlur={onDChange} type="number" />
       </div>
       <div className="flex-grow grid grid-cols-2">
         <div>
