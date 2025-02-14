@@ -70,6 +70,8 @@ export function getRSAInput(state) {
     q: cyp.q,
     e: cyp.e,
     d: cyp.d,
+    psuedoPrime: cyp.psuedoPrime,
+    n: cyp.n,
     message: cyp.message
   })
 }

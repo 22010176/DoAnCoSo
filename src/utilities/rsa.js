@@ -8,53 +8,75 @@ export function findPsuedoPrime(p, q) {
 }
 
 export function checkE(psuedoPrime, e) {
-  return e < psuedoPrime && GCD(e, psuedoPrime) === 1
-}
-
-function findE(psuedoPrime) {
-  let e = 2;
-
-  for (; !checkE(psuedoPrime, e); ++e) console.log(psuedoPrime, e);
-  return e;
+  return GCD(e, psuedoPrime) === 1
 }
 
 export function findNextE(psuedoPrime, min = 2, revert = false) {
-  const step = revert ? -1 : 1
-  const _min = findE(psuedoPrime)
+  if (psuedoPrime <= 2) return 2
+  let i = min
+  if (revert) {
+    for (; i > 1; i--) if (checkE(psuedoPrime, i)) return i
+    i = 2
+  }
 
-  if (psuedoPrime <= 2) throw new Error(`${psuedoPrime} is not valid`)
-
-  if (revert && min <= _min) return _min
-
-  let temp = min;
-  while (!checkE(psuedoPrime, temp)) temp += step
-
-  return temp
+  for (; i < psuedoPrime; ++i) if (checkE(psuedoPrime, i)) return i;
+  return findNextE(psuedoPrime, psuedoPrime, true)
 }
 
 export function checkD(psuedoPrime, e, d) {
   return (d * e - 1) % psuedoPrime === 0
 }
 
-function findD(psuedoPrime, e) {
-  let d = 1;
-  for (d = 1; !checkD(psuedoPrime, e, d); ++d);
-  return d;
+export function findNextD(psuedoPrime, e, min = 2, revert = false) {
+  let i = min;
+  if (revert) {
+    for (; i > 1; --i) if (checkD(psuedoPrime, e, i)) return i
+    i = 2
+  }
+  for (; !checkD(psuedoPrime, e, i); ++i);
+  return i;
 }
 
-export function findNextD(psuedoPrime, e, min = 1, revert = false) {
-  const step = revert ? -1 : 1
-  const _min = findD(psuedoPrime, e)
+export function rsaEncrypt(message, publicKey) {
+  const { e, n } = publicKey;
 
-  let temp = Math.max(_min + 1, min);
-  while (!checkD(psuedoPrime, e, temp)) temp += step;
-
-
-  return temp;
+  // Mã hóa từng ký tự trong thông điệp
+  return [...message].map(char => {
+    let m = char.charCodeAt(0)
+    if (m === -1) m = ' '.charCodeAt(0)
+    return Math.pow(m, e) % n;
+  }).join(' ');
 }
 
-export function rsaEncrypt(message, key) {
-
+export function rsaDecrypt(cipherText, privateKey) {
+  const { d, n } = privateKey;
+  // Giải mã từng phần tử trong bản mã
+  return cipherText.split(' ').map(code => {
+    const c = parseInt(code, 10)
+    return Math.pow(c, d) % n;
+  }).join('');
 }
 
-export function rsaDescrypt(message, key) { }
+// JavaScript Program for implementation of RSA Algorithm
+
+// Function to compute base^expo mod m using BigInt
+function power(base, expo, m) {
+  let res = BigInt(1);
+  base = BigInt(base) % BigInt(m);
+  expo = BigInt(expo)
+  while (expo > 0) {
+    if (expo & BigInt(1)) res = (res * base) % BigInt(m);
+
+    base = (base * base) % BigInt(m);
+    expo = Math.floor(Number(expo) / 2);
+    expo = BigInt(expo);
+  }
+  return res;
+}
+
+export function rsaEnscription(message, key, encode) {
+  // const value = [...message].map(i => i.charCodeAt(0))
+
+  if (encode) return [...message].map(i => power(i.charCodeAt(0), key.e, key.n)).join(' ')
+  return message.map(i => String.fromCharCode(parseInt(power(i, key.d, key.n)))).join('')
+}

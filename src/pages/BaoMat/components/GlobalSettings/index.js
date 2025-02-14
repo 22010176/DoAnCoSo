@@ -31,6 +31,7 @@ function GlobalSettings({ }) {
         dispatch(fetchAESEnscript(cinput))
         break;
       case 'rsa':
+        dispatch(cypherSlice.actions.rsaEncrypt())
         break
     }
   }
@@ -50,6 +51,7 @@ function GlobalSettings({ }) {
         dispatch(fetchAESDescript(cinput))
         break
       case 'rsa':
+        dispatch(cypherSlice.actions.rsaDecrypt())
         break
     }
   }

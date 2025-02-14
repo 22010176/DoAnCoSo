@@ -3,7 +3,7 @@ import { getCaesarInput } from "../../redux/selectors";
 import { affineCipher, alphabetOptions, caesarCipher, desCipher, lowercaseAlphabet, number, uppercaseAlphabet, vigenereCipher } from "../../utilities/crypto";
 import axios from "axios";
 import { findNextPrime, isPrime } from "../../utilities/number";
-import { findNextE, findPsuedoPrime } from "../../utilities/rsa";
+import { findNextD, findNextE, findPsuedoPrime, rsaDecrypt, rsaEncrypt, rsaEnscription } from "../../utilities/rsa";
 
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
@@ -138,19 +138,25 @@ const cypherSlice = createSlice({
           break;
       }
     },
-    updateRSA(state, action) {
-
+    rsaEncrypt(state) {
+      state.output = rsaEnscription(state.input.message, { e: state.input.e, n: state.input.n }, true)
     },
-    changeP(state, action) {
-
+    rsaDecrypt(state) {
+      state.output = rsaEnscription(state.input.message.split(' '), { d: state.input.d, n: state.input.n })
     },
-    changeQ(state, action) {
+    updateRSA(state) {
+      const { p, q } = state.input
 
-    },
-    changeE(state, action) {
+      const { n, psuedoPrime } = findPsuedoPrime(q, p)
+      state.input.psuedoPrime = psuedoPrime
+      state.input.n = n
 
+      if (psuedoPrime <= 2) return
+
+      state.input.e = findNextE(psuedoPrime)
+      state.input.d = findNextD(psuedoPrime, state.input.e)
     },
-    changeD(state, action) { },
+
   }
 })
 
