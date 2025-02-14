@@ -1,8 +1,11 @@
 import { Select } from "antd"
-import { alphabetOptions } from "../../../../utilities/crypto"
+
 import cypherSlice from "../../cypherSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { getCypherAlphabet, getCypherName } from "../../../../redux/selectors"
+import { alphabetOptions } from "../../../../utilities/constant"
+
+
 
 function AlphabetSettings() {
   const dispatch = useDispatch()

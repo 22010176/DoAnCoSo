@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
 import { getCaesarInput } from "../../redux/selectors";
-import { affineCipher, alphabetOptions, caesarCipher, desCipher, lowercaseAlphabet, number, uppercaseAlphabet, vigenereCipher } from "../../utilities/crypto";
+
+import { affineCipher, caesarCipher, lowercaseAlphabet, number, uppercaseAlphabet, vigenereCipher } from "../../utilities/crypto";
 import axios from "axios";
 import { findNextPrime, isPrime } from "../../utilities/number";
 import { findNextD, findNextE, findPsuedoPrime, rsaDecrypt, rsaEncrypt, rsaEnscription } from "../../utilities/rsa";
+import { alphabetOptions } from "../../utilities/constant";
 
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 

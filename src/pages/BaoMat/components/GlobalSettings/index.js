@@ -1,10 +1,10 @@
 import { Button, Flex, Select } from "antd"
 import { useDispatch, useSelector } from "react-redux"
 
-import { cypherName } from "../../../../utilities/crypto"
+
 import cypherSlice, { fetchAESDescript, fetchAESEnscript, fetchDESDescript, fetchDESEnscript, fetchDESResult } from "../../cypherSlice"
-import { getCaesarInput, getCipherInput, getCypher, getCypherName } from "../../../../redux/selectors"
-import { useCallback, useMemo } from "react"
+import { getCipherInput, getCypherName } from "../../../../redux/selectors"
+import { cypherName } from "../../../../utilities/constant"
 
 function GlobalSettings({ }) {
   const dispatch = useDispatch()
