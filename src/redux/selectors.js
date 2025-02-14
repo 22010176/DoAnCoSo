@@ -86,7 +86,7 @@ export function getCipherInput(state) {
     case 'des': return getDESInput(state)
     case 'aes': return getAESInput(state)
     case 'rsa': return getRSAInput(state)
-    default: return '{}'
+    default: return {}
   }
 }
 
