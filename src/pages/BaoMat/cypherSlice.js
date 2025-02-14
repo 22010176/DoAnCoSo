@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { getCaesarInput } from "../../redux/selectors";
 import { affineCipher, alphabetOptions, caesarCipher, desCipher, lowercaseAlphabet, number, uppercaseAlphabet, vigenereCipher } from "../../utilities/crypto";
 import axios from "axios";
+import { findNextPrime, isPrime } from "../../utilities/number";
+import { findNextE, findPsuedoPrime } from "../../utilities/rsa";
 
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
@@ -53,9 +55,9 @@ const initialState = {
     b: 0,                         // affine
     matrix: [],                   // hill
     key: '',                      // vigenere, des, aes
-    p: 1,                         // rsa
-    q: 1,                         // rsa
-    e: 0,                         // rsa
+    p: 2,                         // rsa
+    q: 2,                         // rsa
+    e: 2,                         // rsa
     d: 0,                         // rsa
     n: 0,                         // rsa
     psuedoPrime: 0,               // rsa
@@ -135,7 +137,20 @@ const cypherSlice = createSlice({
           state.output = vigenereCipher(payload.message, payload.key, state.keys, false)
           break;
       }
-    }
+    },
+    updateRSA(state, action) {
+
+    },
+    changeP(state, action) {
+
+    },
+    changeQ(state, action) {
+
+    },
+    changeE(state, action) {
+
+    },
+    changeD(state, action) { },
   }
 })
 

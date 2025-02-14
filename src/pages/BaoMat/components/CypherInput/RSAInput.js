@@ -22,22 +22,17 @@ function KeyResult({ value = [] }) {
 function RSAInput() {
   const dispatch = useDispatch()
   const message = JSON.parse(useSelector(getRSAInput))
-  // const memo = useMemo(a=>)
-
-  const enableE_D = (isPrime(message.q) && isPrime(message.p))
-
-  // if (enableE_D) dispatch(cypherSlice.updateInput)
-
-  useEffect(function () {
-    console.log('test')
-  }, [enableE_D])
+  const enableE_D = useMemo(() =>
+    isPrime(message.q) && isPrime(message.p),
+    [message.q, message.p])
 
   function onPChange(e) {
-    dispatch(cypherSlice.actions.updateInput({ p: e, e: 0, d: 0 }))
+    dispatch(cypherSlice.actions.changeP(e))
+
   }
 
   function onQChange(e) {
-    dispatch(cypherSlice.actions.updateInput({ q: e, e: 0, d: 0 }))
+    dispatch(cypherSlice.actions.changeQ(e))
   }
 
   function onEChange(e) {

@@ -1,6 +1,6 @@
 import { GCD } from "./number"
 
-function findPsuedoPrime(p, q) {
+export function findPsuedoPrime(p, q) {
   return {
     n: p * q,
     psuedoPrime: (p - 1) * (q - 1),
@@ -12,18 +12,21 @@ export function checkE(psuedoPrime, e) {
 }
 
 function findE(psuedoPrime) {
-  let e = 1;
+  let e = 2;
 
-  for (e = 1; !checkE(psuedoPrime, e); ++e);
+  for (; !checkE(psuedoPrime, e); ++e) console.log(psuedoPrime, e);
   return e;
 }
 
-export function findNextE(p, q, min = 2, revert = false) {
-  const { psuedoPrime } = findPsuedoPrime(p, q)
+export function findNextE(psuedoPrime, min = 2, revert = false) {
   const step = revert ? -1 : 1
   const _min = findE(psuedoPrime)
 
-  let temp = Math.max(_min + 1, min);
+  if (psuedoPrime <= 2) throw new Error(`${psuedoPrime} is not valid`)
+
+  if (revert && min <= _min) return _min
+
+  let temp = min;
   while (!checkE(psuedoPrime, temp)) temp += step
 
   return temp
@@ -39,8 +42,7 @@ function findD(psuedoPrime, e) {
   return d;
 }
 
-export function findNextD(p, q, e, min = 1, revert = false) {
-  const { psuedoPrime } = findPsuedoPrime(p, q)
+export function findNextD(psuedoPrime, e, min = 1, revert = false) {
   const step = revert ? -1 : 1
   const _min = findD(psuedoPrime, e)
 
