@@ -32,9 +32,12 @@ function ResultOutput() {
   function onOutputNoteButtonClick(e) {
     dispatch(noteSlice.actions.note(messageOutput))
   }
-  console.log(messageOutput)
+
   return (
     <div className='flex flex-col gap-3 border rounded-lg w-full p-3 bg-white shadow'>
+      <NoteValue />
+
+      <div className='w-full h-0.5 bg-gray-400'></div>
 
       <Flex className='gap-3'>
         <h1 className='text-xl font-bold'>Input</h1>
@@ -71,13 +74,8 @@ function ResultOutput() {
           <Button color='primary' variant='filled' onClick={onOutputNoteButtonClick}>
             <FontAwesomeIcon icon={faPen} />
           </Button>
-
         </Flex>
       </div>
-
-      <div className='w-full h-0.5 bg-gray-400'></div>
-
-      <NoteValue />
     </div>
   )
 }

@@ -86,7 +86,7 @@ export function desCipher(message = '', key = '', encode = true) {
 
 export function aesCipher(message = '', key = '', encode = true) {
   const _key = [...key].slice(0, 16).map(i => i.charCodeAt(0))
-  const aesCtr = new aesjs.ModeOfOperation.ctr(_key, new aesjs.Counter(5));
+  const aesCtr = new aesjs.ModeOfOperation.ctr(_key, new aesjs.Counter(500));
 
   if (encode) {
     const messageBytes = aesjs.utils.utf8.toBytes(message)

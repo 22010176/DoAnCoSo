@@ -68,6 +68,8 @@ export function getRSAInput(state) {
   return JSON.stringify({
     p: cyp.p,
     q: cyp.q,
+    e: cyp.e,
+    d: cyp.d,
     message: cyp.message
   })
 }

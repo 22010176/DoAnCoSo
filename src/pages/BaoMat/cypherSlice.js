@@ -41,9 +41,11 @@ export const fetchAESDescript = createAsyncThunk(
 function ModernCypher(state, action) {
   state.output = action.payload.output
 }
-
+function PendingCypher(state, action) {
+  state.output = 'pending...'
+}
 const initialState = {
-  cipher: "des",
+  cipher: "rsa",
   alphabet: [...alphabetOptions],
   keys: lowercaseAlphabet + uppercaseAlphabet + number,
   input: {
@@ -54,6 +56,8 @@ const initialState = {
     key: '',                      // vigenere, des, aes
     p: 1,                         // rsa
     q: 1,                         // rsa
+    e: 0,                         // rsa
+    d: 0,                         // rsa
     message: '',
   },
   output: ''
@@ -62,9 +66,20 @@ const cypherSlice = createSlice({
   name: "cypher",
   initialState,
   extraReducers(builder) {
+    // Des enscript
+    builder.addCase(fetchDESEnscript.pending, PendingCypher)
     builder.addCase(fetchDESEnscript.fulfilled, ModernCypher)
+
+    // Des descript
+    builder.addCase(fetchDESDescript.pending, PendingCypher)
     builder.addCase(fetchDESDescript.fulfilled, ModernCypher)
+
+    // Aes enscript
+    builder.addCase(fetchAESEnscript.pending, PendingCypher)
     builder.addCase(fetchAESEnscript.fulfilled, ModernCypher)
+
+    // Aes descript
+    builder.addCase(fetchAESDescript.pending, PendingCypher)
     builder.addCase(fetchAESDescript.fulfilled, ModernCypher)
   },
   reducers: {

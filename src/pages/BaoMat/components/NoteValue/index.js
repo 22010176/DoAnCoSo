@@ -5,7 +5,7 @@ function NoteValue() {
   return (
     <div className="rounded w-full flex gap-3 items-center">
       <h1 className="text-xl font-bold">Note:</h1>
-      <p className="border w-full rounded px-2 py-1">{useSelector(getNote)}</p>
+      <p className="border w-full h-8 rounded px-2 py-1">{useSelector(getNote)}</p>
     </div>
   )
 }

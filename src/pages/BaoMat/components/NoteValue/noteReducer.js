@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const noteSlice = createSlice({
   name: "note",
-  initialState: { value: 'test' },
+  initialState: { value: '' },
   reducers: {
     note(state, action) {
-      state.value = action.payload
+      state.value = action.payload || ''
     }
   }
 })
