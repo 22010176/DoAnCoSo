@@ -4,6 +4,8 @@ import cypherSlice from "../../cypherSlice"
 import { getRSAInput } from "../../../../redux/selectors"
 import { isPrime } from "../../../../utilities/number"
 import { InputNumber } from "antd"
+import { checkE, findNextD, findNextE } from "../../../../utilities/rsa"
+import { useEffect, useMemo } from "react"
 
 function KeyResult({ value = [] }) {
   return (
@@ -20,7 +22,15 @@ function KeyResult({ value = [] }) {
 function RSAInput() {
   const dispatch = useDispatch()
   const message = JSON.parse(useSelector(getRSAInput))
-  const enableE_D = isPrime(message.q) && isPrime(message.p)
+  // const memo = useMemo(a=>)
+
+  const enableE_D = (isPrime(message.q) && isPrime(message.p))
+
+  // if (enableE_D) dispatch(cypherSlice.updateInput)
+
+  useEffect(function () {
+    console.log('test')
+  }, [enableE_D])
 
   function onPChange(e) {
     dispatch(cypherSlice.actions.updateInput({ p: e, e: 0, d: 0 }))
@@ -31,7 +41,8 @@ function RSAInput() {
   }
 
   function onEChange(e) {
-    dispatch(cypherSlice.actions.updateInput({ e: e, d: 0 }))
+    const _e = findNextE(message.p, message.q, e, e < message.e)
+    dispatch(cypherSlice.actions.updateInput({ e: _e, d: findNextD(message.p, message.q, _e) }))
   }
 
   function onDChange(e) {

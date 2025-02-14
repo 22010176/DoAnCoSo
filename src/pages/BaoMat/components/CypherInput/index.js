@@ -1,11 +1,14 @@
 import { useRef, useState } from "react"
-import { Col, Empty, Input, InputNumber, Row } from "antd"
+import { Button, Col, Empty, Input, InputNumber, Row } from "antd"
 
 import { useDispatch, useSelector } from "react-redux"
 import { getAffineInput, getCaesarInput, getCypherName, getKeyInput, getRSAInput } from "../../../../redux/selectors"
 import cypherSlice from "../../cypherSlice"
-import { isPrime } from "../../../../utilities/number"
+
 import RSAInput from "./RSAInput"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+import { faUnlockKeyhole } from "@fortawesome/free-solid-svg-icons"
 
 function CaesarInput() {
   const dispatch = useDispatch()
@@ -97,8 +100,6 @@ function KeyInput() {
   )
 }
 
-
-
 function CInput() {
   switch (useSelector(getCypherName)) {
     case 'caesar': return <CaesarInput />
@@ -114,8 +115,11 @@ function CInput() {
 
 function CypherInput() {
   return (
-    <div className='border rounded-lg w-full bg-white shadow px-4 py-3'>
+    <div className='flex gap-3 justify-between border rounded-lg w-full bg-white shadow px-4 py-3'>
       <CInput />
+      <Button size="large" className="self-center" variant="filled" color="blue">
+        <FontAwesomeIcon icon={faUnlockKeyhole} />
+      </Button>
     </div>
   )
 }

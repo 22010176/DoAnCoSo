@@ -2,8 +2,8 @@
   "name": "test",
   "version": "1.0.0",
   "scripts": {
-    "init": "init.bat",
-    "reset": "prisma-migrate.bat",
+    "init": "cd cmd && init.bat",
+    "reset": "cd cmd && prisma-migrate.bat",
     "migrate": "npx prisma migrate dev",
     "start": "concurrently \"webpack --watch\" \"node --watch --env-file-if-exists=.env index.js\" \"npx @tailwindcss/cli -i ./src/styles.css -o ./public/styles.bundle.css --watch\""
   },

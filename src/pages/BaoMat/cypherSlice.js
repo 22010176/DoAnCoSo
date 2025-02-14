@@ -12,7 +12,6 @@ export const fetchDESEnscript = createAsyncThunk(
     return result.data
   }
 )
-
 export const fetchDESDescript = createAsyncThunk(
   'cypher/desDescript',
   async (input, thunkAPI) => {
@@ -58,6 +57,8 @@ const initialState = {
     q: 1,                         // rsa
     e: 0,                         // rsa
     d: 0,                         // rsa
+    n: 0,                         // rsa
+    psuedoPrime: 0,               // rsa
     message: '',
   },
   output: ''
