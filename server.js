@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const app = express()
 
+
 // application middleware
 app.use(cors())
 app.use(morgan('combined'))

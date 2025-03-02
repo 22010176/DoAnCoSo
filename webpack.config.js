@@ -1,8 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+const webpack = require('webpack')
+
 module.exports = {
-  entry: './src/index.jsx',
+  mode: "development",
+  entry: ['webpack-hot-middleware/client', './src/index.jsx'],
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, 'public/dist'),
@@ -10,6 +13,7 @@ module.exports = {
     publicPath: 'dist/'
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Development',
       filename: 'index.html',

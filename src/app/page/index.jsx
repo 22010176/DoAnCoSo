@@ -6,11 +6,12 @@ function App() {
     .then(console.log)
 
   return (
-    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <Routes>
+    // <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    //   <Routes>
 
-      </Routes>
-    </BrowserRouter >
+    //   </Routes>
+    // </BrowserRouter >
+    <p>tesddddt</p>
   )
 }
 
