@@ -1,19 +1,11 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { Provider } from 'react-redux'
-import '@ant-design/v5-patch-for-react-19'
+import { createRoot } from 'react-dom/client';
 
-import store from "./redux/store.js";
-
+import '@ant-design/v5-patch-for-react-19';
+import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css'
 import './styles.css';
-import App from "./pages/App.jsx"
+
+import App from './app/page';
 
 const root = document.getElementById('root');
-
-createRoot(root).render(
-  <StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </StrictMode>
-)
+createRoot(root).render(<App />);
