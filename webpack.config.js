@@ -9,9 +9,10 @@ module.exports = {
     "webpack-hot-middleware/client?path=/__webpack_hmr&reload=true",
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name]-[chunkhash].bundle.js',
     path: path.resolve(__dirname, 'public/dist'),
     publicPath: '/dist',
+    clean: true,
     hotUpdateChunkFilename: '.hot/hot-update.js',
     hotUpdateMainFilename: '.hot/hot-update.json',
   },

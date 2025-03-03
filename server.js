@@ -6,7 +6,7 @@ const cors = require('cors')
 
 const webpack = require('webpack')
 const webpackConfig = require('./webpack.config')
-const webpackCompiler = webpack(webpackConfig)
+const webpackCompiler = webpack(webpackConfig, function () { })
 
 const app = express()
 
@@ -25,10 +25,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // static folder
-app.use(express.static('public'))
+app.use(express.static(path.resolve(__dirname, 'public')))
 
 // api route
-app.use('/', (req, res) => {
+app.use('/*', (req, res) => {
   res.render('index')
 })
 
