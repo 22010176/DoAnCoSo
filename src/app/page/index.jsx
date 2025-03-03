@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import MainRoute from "../../feature/main/page"
 
 function App() {
   fetch('/api')
@@ -6,12 +7,11 @@ function App() {
     .then(console.log)
 
   return (
-    // <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-    //   <Routes>
-
-    //   </Routes>
-    // </BrowserRouter >
-    <p>tesddddt</p>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Routes>
+        <Route path="/*" element={<MainRoute />} />
+      </Routes>
+    </BrowserRouter >
   )
 }
 

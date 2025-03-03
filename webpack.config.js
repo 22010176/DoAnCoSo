@@ -5,15 +5,15 @@ const webpack = require('webpack')
 
 module.exports = {
   mode: "development",
-  entry: ['webpack-hot-middleware/client', './src/index.jsx'],
+  entry: './src/index.jsx',
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, 'public/dist'),
     clean: true,
-    publicPath: 'dist/'
+    publicPath: '/dist'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Development',
       filename: 'index.html',
