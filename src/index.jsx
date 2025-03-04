@@ -6,10 +6,6 @@ import './styles.css'
 import App from './app/page'
 
 const root = createRoot(document.querySelector("#root"))
-root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-)
+root.render(<App />)
 
 if (module.hot) module.hot.accept();
