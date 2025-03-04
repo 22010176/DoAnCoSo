@@ -1,17 +1,57 @@
 {
-  "name": "test",
+  "name": "do_an_co_so",
   "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "init": "cd cmd && init.bat",
     "reset": "cd cmd && prisma-migrate.bat",
     "migrate": "npx prisma migrate dev",
     "start": "concurrently \"webpack --watch\" \"node --watch --env-file-if-exists=.env index.js\" \"npx @tailwindcss/cli -i ./src/styles.css -o ./public/styles.bundle.css --watch\""
+=======
+    "build": "webpack --mode development --watch",
+    "server": "node --env-file-if-exists=.env --watch server.js",
+    "start": "concurrently \"npm run server\" \"npm run build\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/22010176/DoAnCoSo.git"
+>>>>>>> origin/new_ver
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/22010176/DoAnCoSo/issues"
+  },
+  "homepage": "https://github.com/22010176/DoAnCoSo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@reduxjs/toolkit": "^2.6.0",
+    "@tailwindcss/postcss": "^4.0.9",
+    "babel-loader": "^10.0.0",
+    "concurrently": "^9.1.2",
+    "connect-livereload": "^0.6.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "livereload": "^0.9.3",
+    "node-hmr": "^1.4.0",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^10.1.5",
+    "react-redux": "^9.2.0",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.0.9",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-middleware": "^7.4.2"
+  },
   "dependencies": {
+<<<<<<< HEAD
     "@ant-design/v5-patch-for-react-19": "^1.0.3",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
@@ -62,5 +102,15 @@
         }
       ]
     ]
+=======
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.2.0",
+    "webpack-hot-middleware": "^2.26.1"
+>>>>>>> origin/new_ver
   }
 }

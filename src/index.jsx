@@ -1,19 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
-import '@ant-design/v5-patch-for-react-19'
 
-import store from "./redux/store.js";
+import './styles.css'
 
-import './styles.css';
-import App from "./pages/App.jsx"
+import App from './app/page'
 
-const root = document.getElementById('root');
-
-createRoot(root).render(
-  <StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </StrictMode>
+const root = createRoot(document.querySelector("#root"))
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
 )
+
+if (module.hot) module.hot.accept();
