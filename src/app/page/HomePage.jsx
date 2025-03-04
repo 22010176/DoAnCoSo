@@ -1,3 +1,8 @@
+import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight, faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons"
+import { Carousel } from "antd"
+
 import Navbar from "../../component/Navbar"
 import Banner from "../component/Banner"
 import BookingWith from "../component/BookingWith"
@@ -19,7 +24,36 @@ function HomePage() {
       <BookingWith />
 
       {/* Tour giá tốt */}
-      <div></div>
+      <div className="xl:px-50 px-5 py-20 flex flex-col gap-20">
+        <div className="flex justify-between items-center">
+          <div className="leading-10">
+            <p className="text-4xl font-bold hover:text-blue-500">Tour giá tốt</p>
+            <p className="text-gray-600">Hơn 1.000 tour đa dạng giá hời có hạn</p>
+          </div>
+          <Link className="flex items-center gap-2 text-blue-500 text-lg" >
+            Xem thêm
+            <FontAwesomeIcon icon={faArrowRight} />
+          </Link>
+        </div>
+
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          freeMode={true}
+          pagination={{ clickable: true, }}
+          modules={[FreeMode, Pagination]}
+          className="mySwiper">
+          <SwiperSlide>Slide 1</SwiperSlide>
+          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>Slide 4</SwiperSlide>
+          <SwiperSlide>Slide 5</SwiperSlide>
+          <SwiperSlide>Slide 6</SwiperSlide>
+          <SwiperSlide>Slide 7</SwiperSlide>
+          <SwiperSlide>Slide 8</SwiperSlide>
+          <SwiperSlide>Slide 9</SwiperSlide>
+        </Swiper>
+      </div>
 
       {/* Tour  trong nước */}
 

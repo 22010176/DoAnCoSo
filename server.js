@@ -1,6 +1,7 @@
 const path = require('path')
-const express = require('express')
+const fs = require('fs')
 
+const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 
@@ -9,6 +10,8 @@ const webpackConfig = require('./webpack.config')
 const webpackCompiler = webpack(webpackConfig, function () { })
 
 const app = express()
+
+if (!fs.existsSync('./dist')) fs.mkdirSync('./dist')
 
 // set up view engine
 app.engine('html', require('ejs').renderFile)
