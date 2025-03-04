@@ -1,20 +1,27 @@
-import { Button, Input } from "antd"
 import Navbar from "../../component/Navbar"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCalendar, faLocationDot, faLocationPin } from "@fortawesome/free-solid-svg-icons"
 import Banner from "../component/Banner"
+import BookingWith from "../component/BookingWith"
+import WhyChosing from "../component/WhyChosing"
 
 function HomePage() {
   return (
-    <div className="w-screen h-screen ">
+    <div className="w-screen h-screen overflow-x-hidden">
       {/* navbar */}
       <Navbar />
 
       {/* Content Vì sao nên chọn ChillTravel */}
       <Banner />
+
       {/* Booking cùng  ChillTravel  */}
+      <WhyChosing />
+
+      {/* Booking cùng ND Travel */}
+      <BookingWith />
 
       {/* Hiểu hơn về chúng tôi */}
+      <div>
+
+      </div>
 
       {/* Tour giá tốt */}
 

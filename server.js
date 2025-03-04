@@ -11,8 +11,9 @@ const webpackCompiler = webpack(webpackConfig, function () { })
 const app = express()
 
 // set up view engine
-app.set('view engine', 'ejs')
-app.set('views', path.resolve(__dirname, "./public/dist"))
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'html')
+app.set('views', path.resolve(__dirname, "./dist"))
 
 // application middleware
 app.use(require('webpack-dev-middleware')(webpackCompiler))
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // static folder
 app.use(express.static(path.resolve(__dirname, 'public')))
+app.use(express.static(path.resolve(__dirname, 'dist')))
 
 // api route
 app.use('/*', (req, res) => {

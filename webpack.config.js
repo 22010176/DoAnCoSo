@@ -10,8 +10,8 @@ module.exports = {
   ],
   output: {
     filename: '[name]-[chunkhash].bundle.js',
-    path: path.resolve(__dirname, 'public/dist'),
-    publicPath: '/dist',
+    path: path.resolve(__dirname, '/dist'),
+    publicPath: '/',
     clean: true,
     hotUpdateChunkFilename: '.hot/hot-update.js',
     hotUpdateMainFilename: '.hot/hot-update.json',
@@ -27,11 +27,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: "dev",
-      filename: "index.ejs",
-      template: path.resolve(__dirname, 'public/template/index.ejs')
-    }),
+    new HtmlWebpackPlugin({ filename: "index.html", template: path.resolve(__dirname, 'public/template/index.html') }),
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
