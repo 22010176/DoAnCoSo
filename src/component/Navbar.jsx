@@ -47,7 +47,7 @@ function Navbar() {
       <img src="\assets\imgs\logo.jpg" alt="" className="h-full w-auto" />
 
       {/* Nav link */}
-      <div className="hidden md:flex gap-5 items-center text-lg">
+      <div className="hidden lg:flex gap-5 items-center text-lg">
         <NavLinks />
       </div>
 
@@ -64,13 +64,13 @@ function Navbar() {
           </div>
         </Link>
 
-        <Link className="md:hidden block">
+        <Link className="lg:hidden block">
           <Button size="large" variant="link" color="blue"><FontAwesomeIcon icon={faList} size="2x" onClick={e => setOpen(true)} /></Button>
         </Link>
       </div>
 
       {/* responsive */}
-      <Drawer className="md:block hidden" placement="left" closable open={open} onClose={e => setOpen(false)}>
+      <Drawer className="lg:block hidden" placement="left" closable open={open} onClose={e => setOpen(false)}>
         <div className="flex flex-col gap-2 text-lg">
           <NavLinks />
         </div>
