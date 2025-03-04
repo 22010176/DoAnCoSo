@@ -18,13 +18,8 @@ function HomePage() {
       {/* Booking cùng ND Travel */}
       <BookingWith />
 
-      {/* Hiểu hơn về chúng tôi */}
-      <div>
-
-      </div>
-
       {/* Tour giá tốt */}
-
+      <div></div>
 
       {/* Tour  trong nước */}
 
