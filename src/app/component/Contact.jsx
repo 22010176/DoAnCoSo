@@ -1,7 +1,7 @@
 function Contact() {
   return (
-    <div className="bg-blue-500 text-white py-10 text-center rounded-2xl p-5 max-w-350 mx-auto flex flex-col items-center gap-10 relative">
-      <div className="w-screen h-0.5 bg-gray-500 -z-1 translate-y-25"></div>
+    <div className="xl:mx-25 lg:mx-10 mx-5 rounded-2xl bg-blue-400 text-white py-10 text-center p-5  flex flex-col items-center gap-10 relative">
+      <div className="md:block hidden w-screen bg-gray-500 -z-1 translate-y-25" style={{ height: "1px" }}></div>
       <div className="max-w-200">
         <p className="text-4xl font-bold">Theo dõi và cập nhật tin tức mới nhất</p>
         <p>Vinh hạnh của chúng tôi là mang đến cho bạn những chuyến đi đáng nhớ. Mang đến cho bạn những chuyến đi đầy cảm hứng. Khám phá những vùng đất mới. Tự do khám phá cùng chúng tôi.</p>

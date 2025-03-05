@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight, faArrowRightArrowLeft, faClock, faLocationDot, faLocationPin, faLocationPinLock } from "@fortawesome/free-solid-svg-icons"
-import { Carousel, Rate } from "antd"
+
 
 import Navbar from "../../component/Navbar"
 import Banner from "../component/Banner"
@@ -11,6 +8,7 @@ import { CountryTour, GlobalTour, GoodTour } from "../component/TourContent"
 import GuessReview from "../component/GuessReview"
 import Contact from "../component/Contact"
 import Accompany from "../component/Accompany"
+import Footer from "../../component/Footer"
 
 function HomePage() {
   return (
@@ -45,9 +43,7 @@ function HomePage() {
       {/* Theo dõi và cập nhật tin tức mới nhất */}
       <Contact />
 
-      <div className="mt-10 grid grid-cols-4">
-        dfadsf
-      </div>
+      <Footer />
     </div>
   )
 }
