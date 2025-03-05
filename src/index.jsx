@@ -4,8 +4,13 @@ import { Provider } from 'react-redux'
 import './styles.css'
 
 import App from './App'
+import store from './context/store'
 
 const root = createRoot(document.querySelector("#root"))
-root.render(<App />)
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
 
 if (module.hot) module.hot.accept();
