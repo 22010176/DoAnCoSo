@@ -23,7 +23,7 @@ function NavLinks() {
       </Dropdown>
       <Link to="/tour" className="px-4 py-2 lg:hidden block">Tour du lịch</Link>
 
-      <Link className="hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl">Liên hệ</Link>
+      <Link to="/contact" className="hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl">Liên hệ</Link>
     </>
   )
 }
