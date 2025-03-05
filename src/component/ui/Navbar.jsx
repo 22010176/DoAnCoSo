@@ -53,7 +53,7 @@ function Navbar() {
       <div className="flex gap-5 items-center text-blue-500">
         <Link><FontAwesomeIcon icon={faMagnifyingGlass} size="2xl" /></Link>
 
-        <Dropdown placement="bottomCenter" menu={{ items: accountItem }}>
+        <Dropdown placement="bottom" menu={{ items: accountItem }}>
           <Link><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
         </Dropdown>
 

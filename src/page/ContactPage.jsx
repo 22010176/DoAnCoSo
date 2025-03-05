@@ -25,20 +25,20 @@ function ContactPage() {
           <p className="text-gray-500 text-lg">Chúng tôi vinh hạnh vì đã có cơ hội đồng hành với hơn 10.000 khách hàng trên khắp thế giới</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-5">
-          <div className="p-10 flex flex-col gap-5 border-2 shadow border-gray-300 bg-gray-50 rounded-xl">
+        <div className="grid lg:grid-cols-3 ">
+          <div className="p-10 flex flex-col gap-5 border-2 shadow border-gray-300 bg-gray-50 rounded-xl m-10">
             <FontAwesomeIcon icon={faLocationDot} size="5x" className="text-blue-500" />
             <p className="text-4xl font-bold">Địa chỉ</p>
             <p className="text-gray-500 text-lg">Tòa nhà Ladeco, 266 Đội Cấn, Ba Đình, Hà Nội</p>
           </div>
 
-          <div className="p-10 flex flex-col gap-5 border-2 shadow border-gray-300 bg-gray-50 rounded-xl">
+          <div className="p-10 flex flex-col gap-5 border-2 shadow border-gray-300 bg-gray-50 rounded-xl m-10">
             <FontAwesomeIcon icon={faMailBulk} size="5x" className="text-blue-500" />
             <p className="text-4xl font-bold">Email</p>
             <p className="text-gray-500 text-lg">support@sapo.vn</p>
           </div>
 
-          <div className="p-10 flex flex-col gap-5 border-2 shadow border-gray-300 bg-gray-50 rounded-xl">
+          <div className="p-10 flex flex-col gap-5 border-2 shadow border-gray-300 bg-gray-50 rounded-xl m-10">
             <FontAwesomeIcon icon={faPhone} size="5x" className="text-blue-500" />
             <p className="text-4xl font-bold">Hotline</p>
             <p className="text-gray-500 text-lg">1900 6750</p>

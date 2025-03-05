@@ -1,6 +1,6 @@
 function Container({ Element = "div", children, className, ...props }) {
   return (
-    <Element {...props} className={[className, "xl:px-50 lg:px-30 md:px-20 px-10"].join(' ')} >
+    <Element {...props} className={[className, "xl:px-30 lg:px-20 md:px-10 px-5"].join(' ')} >
       {children}
     </Element>
   )

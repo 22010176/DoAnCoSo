@@ -1,8 +1,10 @@
+import { CountryTour, GlobalTour, GoodTour } from '../component/HomePage/TourContent'
+
 import Banner from "../component/HomePage/Banner"
 import BookingWith from "../component/HomePage/BookingWith"
 import WhyChosing from '../component/HomePage/WhyChosing'
-import { CountryTour, GlobalTour, GoodTour } from '../component/HomePage/TourContent'
 import GuessReview from '../component/HomePage/GuessReview'
+
 
 function HomePage() {
   return (
