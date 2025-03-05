@@ -12,6 +12,7 @@ const tourItems = [
   { key: 2, label: <Link className="pr-10">Tour nước ngoài</Link> },
 ]
 
+
 function NavLinks() {
   return (
     <>
@@ -27,6 +28,13 @@ function NavLinks() {
     </>
   )
 }
+
+const accountItem = [
+  { key: 1, label: <Link className="pr-10">Đăng nhập</Link> },
+  { key: 2, label: <Link className="pr-10">Đăng kí</Link> },
+  { key: 3, label: <Link className="pr-10">Giỏ hàng</Link> },
+  { key: 4, label: <Link className="pr-10">Tour yêu thích</Link> },
+]
 
 function Navbar() {
   const [open, setOpen] = useState(false)
@@ -44,7 +52,11 @@ function Navbar() {
       {/* icon */}
       <div className="flex gap-5 items-center text-blue-500">
         <Link><FontAwesomeIcon icon={faMagnifyingGlass} size="2xl" /></Link>
-        <Link><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
+
+        <Dropdown placement="bottomCenter" menu={{ items: accountItem }}>
+          <Link><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
+        </Dropdown>
+
         <Link><FontAwesomeIcon icon={faShoppingBag} size="2xl" /></Link>
         <Link className="flex gap-2 items-center">
           <FontAwesomeIcon icon={faPhone} size="2xl" />
