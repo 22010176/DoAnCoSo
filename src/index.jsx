@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 
 import './styles.css'
 
-import App from './app/page'
+import App from './App'
 
 const root = createRoot(document.querySelector("#root"))
 root.render(<App />)

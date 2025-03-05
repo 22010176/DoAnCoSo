@@ -114,7 +114,7 @@ function Footer() {
           </div>
         </div>
 
-        <Collapse className="md:hidden block m-0 p-0" ghost items={items} />
+        <Collapse size="small" className="md:hidden block m-0 p-0" ghost items={items} />
 
         <div className="md:flex hidden flex-col gap-3 ">
           <p className="font-bold text-lg">Hướng dẫn</p>

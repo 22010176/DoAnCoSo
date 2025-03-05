@@ -12,17 +12,16 @@ const tourItems = [
   { key: 2, label: <Link className="pr-10">Tour nước ngoài</Link> },
 ]
 
-
 function NavLinks() {
   return (
     <>
-      <Link className="bg-blue-100 text-blue-600 rounded-xl px-4 py-2">Trang chủ</Link>
-      <Link className="hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl">Giới thiệu</Link>
+      <Link to="/" className="bg-blue-100 text-blue-600 rounded-xl px-4 py-2">Trang chủ</Link>
+      <Link to="/info" className="hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl">Giới thiệu</Link>
 
       <Dropdown menu={{ items: tourItems }} className="lg:block hidden hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl" placement="bottomLeft">
-        <Link>Tour du lịch<FontAwesomeIcon icon={faCaretDown} className="pl-2" /></Link>
+        <Link to="/tour">Tour du lịch<FontAwesomeIcon icon={faCaretDown} className="pl-2" /></Link>
       </Dropdown>
-      <Link className="px-4 py-2 lg:hidden block">Tour du lịch</Link>
+      <Link to="/tour" className="px-4 py-2 lg:hidden block">Tour du lịch</Link>
 
       <Link className="hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl">Liên hệ</Link>
     </>
