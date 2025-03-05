@@ -1,8 +1,8 @@
-import Banner from "../component/home/Banner"
-import BookingWith from "../component/home/BookingWith"
-import WhyChosing from '../component/home/WhyChosing'
-import { CountryTour, GlobalTour, GoodTour } from '../component/home/TourContent'
-import GuessReview from '../component/home/GuessReview'
+import Banner from "../component/HomePage/Banner"
+import BookingWith from "../component/HomePage/BookingWith"
+import WhyChosing from '../component/HomePage/WhyChosing'
+import { CountryTour, GlobalTour, GoodTour } from '../component/HomePage/TourContent'
+import GuessReview from '../component/HomePage/GuessReview'
 
 function HomePage() {
   return (

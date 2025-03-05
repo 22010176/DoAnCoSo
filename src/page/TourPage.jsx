@@ -1,17 +1,13 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { Affix, Button, Checkbox, Collapse, ConfigProvider, Pagination, Rate, Select } from "antd"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faList, faLocationDot, faPlane, faTableCells } from "@fortawesome/free-solid-svg-icons"
-import { faClock, faHeart, faSquare } from "@fortawesome/free-regular-svg-icons"
-
+import { Pagination } from "antd"
 
 import Header from "../component/ui/Header"
-import Container from "../component/tour-list/Container"
-import SortOption from "../component/tour-list/SortOption"
-import TourInfoHorVer from "../component/tour-info/TourHorVer"
-import TourInfoVertical from "../component/tour-info/TourVertical"
-import DisplayOption from "../component/tour-list/DisplayOption"
+import Container from "../component/TourPage/Container"
+import SortOption from "../component/TourPage/SortOption"
+import TourInfoHorVer from "../component/TourInfo/TourHorVer"
+import TourInfoVertical from "../component/TourInfo/TourVertical"
+import DisplayOption from "../component/TourPage/DisplayOption"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },

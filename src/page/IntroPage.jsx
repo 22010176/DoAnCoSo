@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Breadcrumb } from "antd"
 import { Link } from "react-router-dom"
 
-import Content from '../component/intro/Content'
+import Content from '../component/IntroPage/Content'
 import Container from "../component/ui/Container";
-import ServiceProvide from "../component/intro/ServiceProvider";
+import ServiceProvide from "../component/IntroPage/ServiceProvider";
 import Header from "../component/ui/Header";
 
 const items = [
