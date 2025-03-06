@@ -1,5 +1,6 @@
 import { Checkbox, Collapse, ConfigProvider } from "antd"
 import { Link } from "react-router-dom";
+import OptionItem from "./OptionItem";
 
 const theme = {
   components: {
@@ -46,30 +47,12 @@ const Bitems = [
     label: <p className="text-lg">Chọn mức giá</p>,
     children: (
       <div className="flex flex-col gap-1 -mt-4 ">
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Giá dưới 1.000.000đ</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>1.000.000đ - 3.000.000đ</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>3.000.000đ - 5.000.000đ</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>5.000.000đ - 7.000.000đ</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>7.000.000đ - 9.000.000đ</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Giá trên 9.000.000đ</label>
-        </div>
+        <OptionItem>Giá dưới 1.000.000đ</OptionItem>
+        <OptionItem>1.000.000đ - 3.000.000đ</OptionItem>
+        <OptionItem>3.000.000đ - 5.000.000đ</OptionItem>
+        <OptionItem>5.000.000đ - 7.000.000đ</OptionItem>
+        <OptionItem>7.000.000đ - 9.000.000đ</OptionItem>
+        <OptionItem>Giá trên 9.000.000đ</OptionItem>
       </div>
     )
   },
@@ -79,30 +62,11 @@ const Bitems = [
     label: <p className="text-lg">Điểm khởi hành</p>,
     children: (
       <div className="flex flex-col gap-1 -mt-4">
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Hà Nội</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>TP Hồ Chí Minh</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Huế</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Đà Nẵng</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Buôn Ma Thuột</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Giá trên 9.000.000đ</label>
-        </div>
+        <OptionItem>Hà Nội</OptionItem>
+        <OptionItem>TP Hồ Chí Minh</OptionItem>
+        <OptionItem>Huế</OptionItem>
+        <OptionItem>Đà Nẵng</OptionItem>
+        <OptionItem>Buôn Ma Thuột</OptionItem>
       </div>
     )
   },
@@ -112,30 +76,12 @@ const Bitems = [
     label: <p className="text-lg">Điểm đến</p>,
     children: (
       <div className="flex flex-col gap-1 -mt-4">
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Úc</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Trung Quốc</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Nhật Bản</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Hàn Quốc</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Singapore</label>
-        </div>
-        <div className="flex gap-2">
-          <Checkbox />
-          <label>Campuchia</label>
-        </div>
+        <OptionItem>Úc</OptionItem>
+        <OptionItem>Trung Quốc</OptionItem>
+        <OptionItem>Nhật Bản</OptionItem>
+        <OptionItem>Hàn Quốc</OptionItem>
+        <OptionItem>Singapore</OptionItem>
+        <OptionItem>Campuchia</OptionItem>
       </div>
     )
   }
@@ -144,7 +90,7 @@ const Bitems = [
 function SortOption() {
   return (
     <ConfigProvider theme={theme}>
-      <div className="xl:flex hidden top-0 left-0 border border-gray-500 rounded-2xl p-5 flex-col gap-5 h-min">
+      <div className="xl:flex hidden left-0 border border-gray-500 rounded-2xl p-5 flex-col gap-5 h-min sticky top-5">
         <div className="border-b border-gray-200">
           <div className="relative">
             <div className="absolute w-1/4 border-3 border-green-600 bottom-0 translate-y-1/2"></div>

@@ -5,38 +5,40 @@ import { faCaretDown, faMagnifyingGlass, faRightLeft, faShoppingBag, faShoppingC
 import { faCircleUser, faUser } from "@fortawesome/free-regular-svg-icons"
 import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone"
 import { faList } from "@fortawesome/free-solid-svg-icons/faList"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const tourItems = [
   { key: 1, label: <Link className="pr-10">Tour trong nước</Link> },
   { key: 2, label: <Link className="pr-10">Tour nước ngoài</Link> },
 ]
 
-
+const activeLink = "bg-blue-100 text-blue-600"
+const paths = ['/', '/info', '/tour', '/contact'].sort((a, b) => b.length - a.length)
 function NavLinks() {
+  const [path, setPath] = useState("")
+
+  function onClick(e) {
+    const pathname = e.target.getAttribute('href')
+    setPath(paths.filter(p => pathname.includes(p))[0])
+  }
   return (
     <>
-      <Link to="/" className="bg-blue-100 text-blue-600 rounded-xl px-4 py-2">Trang chủ</Link>
-      <Link to="/info" className="hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl">Giới thiệu</Link>
+      <Link onClick={onClick} to="/" className={[path === '/' && activeLink, "hover:bg-blue-100 hover:text-blue-600 rounded-xl px-4 py-2"].join(' ')}>Trang chủ</Link>
+      <Link onClick={onClick} to="/info" className={[path === '/info' && activeLink, "hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"].join(' ')}>Giới thiệu</Link>
 
-      <Dropdown menu={{ items: tourItems }} className="lg:block hidden hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl" placement="bottomLeft">
-        <Link to="/tour">Tour du lịch<FontAwesomeIcon icon={faCaretDown} className="pl-2" /></Link>
+      <Dropdown menu={{ items: tourItems }} className={[path === '/tour' && activeLink, "lg:block hidden hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"]} placement="bottomLeft">
+        <Link onClick={onClick} to="/tour">Tour du lịch<FontAwesomeIcon icon={faCaretDown} className="pl-2" /></Link>
       </Dropdown>
-      <Link to="/tour" className="px-4 py-2 lg:hidden block">Tour du lịch</Link>
+      <Link onClick={onClick} to="/tour" className={[path === '/tour' && activeLink, "px-4 py-2 lg:hidden block"].join(' ')}>Tour du lịch</Link>
 
-      <Link to="/contact" className="hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl">Liên hệ</Link>
+      <Link onClick={onClick} to="/contact" className={[path === '/contact' && activeLink, "hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"].join(' ')}>Liên hệ</Link>
     </>
   )
 }
 
-const accountItem = [
-  { key: 1, label: <Link className="pr-10">Đăng nhập</Link> },
-  { key: 2, label: <Link className="pr-10">Đăng kí</Link> },
-  { key: 3, label: <Link className="pr-10">Giỏ hàng</Link> },
-  { key: 4, label: <Link className="pr-10">Tour yêu thích</Link> },
-]
 
-function Navbar() {
+
+function Navbar({ }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -53,9 +55,7 @@ function Navbar() {
       <div className="flex gap-5 items-center text-blue-500">
         <Link><FontAwesomeIcon icon={faMagnifyingGlass} size="2xl" /></Link>
 
-        <Dropdown placement="bottom" menu={{ items: accountItem }}>
-          <Link><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
-        </Dropdown>
+        <Link to="/auth/register"><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
 
         <Link to="/order"><FontAwesomeIcon icon={faShoppingBag} size="2xl" /></Link>
         <Link className="flex gap-2 items-center">

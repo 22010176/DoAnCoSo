@@ -5,22 +5,26 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 
-const webpack = require('webpack')
-const webpackConfig = require('./webpack.config')
-const webpackCompiler = webpack(webpackConfig, function () { })
-
 const app = express()
+
+if (process.env.MODE === 'development') {
+  const webpack = require('webpack')
+  const webpackConfig = require('./webpack.config')
+  const webpackCompiler = webpack(webpackConfig, function () { })
+
+  // Set up webpack middleware
+  app.use(require('webpack-dev-middleware')(webpackCompiler))
+  app.use(require('webpack-hot-middleware')(webpackCompiler));
+}
+
+// set up view engine
+app.set('view engine', 'html')
+app.engine('html', require('ejs').renderFile)
+app.set('views', path.resolve(__dirname, "./dist"))
 
 if (!fs.existsSync('./dist')) fs.mkdirSync('./dist')
 
-// set up view engine
-app.engine('html', require('ejs').renderFile)
-app.set('view engine', 'html')
-app.set('views', path.resolve(__dirname, "./dist"))
-
 // application middleware
-app.use(require('webpack-dev-middleware')(webpackCompiler))
-app.use(require('webpack-hot-middleware')(webpackCompiler));
 app.use(cors('*'))
 app.use(morgan('combined'))
 
