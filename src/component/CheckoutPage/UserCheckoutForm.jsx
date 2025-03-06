@@ -20,7 +20,7 @@ function UserCheckoutForm() {
   return (
     <form className="grid gap-10 md:grid-cols-[1fr_auto]">
       <div className="flex flex-col gap-5">
-        <div className="2xl:flex-row flex-col flex justify-between 2xl:items-center">
+        <div className="2xl:flex-row flex-col flex justify-between 2xl:items-baseline">
           <p className="font-bold text-2xl ">Thông tin nhận hàng</p>
           <p className="text-gray-500 text-lg">Mã đơn hàng: adsfsafsafd</p>
         </div>
@@ -31,7 +31,7 @@ function UserCheckoutForm() {
         <Select size="large" placeholder="Tỉnh thành" />
         <Select size="large" placeholder="Quận huyện" />
         <Select size="large" placeholder="Phường xã" />
-        <TextArea placeholder="Ghi chú. . ." autoSize={{ minRows: 4, maxRows: 8, }} />
+        <TextArea placeholder="Ghi chú. . ." autoSize={{ minRows: 4, maxRows: 8 }} />
       </div>
 
       <div className="flex flex-col gap-5 min-w-80">
