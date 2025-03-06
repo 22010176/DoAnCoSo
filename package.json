@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node --max-old-space-size=4096 node_modules/webpack/bin/webpack.js",
-    "server": "node --env-file-if-exists=.env --watch server.js",
+    "build": "node node_modules/webpack/bin/webpack.js",
+    "server": "node --max-old-space-size=4096 --env-file-if-exists=.env --watch server.js",
     "start": "concurrently \"npm run server\" \"npm run build\""
   },
   "repository": {

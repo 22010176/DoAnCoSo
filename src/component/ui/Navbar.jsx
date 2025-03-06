@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { Button, Drawer, Dropdown, Popover } from "antd"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown, faMagnifyingGlass, faRightLeft, faShoppingBag, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
@@ -15,23 +15,24 @@ const tourItems = [
 const activeLink = "bg-blue-100 text-blue-600"
 const paths = ['/', '/info', '/tour', '/contact'].sort((a, b) => b.length - a.length)
 function NavLinks() {
-  const [path, setPath] = useState("")
-
-  function onClick(e) {
-    const pathname = e.target.getAttribute('href')
+  const location = useLocation()
+  const [path, setPath] = useState()
+  useEffect(function () {
+    const pathname = location.pathname
     setPath(paths.filter(p => pathname.includes(p))[0])
-  }
+  }, [location.pathname])
+
   return (
     <>
-      <Link onClick={onClick} to="/" className={[path === '/' && activeLink, "hover:bg-blue-100 hover:text-blue-600 rounded-xl px-4 py-2"].join(' ')}>Trang chủ</Link>
-      <Link onClick={onClick} to="/info" className={[path === '/info' && activeLink, "hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"].join(' ')}>Giới thiệu</Link>
+      <Link to="/" className={[path === '/' && activeLink, "hover:bg-blue-100 hover:text-blue-600 rounded-xl px-4 py-2"].join(' ')}>Trang chủ</Link>
+      <Link to="/info" className={[path === '/info' && activeLink, "hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"].join(' ')}>Giới thiệu</Link>
 
       <Dropdown menu={{ items: tourItems }} className={[path === '/tour' && activeLink, "lg:block hidden hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"]} placement="bottomLeft">
-        <Link onClick={onClick} to="/tour">Tour du lịch<FontAwesomeIcon icon={faCaretDown} className="pl-2" /></Link>
+        <Link to="/tour">Tour du lịch<FontAwesomeIcon icon={faCaretDown} className="pl-2" /></Link>
       </Dropdown>
-      <Link onClick={onClick} to="/tour" className={[path === '/tour' && activeLink, "px-4 py-2 lg:hidden block"].join(' ')}>Tour du lịch</Link>
+      <Link to="/tour" className={[path === '/tour' && activeLink, "px-4 py-2 lg:hidden block"].join(' ')}>Tour du lịch</Link>
 
-      <Link onClick={onClick} to="/contact" className={[path === '/contact' && activeLink, "hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"].join(' ')}>Liên hệ</Link>
+      <Link to="/contact" className={[path === '/contact' && activeLink, "hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"].join(' ')}>Liên hệ</Link>
     </>
   )
 }

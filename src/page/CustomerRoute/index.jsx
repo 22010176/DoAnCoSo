@@ -7,6 +7,7 @@ import TourPage from "./TourPage";
 import ContactPage from "./ContactPage";
 import CustomerOrder from "./CustomerOrder";
 import CheckoutPage from "./CheckoutPage";
+import TourInfoPage from "./TourInfoPage";
 
 function CustomerRoute() {
   return (
@@ -15,6 +16,7 @@ function CustomerRoute() {
         <Route index element={<HomePage />} />
         <Route path="/info" element={<IntroPage />} />
         <Route path="/tour" element={<TourPage />} />
+        <Route path="/tour/:id" element={<TourInfoPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/order" element={<CustomerOrder />} />
       </Route>

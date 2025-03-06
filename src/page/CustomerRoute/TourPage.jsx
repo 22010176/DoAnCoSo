@@ -30,7 +30,7 @@ function TourPage() {
 
           {view.toLowerCase() === 'list' && (
             <div className="flex flex-col gap-5 py-5">
-              {new Array(10).fill().map((i, j) => <TourInfoHorVer id="test" time="5N4D" start="Ha noi" price="1000000" image="\assets\imgs\sp4.webp" name="Du lịch Nha Trang - VinWonders Nha Trang - Hòn Mun 3N2Đ" />)}
+              {new Array(10).fill().map((i, j) => <TourInfoHorVer key={j} id="test" time="5N4D" start="Ha noi" price="1000000" image="\assets\imgs\sp4.webp" name="Du lịch Nha Trang - VinWonders Nha Trang - Hòn Mun 3N2Đ" />)}
             </div>
           )}
 
