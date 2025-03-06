@@ -57,7 +57,7 @@ function Navbar() {
           <Link><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
         </Dropdown>
 
-        <Link><FontAwesomeIcon icon={faShoppingBag} size="2xl" /></Link>
+        <Link to="/order"><FontAwesomeIcon icon={faShoppingBag} size="2xl" /></Link>
         <Link className="flex gap-2 items-center">
           <FontAwesomeIcon icon={faPhone} size="2xl" />
           <div className="leading-4 lg:block hidden">

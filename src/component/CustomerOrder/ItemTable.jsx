@@ -1,4 +1,5 @@
 import { Button, Input, Table } from "antd";
+import { Link } from "react-router-dom";
 
 
 const columns = [
@@ -46,7 +47,9 @@ function ItemTable() {
           <p>Tổng tiền:</p>
           <p className="font-bold text-blue-500">20.000.000₫</p>
         </div>
-        <Button className="w-70 " size="large" variant="solid" color="geekblue">Thanh toán</Button>
+        <Link to="/checkout">
+          <Button className="w-70 " size="large" variant="solid" color="geekblue">Thanh toán</Button>
+        </Link>
       </div>
     </div>
   )

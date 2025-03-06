@@ -6,6 +6,7 @@ import IntroPage from "./page/IntroPage"
 import TourPage from "./page/TourPage"
 import ContactPage from "./page/ContactPage"
 import CustomerOrder from "./page/CustomerOrder"
+import CheckoutPage from "./page/CheckoutPage"
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/order" element={<CustomerOrder />} />
         </Route>
+
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </BrowserRouter>
   )
