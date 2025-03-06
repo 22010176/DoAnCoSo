@@ -4,8 +4,8 @@ import { faLocationDot, faLocationPin, faMailBulk, faPhone } from "@fortawesome/
 import { Button, Input } from "antd"
 import TextArea from "antd/es/input/TextArea"
 
-import Container from "../component/ui/Container"
-import Header from "../component/ui/Header"
+import Container from "../../component/ui/Container"
+import Header from "../../component/ui/Header"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },

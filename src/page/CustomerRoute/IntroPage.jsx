@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Breadcrumb } from "antd"
 import { Link } from "react-router-dom"
 
-import Content from '../component/IntroPage/Content'
-import Container from "../component/ui/Container";
-import ServiceProvide from "../component/IntroPage/ServiceProvider";
-import Header from "../component/ui/Header";
+import Content from '../../component/IntroPage/Content'
+import Container from "../../component/ui/Container";
+import ServiceProvide from "../../component/IntroPage/ServiceProvider";
+import Header from "../../component/ui/Header";
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },

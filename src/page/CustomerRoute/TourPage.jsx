@@ -2,12 +2,12 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Pagination } from "antd"
 
-import Header from "../component/ui/Header"
-import Container from "../component/TourPage/Container"
-import SortOption from "../component/TourPage/SortOption"
-import TourInfoHorVer from "../component/TourInfo/TourHorVer"
-import TourInfoVertical from "../component/TourInfo/TourVertical"
-import DisplayOption from "../component/TourPage/DisplayOption"
+import Header from "../../component/ui/Header"
+import Container from "../../component/TourPage/Container"
+import SortOption from "../../component/TourPage/SortOption"
+import TourInfoHorVer from "../../component/TourInfo/TourHorVer"
+import TourInfoVertical from "../../component/TourInfo/TourVertical"
+import DisplayOption from "../../component/TourPage/DisplayOption"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },
