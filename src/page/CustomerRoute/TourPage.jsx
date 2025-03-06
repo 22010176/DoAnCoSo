@@ -17,8 +17,8 @@ const items = [
 function TourPage() {
   const [view, setView] = useState('list')
   return (
-    <div className="mt-10 mb-20 min-h-250">
-      <Container className="relative w-full flex items-center h-20 my-10">
+    <div className="mb-20 min-h-250">
+      <Container className="relative w-full flex items-center h-20">
         <Header items={items} />
       </Container>
 

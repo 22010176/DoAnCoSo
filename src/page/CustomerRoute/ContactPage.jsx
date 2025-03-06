@@ -14,8 +14,8 @@ const items = [
 
 function ContactPage() {
   return (
-    <div className="mb-10">
-      <Container className="relative w-full flex items-center h-20 my-10">
+    <div className="mb-10 flex flex-col gap-10">
+      <Container className="relative w-full flex items-center h-20">
         <Header items={items} />
       </Container>
 

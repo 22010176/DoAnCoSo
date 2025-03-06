@@ -13,7 +13,7 @@ const items = [
 function CustomerOrder() {
   return (
     <div className="mb-10">
-      <Container className="relative w-full flex items-center h-20 my-10">
+      <Container className="relative w-full flex items-center h-20 mb-5">
         <Header items={items} />
       </Container>
 

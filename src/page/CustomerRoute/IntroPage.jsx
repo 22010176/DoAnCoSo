@@ -15,8 +15,8 @@ const items = [
 
 function IntroPage() {
   return (
-    <div className="mt-10 mb-20">
-      <Container className="relative w-full flex items-center h-20 my-10">
+    <div className="mb-20 flex flex-col gap-10">
+      <Container className="relative w-full flex items-center h-20">
         <Header items={items} />
       </Container>
 

@@ -33,6 +33,7 @@ app.use(express.static(path.resolve(__dirname, 'public')))
 app.use(express.static(path.resolve(__dirname, 'dist')))
 
 // api route
+app.use('/api', require('./src/api'))
 app.use('/*', (req, res) => {
   res.render('index')
 })
