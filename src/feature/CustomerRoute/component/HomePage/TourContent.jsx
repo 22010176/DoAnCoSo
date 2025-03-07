@@ -2,6 +2,7 @@ import { faArrowRight, faClock, faLocationDot } from "@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Rate } from "antd";
 import { Link } from "react-router-dom";
+
 import TourInfoVertical from "../TourInfo/TourVertical";
 
 export function GoodTour() {

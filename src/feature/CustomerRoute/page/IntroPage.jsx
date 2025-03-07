@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Breadcrumb } from "antd"
 import { Link } from "react-router-dom"
 
-import Content from '../../component/IntroPage/Content'
-import Container from "../../component/ui/Container";
-import ServiceProvide from "../../component/IntroPage/ServiceProvider";
-import Header from "../../component/ui/Header";
+import Header from "../../../component/Header";
+import Container from "../../../component/Container";
+import Content from '../component/IntroPage/Content'
+import ServiceProvide from "../component/IntroPage/ServiceProvider";
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },
@@ -16,9 +16,7 @@ const items = [
 function IntroPage() {
   return (
     <div className="mb-20 flex flex-col gap-10">
-      <Container className="relative w-full flex items-center h-20">
-        <Header items={items} />
-      </Container>
+      <Header Element={Container} items={items} />
 
       <Container className="flex flex-col gap-10">
         <Content />

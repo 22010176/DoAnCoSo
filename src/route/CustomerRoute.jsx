@@ -1,13 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 
-import HomeLayout from "../../layout/HomeLayout";
-import HomePage from "./HomePage";
-import IntroPage from "./IntroPage";
-import TourPage from "./TourPage";
-import ContactPage from "./ContactPage";
-import CustomerOrder from "./CustomerOrder";
-import CheckoutPage from "./CheckoutPage";
-import TourInfoPage from "./TourInfoPage";
+import HomeLayout from "../component/HomeLayout";
+
+import HomePage from "../feature/CustomerRoute/page/HomePage";
+import IntroPage from "../feature/CustomerRoute/page/IntroPage";
+import TourPage from "../feature/CustomerRoute/page/TourPage";
+import ContactPage from "../feature/CustomerRoute/page/ContactPage";
+import CustomerOrder from "../feature/CustomerRoute/page/CustomerOrder";
+import CheckoutPage from "../feature/CustomerRoute/page/CheckoutPage";
+import TourInfoPage from "../feature/CustomerRoute/page/TourInfoPage";
 
 function CustomerRoute() {
   return (

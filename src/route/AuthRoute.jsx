@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 
-import CustomerAccountPage from "./CustomerAccountPage"
-import LoginPage from "./LoginPage"
+import CustomerAccountPage from "../feature/AuthRoute/page/CustomerAccountPage"
+import LoginPage from "../feature/AuthRoute/page/LoginPage"
 
 function AuthRoute() {
   return (

@@ -4,8 +4,8 @@ import { faLocationDot, faLocationPin, faMailBulk, faPhone } from "@fortawesome/
 import { Button, Input } from "antd"
 import TextArea from "antd/es/input/TextArea"
 
-import Container from "../../component/ui/Container"
-import Header from "../../component/ui/Header"
+import Container from "../../../component/Container"
+import Header from "../../../component/Header"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },
@@ -15,9 +15,7 @@ const items = [
 function ContactPage() {
   return (
     <div className="mb-10 flex flex-col gap-10">
-      <Container className="relative w-full flex items-center h-20">
-        <Header items={items} />
-      </Container>
+      <Header Element={Container} items={items} />
 
       <Container className="py-10 text-center flex flex-col gap-10 items-center">
         <div className="leading-14">

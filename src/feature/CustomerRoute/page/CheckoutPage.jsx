@@ -4,8 +4,8 @@ import { Badge, Button, Collapse, Input, Radio, Select } from "antd"
 import TextArea from "antd/es/input/TextArea"
 import { Link } from "react-router-dom"
 
-import UserCheckoutForm from "../../component/CheckoutPage/UserCheckoutForm"
-import OrderItems from "../../component/CheckoutPage/OrderItems"
+import UserCheckoutForm from "../component/CheckoutPage/UserCheckoutForm"
+import OrderItems from "../component/CheckoutPage/OrderItems"
 
 
 function CheckoutPage() {

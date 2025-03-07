@@ -1,9 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import CustomerRoute from "./page/customerRoute"
-import AuthRoute from "./page/AuthRoute"
 import { useEffect } from "react"
 import axios from "axios"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+import AuthRoute from "./route/AuthRoute"
+import CustomerRoute from "./route/customerRoute"
 
 function App() {
 

@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom"
-import Navbar from "../component/ui/Navbar"
-import Footer from "../component/ui/Footer"
-import Contact from "../component/ui/Contact"
+
+import Navbar from "./Navbar"
+import Footer from "./Footer"
+import Contact from "./Contact"
 
 function HomeLayout() {
   return (

@@ -7,7 +7,17 @@ const cors = require('cors')
 
 const app = express()
 
+const mode = process.env.MODE
+const viewFolder = path.resolve(__dirname, mode === 'development' ? './dist' : './build')
+
+app.set('view engine', 'html')
+app.engine('html', require('ejs').renderFile)
+
+if (!fs.existsSync(viewFolder)) fs.mkdirSync(viewFolder)
+app.set('views', viewFolder)
+
 if (process.env.MODE === 'development') {
+  console.log('ets')
   const webpack = require('webpack')
   const webpackConfig = require('./webpack.config')
   const webpackCompiler = webpack(webpackConfig, function () { })
@@ -16,13 +26,6 @@ if (process.env.MODE === 'development') {
   app.use(require('webpack-dev-middleware')(webpackCompiler))
   app.use(require('webpack-hot-middleware')(webpackCompiler));
 }
-
-// set up view engine
-app.set('view engine', 'html')
-app.engine('html', require('ejs').renderFile)
-app.set('views', path.resolve(__dirname, "./dist"))
-
-if (!fs.existsSync('./dist')) fs.mkdirSync('./dist')
 
 // application middleware
 app.use(cors('*'))
