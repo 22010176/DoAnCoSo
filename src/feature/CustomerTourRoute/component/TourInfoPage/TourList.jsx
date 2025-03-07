@@ -1,4 +1,4 @@
-import TourInfoVertical from "../TourInfo/TourVertical";
+import TourInfoVertical from "../../../../component/TourInfo/TourVertical";
 
 function TourList() {
   return (

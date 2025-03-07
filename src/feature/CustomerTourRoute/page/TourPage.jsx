@@ -5,8 +5,8 @@ import { Pagination } from "antd"
 import Header from "../../../component/Header"
 import Container from "../component/TourPage/Container"
 import SortOption from "../component/TourPage/SortOption"
-import TourInfoHorVer from "../component/TourInfo/TourHorVer"
-import TourInfoVertical from "../component/TourInfo/TourVertical"
+import TourInfoHorVer from "../../../component/TourInfo/TourHorVer"
+import TourInfoVertical from "../../../component/TourInfo/TourVertical"
 import DisplayOption from "../component/TourPage/DisplayOption"
 
 const items = [

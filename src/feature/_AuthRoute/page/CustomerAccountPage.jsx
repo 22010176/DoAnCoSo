@@ -52,7 +52,11 @@ function CustomerAccountPage() {
 
       <Container className="grid lg:grid-cols-[auto_1fr] p-10 gap-10 overflow-x-hidden" >
         <List bordered dataSource={data} className="h-min lg:block hidden"
-          renderItem={(item) => <List.Item className="group"><SettingCategory item={item} /></List.Item>} />
+          renderItem={(item) => (
+            <List.Item className="group">
+              <SettingCategory item={item} />
+            </List.Item>
+          )} />
         <div className="flex flex-col gap-10">
           <div className="flex justify-between items-center">
             <div className="leading-10">

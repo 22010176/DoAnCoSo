@@ -1,7 +1,4 @@
 import { href, Link, useParams } from "react-router-dom"
-import { Button, DatePicker, Input, Rate, Tabs } from "antd"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCalendar, faHeart, faLocationDot, faPlane, faPlaneDeparture, faUser } from "@fortawesome/free-solid-svg-icons"
 
 import Header from "../../../component/Header"
 
@@ -25,6 +22,7 @@ const tabItem = [
 
 function TourInfoPage() {
   const id = useParams()
+
   return (
     <div className="mb-10 flex flex-col gap-5">
       <Header Element={Container} items={items.concat({ title: <p className="text-white font-bold text-xl">{id.id}</p> })} />

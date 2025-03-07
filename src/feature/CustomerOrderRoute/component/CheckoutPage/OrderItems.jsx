@@ -1,5 +1,5 @@
 import { Button, Collapse, ConfigProvider, Input } from "antd"
-import TourOrder from "../TourInfo/TourOrder"
+import TourOrder from "../../../../component/TourInfo/TourOrder"
 
 function OrderItem() {
   return (

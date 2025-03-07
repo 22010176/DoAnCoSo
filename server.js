@@ -8,16 +8,10 @@ const cors = require('cors')
 const app = express()
 
 const mode = process.env.MODE
+console.log(mode)
 const viewFolder = path.resolve(__dirname, mode === 'development' ? './dist' : './build')
 
-app.set('view engine', 'html')
-app.engine('html', require('ejs').renderFile)
-
-if (!fs.existsSync(viewFolder)) fs.mkdirSync(viewFolder)
-app.set('views', viewFolder)
-
 if (process.env.MODE === 'development') {
-  console.log('ets')
   const webpack = require('webpack')
   const webpackConfig = require('./webpack.config')
   const webpackCompiler = webpack(webpackConfig, function () { })
@@ -26,6 +20,12 @@ if (process.env.MODE === 'development') {
   app.use(require('webpack-dev-middleware')(webpackCompiler))
   app.use(require('webpack-hot-middleware')(webpackCompiler));
 }
+
+app.set('view engine', 'html')
+app.engine('html', require('ejs').renderFile)
+
+if (!fs.existsSync(viewFolder)) fs.mkdirSync(viewFolder)
+app.set('views', viewFolder)
 
 // application middleware
 app.use(cors('*'))

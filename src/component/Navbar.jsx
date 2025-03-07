@@ -13,7 +13,7 @@ const tourItems = [
 ]
 
 const activeLink = "bg-blue-100 text-blue-600"
-const paths = ['/', '/info', '/tour', '/contact'].sort((a, b) => b.length - a.length)
+const paths = ['/', '/info', '/tours', '/contact'].sort((a, b) => b.length - a.length)
 function NavLinks() {
   const location = useLocation()
   const [path, setPath] = useState()
@@ -27,10 +27,10 @@ function NavLinks() {
       <Link to="/" className={[path === '/' && activeLink, "hover:bg-blue-100 hover:text-blue-600 rounded-xl px-4 py-2"].join(' ')}>Trang chủ</Link>
       <Link to="/info" className={[path === '/info' && activeLink, "hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"].join(' ')}>Giới thiệu</Link>
 
-      <Dropdown menu={{ items: tourItems }} className={[path === '/tour' && activeLink, "lg:block hidden hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"]} placement="bottomLeft">
-        <Link to="/tour">Tour du lịch<FontAwesomeIcon icon={faCaretDown} className="pl-2" /></Link>
+      <Dropdown menu={{ items: tourItems }} className={[path === '/tours' && activeLink, "lg:block hidden hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"]} placement="bottomLeft">
+        <Link to="/tours">Tour du lịch<FontAwesomeIcon icon={faCaretDown} className="pl-2" /></Link>
       </Dropdown>
-      <Link to="/tour" className={[path === '/tour' && activeLink, "px-4 py-2 lg:hidden block"].join(' ')}>Tour du lịch</Link>
+      <Link to="/tours" className={[path === '/tours' && activeLink, "px-4 py-2 lg:hidden block"].join(' ')}>Tour du lịch</Link>
 
       <Link to="/contact" className={[path === '/contact' && activeLink, "hover:bg-blue-100 hover:text-blue-600 px-4 py-2 rounded-xl"].join(' ')}>Liên hệ</Link>
     </>
@@ -56,9 +56,9 @@ function Navbar({ }) {
       <div className="flex gap-5 items-center text-blue-500">
         <Link><FontAwesomeIcon icon={faMagnifyingGlass} size="2xl" /></Link>
 
-        <Link to="/auth/register"><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
+        <Link to="/account"><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
 
-        <Link to="/order"><FontAwesomeIcon icon={faShoppingBag} size="2xl" /></Link>
+        <Link to="/orders"><FontAwesomeIcon icon={faShoppingBag} size="2xl" /></Link>
         <Link className="flex gap-2 items-center">
           <FontAwesomeIcon icon={faPhone} size="2xl" />
           <div className="leading-4 lg:block hidden">

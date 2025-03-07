@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const columns = [
   {
     title: <p className="text-lg">Thông tin sản phẩm</p>,
-    render: (item) => {
+    render(item) {
       return "d"
     },
   },
@@ -47,7 +47,7 @@ function ItemTable() {
           <p>Tổng tiền:</p>
           <p className="font-bold text-blue-500">20.000.000₫</p>
         </div>
-        <Link to="/checkout">
+        <Link to="/orders/checkout">
           <Button className="w-70 " size="large" variant="solid" color="geekblue">Thanh toán</Button>
         </Link>
       </div>

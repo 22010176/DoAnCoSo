@@ -13,11 +13,9 @@ const items = [
 function CustomerOrder() {
   return (
     <div className="mb-10">
-      <Container className="relative w-full flex items-center h-20 mb-5">
-        <Header items={items} />
-      </Container>
+      <Header Element={Container} items={items} />
 
-      <Container Element="form" className="grid xl:grid-cols-[1fr_auto] gap-5">
+      <Container Element="form" className="grid xl:grid-cols-[1fr_auto] gap-5 my-5">
         <p className="text-2xl font-bold xl:col-span-2">Giỏ hàng của bạn</p>
         <ReceiveSetting />
         <ItemTable />
