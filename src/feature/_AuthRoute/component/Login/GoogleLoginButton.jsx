@@ -27,7 +27,7 @@ function GoogleLoginButton() {
     <ConfigProvider theme={antTheme}>
       {/* <GoogleLogin /> */}
       <form action="https://accounts.google.com/o/oauth2/v2/auth">
-        <input type="hidden" name="client_id" value="384267548374-jsttfh62s36k9nu2qmn3ohb7djkhl96m.apps.googleusercontent.com" />
+        <input type="hidden" name="client_id" value="" />
         <input type="hidden" name="redirect_uri" value="http://localhost:3000/account/login" />
         <input type="hidden" name="response_type" value="token" />
         <input type="hidden" name="scope" value="https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/calendar.readonly" />
