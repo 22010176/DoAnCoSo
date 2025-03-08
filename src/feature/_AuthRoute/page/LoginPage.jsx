@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEnvelope, faMailBulk, faMailForward, faUserCircle } from "@fortawesome/free-solid-svg-icons"
+import { faGoogle } from "@fortawesome/free-brands-svg-icons"
+import { Button } from "antd"
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google"
 
 import Container from "../../../component/Container"
 import Header from "../../../component/Header"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEnvelope, faMailBulk, faMailForward, faUserCircle } from "@fortawesome/free-solid-svg-icons"
-import { Button } from "antd"
-import { faGoogle } from "@fortawesome/free-brands-svg-icons"
+import { jwtDecode } from "jwt-decode"
+import GoogleLoginButton from "../component/Login/GoogleLoginButton"
+import LoginButton from "../component/Login/LoginButton"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },
@@ -14,6 +18,7 @@ const items = [
 
 
 function LoginPage() {
+
   return (
     <div className="w-full mb-10">
       <Header Element={Container} items={items} />
@@ -34,18 +39,10 @@ function LoginPage() {
           </div>
         </div>
         <p className="font-bold text-green-600 text-xl text-center">Chào mừng đến với ChillTravel!!</p>
-        <Button size="large" className="w-80">
-          <div className="flex gap-5 items-center">
-            <FontAwesomeIcon icon={faGoogle} size="1x" className="w-10" />
-            <p>Đăng nhập bằng google</p>
-          </div>
-        </Button>
-        <Button size="large" className="w-80">
-          <div className="flex gap-5 items-center">
-            <FontAwesomeIcon icon={faEnvelope} size="1x" className="w-10" />
-            <p>Đăng nhập bằng Email</p>
-          </div>
-        </Button>
+        <div className="grid gap-3">
+          <GoogleLoginButton />
+          <LoginButton />
+        </div>
       </Container>
     </div>
   )

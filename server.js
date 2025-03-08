@@ -1,14 +1,15 @@
 const path = require('path')
 const fs = require('fs')
+const session = require('express-session')
 
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
+const { google } = require('googleapis')
 
 const app = express()
 
 const mode = process.env.MODE
-console.log(mode)
 const viewFolder = path.resolve(__dirname, mode === 'development' ? './dist' : './build')
 
 if (process.env.MODE === 'development') {
@@ -44,6 +45,15 @@ app.use('/api', require('./src/api'))
 app.use('/*', (req, res) => {
   res.render('index')
 })
+
+const scopes = [
+  'https://www.googleapis.com/auth/drive.metadata.readonly',
+  'https://www.googleapis.com/auth/calendar.readonly'
+];
+const { CLIENT_ID, CLIENT_SECRET } = process.env
+const oauth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET)
+
+
 
 app.listen(process.env.PORT, () => {
   console.log('Server is running on http://localhost:3000')

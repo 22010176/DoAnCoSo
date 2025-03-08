@@ -1,21 +1,18 @@
-const { google } = require('googleapis');
+const { GoogleAuth } = require('google-auth-library');
 
-// Each API may support multiple versions. With this sample, we're getting
-// v3 of the blogger API, and using an API key to authenticate.
-const blogger = google.blogger({
-  version: 'v3',
-  auth: '384267548374-jsttfh62s36k9nu2qmn3ohb7djkhl96m.apps.googleusercontent.com'
-});
+/**
+* Instead of specifying the type of client you'd like to use (JWT, OAuth2, etc)
+* this library will automatically choose the right client based on the environment.
+*/
+async function main() {
+  const auth = new GoogleAuth({
+    scopes: 'https://www.googleapis.com/auth/cloud-platform'
+  });
+  const client = await auth.getClient();
+  const projectId = await auth.getProjectId();
+  const url = `https://dns.googleapis.com/dns/v1/projects/${projectId}`;
+  const res = await client.request({ url });
+  console.log(res.data);
+}
 
-const params = {
-  blogId: '3213900'
-};
-
-// get the blog details
-blogger.blogs.get(params, (err, res) => {
-  if (err) {
-    console.error(err);
-    throw err;
-  }
-  console.log(`The blog url is ${res.data.url}`);
-});
+main().catch(console.error);

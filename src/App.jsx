@@ -2,17 +2,23 @@ import { useEffect } from "react"
 import axios from "axios"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
+
 import _AuthRoute from './feature/_AuthRoute/page'
 import CustomerRoute from "./feature/CustomerRoute/page"
 import AdminRoute from "./feature/AdminRoute/page"
 import CustomerOrderRoute from "./feature/CustomerOrderRoute/page"
 import CustomerTourRoute from "./feature/CustomerTourRoute/page"
+import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google"
+import { jwtDecode } from "jwt-decode"
+
 
 function App() {
+
   useEffect(function () {
     axios.get('/api/')
       .then(function (response) {
         console.log(response.data)
+
       })
   }, [])
 
