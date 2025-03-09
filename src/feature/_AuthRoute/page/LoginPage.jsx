@@ -4,9 +4,10 @@ import { faEnvelope, faMailBulk, faMailForward, faUserCircle } from "@fortawesom
 
 import Container from "../../../component/Container"
 import Header from "../../../component/Header"
-import GoogleLoginButton from "../component/Login/GoogleLoginButton"
-import LoginForm from "../component/Login/LoginForm"
-import LoginType from "../component/Login/LoginType"
+
+import GoogleLoginButton from "../component/LoginPage/GoogleLoginButton"
+import LoginForm from "../component/LoginPage/LoginForm"
+import LoginType from "../component/LoginPage/LoginType"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },
