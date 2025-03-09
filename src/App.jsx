@@ -1,20 +1,20 @@
 import { useEffect } from "react"
-import axios from "axios"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-
+import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google"
 
 import _AuthRoute from './feature/_AuthRoute/page'
 import CustomerRoute from "./feature/CustomerRoute/page"
 import AdminRoute from "./feature/AdminRoute/page"
 import CustomerOrderRoute from "./feature/CustomerOrderRoute/page"
 import CustomerTourRoute from "./feature/CustomerTourRoute/page"
-import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google"
+
+import API from "./utils/api"
 
 
 function App() {
 
   useEffect(function () {
-    axios.get('/api/')
+    API.get('/')
       .then(function (response) {
         console.log(response.data)
 

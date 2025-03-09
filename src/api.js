@@ -1,18 +1,13 @@
-const returnResult = require('./middleware')
-
 const router = require('express').Router()
 
-
+router.use('/account', require('./feature/_AuthRoute/api'),)
 
 router.use(function (req, res, next) {
-  res.locals.result = {
+  res.json({
     message: "Hello from server!",
     success: true,
     data: null
-  }
-  next()
+  })
 })
-
-router.use(returnResult)
 
 module.exports = router

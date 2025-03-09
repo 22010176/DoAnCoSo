@@ -29,7 +29,10 @@ if (!fs.existsSync(viewFolder)) fs.mkdirSync(viewFolder)
 app.set('views', viewFolder)
 
 // application middleware
-app.use(cors('*'))
+app.use(cors({
+  credentials: true,
+
+}))
 app.use(morgan('combined'))
 
 // body parser

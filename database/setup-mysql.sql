@@ -109,7 +109,8 @@ VALUES 	('1', 'admin', 'Quản trị viên'),
 DROP TABLE IF EXISTS taiKhoan;
 CREATE TABLE taiKhoan (
   id                VARCHAR(255)        PRIMARY KEY,
-  hoTen             VARCHAR(255),
+  ho                VARCHAR(32),
+  ten               VARCHAR(64),
   email             VARCHAR(255)        NOT NULL UNIQUE,
   matKhau           VARCHAR(255),
   hinhAnh           VARCHAR(255),
