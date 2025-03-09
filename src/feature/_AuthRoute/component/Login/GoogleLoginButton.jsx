@@ -9,20 +9,21 @@ import { useEffect } from "react"
 // 
 function GoogleLoginButton() {
   useEffect(function () {
-    const data = Object.fromEntries(document.location.toString().split('#')[1].split('&').map(i => i.split('=')))
-    const access_token = data.access_token
-    console.log(access_token)
-    if (!access_token) return
+    // const data = Object.fromEntries(document.location.toString().split('#')[1].split('&').map(i => i.split('=')))
+    // const access_token = data.access_token
+    // console.log(access_token)
+    // if (!access_token) return
 
-    axios.get('https://www.googleapis.com/drive/v2/files', {
-      headers: {
-        Authorization: 'Bearer ' + access_token
-      }
-    }).then(response => {
-      console.log(response)
-    })
+    // axios.get('https://www.googleapis.com/drive/v2/files', {
+    //   headers: {
+    //     Authorization: 'Bearer ' + access_token
+    //   }
+    // }).then(response => {
+    //   console.log(response)
+    // })
 
   }, [])
+
   return (
     <ConfigProvider theme={antTheme}>
       {/* <GoogleLogin /> */}
@@ -33,10 +34,10 @@ function GoogleLoginButton() {
         <input type="hidden" name="scope" value="https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/calendar.readonly" />
         <input type="hidden" name="include_granted_scopes" value="true" />
         <input type="hidden" name="state" value="pass-through value" />
-        <button type="submit" size="large" className="flex px-5 py-2 border rounded-2xl items-center gap-5" >
-          <FontAwesomeIcon icon={faGoogle} size="2x" className="w-10" />
-          <p>Đăng nhập bằng google</p>
-        </button>
+        <Button variant="solid" color="blue" type="submit" size="large" className="w-full" >
+          <FontAwesomeIcon icon={faGoogle} className="text-xl" />
+          Đăng nhập bằng google
+        </Button>
       </form>
     </ConfigProvider >
   )

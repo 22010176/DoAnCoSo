@@ -9,7 +9,6 @@ import AdminRoute from "./feature/AdminRoute/page"
 import CustomerOrderRoute from "./feature/CustomerOrderRoute/page"
 import CustomerTourRoute from "./feature/CustomerTourRoute/page"
 import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google"
-import { jwtDecode } from "jwt-decode"
 
 
 function App() {

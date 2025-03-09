@@ -4,6 +4,7 @@ import HomeLayout from "../../../component/HomeLayout"
 
 import CustomerAccountPage from "./CustomerAccountPage"
 import LoginPage from "./LoginPage"
+import RegisterPage from "./RegisterPage"
 
 function _AuthRoute() {
   return (
@@ -12,7 +13,7 @@ function _AuthRoute() {
 
       <Route path="/" element={<HomeLayout />}>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Route>
     </Routes>
   )

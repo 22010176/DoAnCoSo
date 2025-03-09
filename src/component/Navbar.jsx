@@ -6,6 +6,7 @@ import { faCircleUser, faUser } from "@fortawesome/free-regular-svg-icons"
 import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone"
 import { faList } from "@fortawesome/free-solid-svg-icons/faList"
 import { useEffect, useState } from "react"
+import AccountIcon from "./AccountIcon"
 
 const tourItems = [
   { key: 1, label: <Link className="pr-10">Tour trong nước</Link> },
@@ -37,8 +38,6 @@ function NavLinks() {
   )
 }
 
-
-
 function Navbar({ }) {
   const [open, setOpen] = useState(false)
 
@@ -56,7 +55,7 @@ function Navbar({ }) {
       <div className="flex gap-5 items-center text-blue-500">
         <Link><FontAwesomeIcon icon={faMagnifyingGlass} size="2xl" /></Link>
 
-        <Link to="/account/login"><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
+        <AccountIcon />
 
         <Link to="/orders"><FontAwesomeIcon icon={faShoppingBag} size="2xl" /></Link>
         <Link className="flex gap-2 items-center">

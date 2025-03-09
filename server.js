@@ -5,7 +5,7 @@ const session = require('express-session')
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
-const { google } = require('googleapis')
+var cookieParser = require('cookie-parser')
 
 const app = express()
 
@@ -35,6 +35,7 @@ app.use(morgan('combined'))
 // body parser
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser({}))
 
 // static folder
 app.use(express.static(path.resolve(__dirname, 'public')))
@@ -45,14 +46,6 @@ app.use('/api', require('./src/api'))
 app.use('/*', (req, res) => {
   res.render('index')
 })
-
-const scopes = [
-  'https://www.googleapis.com/auth/drive.metadata.readonly',
-  'https://www.googleapis.com/auth/calendar.readonly'
-];
-const { CLIENT_ID, CLIENT_SECRET } = process.env
-const oauth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET)
-
 
 
 app.listen(process.env.PORT, () => {
