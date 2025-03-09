@@ -2,10 +2,10 @@ import { Link, useLocation } from "react-router-dom"
 import { Button, Drawer, Dropdown, Popover } from "antd"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown, faMagnifyingGlass, faRightLeft, faShoppingBag, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
-import { faCircleUser, faUser } from "@fortawesome/free-regular-svg-icons"
 import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone"
 import { faList } from "@fortawesome/free-solid-svg-icons/faList"
 import { useEffect, useState } from "react"
+
 import AccountIcon from "./AccountIcon"
 
 const tourItems = [

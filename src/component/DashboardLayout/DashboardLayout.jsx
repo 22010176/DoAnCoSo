@@ -1,6 +1,9 @@
 import { faArrowRightToBracket, faBox, faFileInvoice, faFileInvoiceDollar, faGlobe, faUser, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, List } from "antd";
+import Sidebar from "./Sidebar";
+import Header from "./Header";
+import { Outlet } from "react-router-dom";
 
 
 const data = [
@@ -10,14 +13,23 @@ const data = [
   { icon: faFileInvoice, text: "Quản lý đơn hàng" },
   { icon: faFileInvoiceDollar, text: "Báo cáo doanh thu" },
 ]
-function DashboardPage() {
+function DashboardLayout() {
 
   return (
-    <>
-      dd
-      <div className="h-1000"></div>
-    </>
+    <div className="w-screen h-screen overflow-hidden flex">
+      {/* sidebar */}
+      <Sidebar />
+
+      {/* main content */}
+      <div className="h-full grow bg-gray-200 flex flex-col p-5 gap-5">
+        <Header>Trang chủ</Header>
+
+        <div className="bg-white grow rounded-xl shadow overflow-y-auto">
+          <Outlet />
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default DashboardPage
+export default DashboardLayout

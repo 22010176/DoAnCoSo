@@ -12,7 +12,6 @@ const guessAccount = [
 const authorizeAccount = [
   { key: '1', label: <Link to="/">Đăng nhập</Link> },
   { key: '2', label: <Link to="/">Đăng kí</Link> },
-
 ]
 
 function AccountIcon({ }) {

@@ -13,7 +13,6 @@ function HomeLayout() {
       {/* Content */}
       <Outlet />
 
-      {/* Theo dõi và cập nhật tin tức mới nhất */}
       <Contact />
 
       <Footer />
