@@ -10,13 +10,15 @@ const cookieParser = require('cookie-parser');
 
 const app = express()
 
-const mode = process.env.MODE
-const viewFolder = path.resolve(__dirname, mode === 'development' ? './dist' : './build')
+const publicFolder = path.resolve(__dirname, '../public')
+if (!fs.existsSync(publicFolder)) fs.mkdirSync(publicFolder)
+
+const viewFolder = path.resolve(publicFolder, 'dist')
 if (!fs.existsSync(viewFolder)) fs.mkdirSync(viewFolder)
 
 if (process.env.MODE === 'development') {
   const webpack = require('webpack')
-  const webpackConfig = require('./webpack.config')
+  const webpackConfig = require('../webpack.config')
   const webpackCompiler = webpack(webpackConfig, function () { })
 
   // Set up webpack middleware
@@ -43,13 +45,11 @@ app.use(session({
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   cookie: { maxAge: 1000 * 60 }, // 1 giờ
 }))
+app.use(express.static(publicFolder))
 
-// static folder
-app.use(express.static(path.resolve(__dirname, 'public')))
-app.use(express.static(path.resolve(__dirname, 'dist')))
 
 // api route
-app.use('/api', require('./api'))
+app.use('/api', require('./route'))
 app.use('/*', (req, res) => {
   res.render('index')
 })
