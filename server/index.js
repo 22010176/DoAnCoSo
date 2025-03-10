@@ -43,7 +43,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  cookie: { maxAge: 1000 * 60 }, // 1 giờ
+  cookie: { maxAge: 1000 * 60 * 60 }, // 1 giờ
 }))
 app.use(express.static(publicFolder))
 

@@ -1,8 +1,6 @@
 const bcrypt = require('bcrypt')
 
-const User = require('../../model/User_MongoDb')
-const { DatabaseQuery } = require("../../database")
-const { getUserByEmailQuery } = require("../../model/Account_MySQL")
+const User = require('../../model/User')
 
 async function GetUserInfoByEmail(req, res, next) {
   const { email } = req.body
@@ -40,6 +38,7 @@ async function CheckPassword(req, res, next) {
 async function GenereteAccessToken(req, res, next) {
   try {
     req.session.userId = res.locals.id
+
     return res.json({
       success: true,
       message: "Successful login",

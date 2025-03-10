@@ -1,7 +1,7 @@
 import { Button, Input, notification } from "antd"
 import { Link, useNavigate } from "react-router-dom"
 
-import { RegisterUser } from "../../util/users"
+import { RegisterUser } from "../../service/users"
 
 
 function RegisterForm() {
@@ -13,7 +13,8 @@ function RegisterForm() {
     const formData = Object.fromEntries(new FormData(e.target))
 
     const result = await RegisterUser(formData)
-    if (!result.success) return api.error({ message: "Tạo tài khoản thất bại." })
+    if (!result.success)
+      return api.error({ message: "Tạo tài khoản thất bại." })
 
     api.success({ message: "Tạo tài khoản thành công." })
     setTimeout(function () { navigate('/account/login') }, 1500)

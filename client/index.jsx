@@ -6,13 +6,16 @@ import './styles.css'
 
 import App from './App'
 import store from './redux/store'
+import { BrowserRouter } from 'react-router-dom'
 
 const root = createRoot(document.querySelector("#root"))
 root.render(
   <StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </StrictMode>
 )
 

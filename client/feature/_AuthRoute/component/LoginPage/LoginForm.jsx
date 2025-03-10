@@ -1,8 +1,7 @@
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button, ConfigProvider, Input, notification } from "antd"
 import { Link, useNavigate } from "react-router-dom"
-import { LoginUser } from "../../util/users"
+
+import { LoginUser } from "../../service/users"
 
 function LoginForm() {
   const [api, contextHolder] = notification.useNotification({ stack: { threshold: 1 } })
@@ -12,12 +11,10 @@ function LoginForm() {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.target))
 
-    if (Object.values(data).some(i => i.length === 0)) return api.error({
-      message: "Phải nhập email và mật khẩu!!"
-    })
+    if (Object.values(data).some(i => i.length === 0))
+      return api.error({ message: "Phải nhập email và mật khẩu!!" })
 
     const result = await LoginUser(data)
-
     if (!result.success) return api.error({ message: "Đăng nhập thất bại." })
 
     api.success({ message: "Đăng nhập thành công." })

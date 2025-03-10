@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt')
 const { v4 } = require('uuid')
 
-const { getUserByEmailQuery, createAccountQuery } = require("../../model/Account_MySQL")
+const { getUserByEmailQuery, createAccountQuery } = require("../../model/Account")
 const { DatabaseQuery } = require("../../database")
-const User = require('../../model/User_MongoDb')
+const User = require('../../model/User')
 
 async function CheckEmailFormat(req, res, next) {
   const { email } = req.body
@@ -53,7 +53,6 @@ async function HashPassword(req, res, next) {
 async function CreateUserInfo(req, res, next) {
   const { ho, ten, email, soDienThoai } = req.body
 
-  // console.log(matKhau_hash, ho, ten, email, soDienThoai)
   try {
     const id = v4()
     await DatabaseQuery(createAccountQuery, [[
@@ -81,6 +80,7 @@ async function CreateAccountUser(req, res, next) {
 
   next()
 }
+
 async function CreateRegisterErrorResponse(req, res, next) {
   // console.log("Create response")
   res.json({

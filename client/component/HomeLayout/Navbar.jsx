@@ -7,6 +7,8 @@ import { faList } from "@fortawesome/free-solid-svg-icons/faList"
 import { useEffect, useState } from "react"
 
 import AccountIcon from "./AccountIcon"
+import { useSelector } from "react-redux"
+import { getAccount, getUserInfo } from "../../redux/authSlice"
 
 const tourItems = [
   { key: 1, label: <Link className="pr-10">Tour trong nước</Link> },
@@ -18,10 +20,11 @@ const paths = ['/', '/info', '/tours', '/contact'].sort((a, b) => b.length - a.l
 function NavLinks() {
   const location = useLocation()
   const [path, setPath] = useState()
+
   useEffect(function () {
     const pathname = location.pathname
     setPath(paths.filter(p => pathname.includes(p))[0])
-  }, [location.pathname])
+  }, [location])
 
   return (
     <>

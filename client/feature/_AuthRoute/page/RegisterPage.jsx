@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEnvelope, faMailBulk, faMailForward, faUserCircle } from "@fortawesome/free-solid-svg-icons"
-import { Button, Input } from "antd"
 
 import Container from "../../../component/Container"
 import Header from "../../../component/Header"

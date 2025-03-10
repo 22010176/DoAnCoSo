@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 
 import HomeLayout from "../../../component/HomeLayout/HomeLayout"
+import ProtectAccountRoute from "../../../component/ProtectedAccountRoute"
 
 import CustomerAccountPage from "./CustomerAccountPage"
 import LoginPage from "./LoginPage"
