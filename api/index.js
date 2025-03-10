@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-router.use('/account', require('./feature/_AuthRoute/api'),)
+router.use('/account', require('./route/_authenticate'),)
 
 router.use(function (req, res, next) {
   res.json({

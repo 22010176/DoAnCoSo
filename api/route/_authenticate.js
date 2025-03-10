@@ -1,6 +1,6 @@
 // /api/account/
-const { CheckEmailExists, CheckEmailFormat, HashPassword, CreateRegisterResponse, CreateUser, CheckPhoneNumber } = require('./middleware/registerUser')
-const { CheckPassword, CreateResponse, GenereteAccessToken, GetUserInfoByEmail } = require('./middleware/loginUser')
+const { CheckEmailExists, CheckEmailFormat, HashPassword, CreateRegisterErrorResponse, CreateUserInfo, CheckPhoneNumber, CreateAccountUser } = require('../middleware/_authenicate/registerUser')
+const { CheckPassword, CreateResponse, GenereteAccessToken, GetUserInfoByEmail } = require('../middleware/_authenicate/loginUser')
 
 const router = require('express').Router()
 
@@ -10,8 +10,9 @@ router.post('/register',
   CheckEmailExists,
   CheckPhoneNumber,
   HashPassword,
-  CreateUser,
-  CreateRegisterResponse
+  CreateUserInfo,
+  CreateAccountUser,
+  CreateRegisterErrorResponse
 )
 
 // POST /api/account/login

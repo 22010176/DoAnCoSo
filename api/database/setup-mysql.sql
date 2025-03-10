@@ -106,16 +106,16 @@ VALUES 	('1', 'admin', 'Quản trị viên'),
 		    ('2', 'guess', 'Khách hàng');
 
 
-DROP TABLE IF EXISTS taiKhoan;
-CREATE TABLE taiKhoan (
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
   id                VARCHAR(255)        PRIMARY KEY,
   ho                VARCHAR(32),
   ten               VARCHAR(64),
   email             VARCHAR(255)        NOT NULL UNIQUE,
-  matKhau           VARCHAR(255),
   hinhAnh           VARCHAR(255),
   soDienThoai       VARCHAR(255),
   vaiTro            VARCHAR(255),
+  created_at        TIMESTAMP           DEFAULT CURRENT_TIMESTAMP,
 
   FOREIGN KEY(vaiTro) REFERENCES vaiTro(id)
 );
@@ -128,7 +128,7 @@ CREATE TABLE tourYeuThich (
   taiKhoan          VARCHAR(255),
 
   UNIQUE(taiKhoan, quan, thanhPho),
-  FOREIGN KEY(taiKhoan) REFERENCES taiKhoan(id)
+  FOREIGN KEY(taiKhoan) REFERENCES users(id)
 );
 
 DROP TABLE IF EXISTS tourYeuThich;
@@ -138,6 +138,6 @@ CREATE TABLE tourYeuThich (
   tour              VARCHAR(255),
 
   UNIQUE(taiKhoan, tour),
-  FOREIGN KEY(taiKhoan) REFERENCES taiKhoan(id),
+  FOREIGN KEY(taiKhoan) REFERENCES users(id),
   FOREIGN KEY(tour) REFERENCES tour(id)
 );

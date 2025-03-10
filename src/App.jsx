@@ -8,8 +8,7 @@ import AdminRoute from "./feature/AdminRoute/page"
 import CustomerOrderRoute from "./feature/CustomerOrderRoute/page"
 import CustomerTourRoute from "./feature/CustomerTourRoute/page"
 
-import API from "./utils/api"
-
+import API from "./Api"
 
 function App() {
 

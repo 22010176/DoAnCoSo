@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import './styles.css'
 
 import App from './App'
-import store from './context/store'
+import store from './redux/store'
 
 const root = createRoot(document.querySelector("#root"))
 root.render(
