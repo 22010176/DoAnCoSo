@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
-function DashboardLayout() {
+function AdminLayout() {
 
   return (
     <div className="w-screen h-screen overflow-hidden flex">
@@ -22,4 +22,4 @@ function DashboardLayout() {
   );
 }
 
-export default DashboardLayout
+export default AdminLayout

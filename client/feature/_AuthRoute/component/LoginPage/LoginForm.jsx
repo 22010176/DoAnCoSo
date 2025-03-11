@@ -2,14 +2,13 @@ import { Button, Input, notification } from "antd"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 
-import { getAccount, getUserInfo } from "@/redux/authSlice"
+import { getAccount, getUserInfo, logInUser } from "@/redux/authSlice"
 
 import { LoginUser } from "../../service/users"
 
 function LoginForm() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const user = useSelector(getAccount)
 
   const [api, contextHolder] = notification.useNotification({ stack: { threshold: 1 } })
 

@@ -8,7 +8,6 @@ async function CheckUserSession(req, res, next) {
     data: null
   })
   next()
-
 }
 
 module.exports = {

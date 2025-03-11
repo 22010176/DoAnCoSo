@@ -24,6 +24,7 @@ function AccountInfoLayout() {
 
       <Container className="grid lg:grid-cols-[auto_1fr] p-10 gap-10 overflow-x-hidden" >
         <Sidebar />
+
         <Outlet />
       </Container>
     </div>

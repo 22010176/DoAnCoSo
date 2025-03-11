@@ -1,33 +1,36 @@
-import { List } from "antd"
-import { useSelector } from "react-redux"
+import { Button, List } from "antd"
+import { useDispatch, useSelector } from "react-redux"
 
-import { getAccount } from "@/redux/authSlice"
+import { getAccount, logOutUser } from "@/redux/authSlice"
 
 import SettingCategoryItem from "./SettingCategoryItem"
 
 function AccountInfoPage() {
+  const dispatch = useDispatch()
   const customer = useSelector(getAccount)
-  console.log(customer)
 
   const personalSettings = [
-    { title: "Name", value: "" },
-    { title: "Display name", value: "asdfasfdasfd" },
-    { title: "Email address", value: "asdfasfdasfd" },
-    { title: "Phone number", value: "asdfasfdasfd" },
-    { title: "Date of birth", value: "asdfasfdasfd" },
-    { title: "Nationality", value: "asdfasfdasfd" },
+    { title: "Họ và tên", value: [customer?.ho, customer?.ten].join(' ') },
+    { title: "Email", value: customer?.email },
+    { title: "Số điện thoại", value: customer?.soDienThoai },
+    { title: "Ngày tạo", value: new Date(customer?.created_at).toLocaleString() },
+    { title: "Loại tài khoản", value: customer?.tenVaiTro },
   ]
 
+  function onLogOut() {
+
+    dispatch(logOutUser())
+  }
+
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-5">
       <div className="flex justify-between items-center">
-        <div className="leading-10">
+        <div className="flex flex-col gap-2">
           <p className="text-3xl font-bold">Thông tin cá nhân</p>
           <p className="text-gray-500">Cập nhật thông tin của bạn và tìm hiểu các thông tin này được sử dụng ra sao.</p>
         </div>
-        <div className="min-w-20">
-          <img className="size-20 rounded-full" src="\assets\imgs\bg.jpg" alt="" />
-        </div>
+        <img className="size-20 rounded-full" src="\assets\imgs\bg.jpg" alt="" />
+
       </div>
 
       <List bordered dataSource={personalSettings}
@@ -36,6 +39,7 @@ function AccountInfoPage() {
             <SettingCategoryItem item={item} />
           </List.Item>
         )} />
+      <Button onClick={onLogOut} size="large" color="red" variant="solid" className="w-25">Đăng suất</Button>
     </div>
   )
 }

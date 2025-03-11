@@ -1,3 +1,4 @@
+// /api
 const router = require('express').Router()
 
 router.use('/account', require('./_authenticate'))

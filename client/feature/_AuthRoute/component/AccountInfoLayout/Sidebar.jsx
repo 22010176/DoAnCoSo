@@ -5,9 +5,9 @@ import SettingCategory from "./SettingCategory";
 
 const data = [
   { icon: faUserCircle, title: "Thông tin tài khoản" },
+  { icon: faHouse, title: "Địa chỉ" },
   { icon: faShoppingCart, title: "Đơn hàng của bạn" },
   { icon: faLock, title: "Đổi mật khẩu" },
-  { icon: faHouse, title: "Địa chỉ" },
 ];
 
 function Sidebar() {

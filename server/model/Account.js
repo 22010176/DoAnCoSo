@@ -4,8 +4,11 @@ INSERT INTO
 VALUES ?;`
 
 const getUserByEmailQuery = `
-SELECT *
-FROM users
+SELECT 	u.*,
+		    v.maVaiTro, 
+        v.tenVaiTro
+FROM users u
+INNER JOIN vaitro v	ON u.vaiTro = v.id
 WHERE email IN ?`
 
 module.exports = {

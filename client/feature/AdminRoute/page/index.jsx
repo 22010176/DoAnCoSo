@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import DashboardLayout from "@/component/DashboardLayout/DashboardLayout";
+import AdminLayout from "@/component/AdminLayout/AdminLayout";
 import ProtectAdminRoute from "@/component/ProtectedPage/ProtectedAdminRoute";
 
 import DashboardPage from "./DashboardPage";
@@ -10,7 +10,7 @@ function AdminRoute() {
     <Routes>
       <Route path="/" element={
         <ProtectAdminRoute>
-          <DashboardLayout />
+          <AdminLayout />
         </ProtectAdminRoute>
       }>
         <Route index element={<DashboardPage />} />

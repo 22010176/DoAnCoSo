@@ -12,7 +12,7 @@ function ProtectAdminRoute({ children }) {
   useEffect(function () {
     if (account === 'pending') return
 
-    setElement(account.vaiTro === '2' ? children : <Navigate to="/" />)
+    setElement(account.vaiTro === '1' ? children : <Navigate to="/" />)
   }, [account, location])
 
   return Element

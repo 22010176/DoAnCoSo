@@ -1,4 +1,4 @@
-import API from "Api";
+import API from "@/Api";
 
 export async function RegisterUser({ ho, ten, email, soDienThoai, matKhau }) {
   return await API.post('/account/register', { ho, ten, email, soDienThoai, matKhau })
