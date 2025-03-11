@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom"
 
 import AccountInfoLayout from "../component/AccountInfoLayout"
-import AccountInfoPage from "../component/AccountInfoPage"
+import AccountInfoPage from "./AccountInfoPage"
 
-function CustomerAccountPage() {
+function AccountRoute() {
   return (
     <Routes >
       <Route path="/" element={<AccountInfoLayout />}>
@@ -13,4 +13,4 @@ function CustomerAccountPage() {
   )
 }
 
-export default CustomerAccountPage
+export default AccountRoute

@@ -4,7 +4,7 @@ import API from "@/Api";
 export const getUserInfo = createAsyncThunk(
   'authentication/getUserInfo',
   async function (params, thunkAPI) {
-    const response = await API.get('/account/info')
+    const response = await API.get('/auth/info')
       .then(response => response.data)
 
     return response.data
@@ -14,11 +14,11 @@ export const getUserInfo = createAsyncThunk(
 export const logInUser = createAsyncThunk(
   'authentication/login',
   async function ({ email, matKhau }, thunkAPI) {
-    const temp = await API.post('/account/login', { email, matKhau })
+    const temp = await API.post('/auth/login', { email, matKhau })
       .then(function (response) { return response.data })
     if (!temp.success) return
 
-    const response = await API.get('/account/info')
+    const response = await API.get('/auth/info')
       .then(response => response.data)
     return response.data
   }
@@ -27,7 +27,7 @@ export const logInUser = createAsyncThunk(
 export const logOutUser = createAsyncThunk(
   'authentication/logout',
   async function (params, thunkAPI) {
-    const result = await API.post('/account/logout')
+    const result = await API.post('/auth/logout')
       .then(function (response) {
         return response.data
       })

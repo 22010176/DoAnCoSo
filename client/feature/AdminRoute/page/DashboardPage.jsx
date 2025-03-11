@@ -1,9 +1,14 @@
+import Header from "@/component/AdminLayout/Header";
+
+
 function DashboardPage() {
 
   return (
     <>
-      dd
-      <div className="h-1000"></div>
+      <Header>Trang chủ</Header>
+
+      <div className="bg-white grow rounded-xl shadow overflow-y-auto">
+      </div>
     </>
   );
 }

@@ -12,11 +12,7 @@ function AdminLayout() {
 
       {/* main content */}
       <div className="h-full grow bg-gray-200 flex flex-col p-5 gap-5">
-        <Header>Trang chủ</Header>
-
-        <div className="bg-white grow rounded-xl shadow overflow-y-auto">
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
     </div>
   );

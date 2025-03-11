@@ -11,14 +11,15 @@ const data = [
 
 function Sidebar() {
   return (
-    <div className="h-full md:w-70 bg-green-700 text-white flex flex-col">
+    <div className="h-full md:w-70 bg-green-700 text-white flex flex-col relative">
       <div className="flex md:flex-row flex-col md:gap-4 gap-2 items-center py-5 mx-5 border-b border-white">
         <img className="rounded-full md:size-18 size-15" src="\assets\imgs\bg.jpg" alt="" />
-        <p className="md:text-2xl text-xl font-bold">User</p>
+        <p className="md:text-2xl sm:block hidden text-xl font-bold">User</p>
       </div>
 
       <div className="flex flex-col gap-5 m-5 grow">
         {data.map((item, j) => (
+
           <div key={j} className="rounded-xl hover:bg-gray-50/10 px-4 py-3 items-center grid md:grid-cols-[auto_1fr] gap-3 text-white">
             <FontAwesomeIcon icon={item.icon} className="text-2xl w-8" />
             <p className="md:block hidden text-nowrap font-semibold">{item.text}</p>

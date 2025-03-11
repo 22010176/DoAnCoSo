@@ -3,7 +3,7 @@ import { getAccount } from "@/redux/authSlice"
 
 function CustomerAvartar({ }) {
   const user = useSelector(getAccount)
-  console.log(user)
+
   return (
     <div className="flex gap-5 items-center">
       <img className="size-10 rounded-full" src="\assets\imgs\sp6.webp" alt="" />

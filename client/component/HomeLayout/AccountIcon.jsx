@@ -21,8 +21,8 @@ function LogoutButton() {
 }
 
 const guessAccount = [
-  { key: '1', label: <Link className="pr-5" to="/account/login">Đăng nhập</Link> },
-  { key: '2', label: <Link className="pr-5" to="/account/register">Đăng kí</Link> },
+  { key: '1', label: <Link className="pr-5" to="/auth/login">Đăng nhập</Link> },
+  { key: '2', label: <Link className="pr-5" to="/auth/register">Đăng kí</Link> },
 ]
 
 const adminAccount = [

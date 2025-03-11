@@ -1,8 +1,8 @@
-import { Link, Outlet } from "react-router-dom"
 import { Breadcrumb } from "antd"
+import { Link, Outlet } from "react-router-dom"
 
+import CustomerAvartar from "./Avartar"
 import Container from "./Container"
-import CustomerAvartar from "../AccountInfoPage/Avartar"
 import Sidebar from "./Sidebar"
 
 function AccountInfoLayout() {

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import { logInUser } from "@/redux/authSlice"
 
 import _AuthRoute from '@/feature/_AuthRoute/page'
+import _AccountRoute from '@/feature/_AccountRoute/page'
 import AdminRoute from "@/feature/AdminRoute/page"
 import CustomerOrderRoute from "@/feature/CustomerOrderRoute/page"
 import CustomerRoute from "@/feature/CustomerRoute/page"
@@ -19,7 +20,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/account/*" element={<_AuthRoute />} />
+      <Route path="/auth/*" element={<_AuthRoute />} />
+      <Route path="/account/*" element={<_AccountRoute />} />
 
       <Route path="/dashboard/*" element={<AdminRoute />} />
 

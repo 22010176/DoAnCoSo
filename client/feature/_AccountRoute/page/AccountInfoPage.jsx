@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { getAccount, logOutUser } from "@/redux/authSlice"
 
-import SettingCategoryItem from "./SettingCategoryItem"
+import SettingCategoryItem from "../component/AccountInfoPage/SettingCategoryItem"
 
 function AccountInfoPage() {
   const dispatch = useDispatch()
@@ -18,7 +18,6 @@ function AccountInfoPage() {
   ]
 
   function onLogOut() {
-
     dispatch(logOutUser())
   }
 

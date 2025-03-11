@@ -9,4 +9,4 @@ function SettingCategory({ item }) {
   )
 }
 
-export default SettingCategory
+// export default SettingCategory
