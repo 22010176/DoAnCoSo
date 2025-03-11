@@ -2,8 +2,8 @@ import { CountryTour, GlobalTour, GoodTour } from '../component/HomePage/TourCon
 
 import Banner from "../component/HomePage/Banner"
 import BookingWith from "../component/HomePage/BookingWith"
-import WhyChosing from '../component/HomePage/WhyChosing'
 import GuessReview from '../component/HomePage/GuessReview'
+import WhyChosing from '../component/HomePage/WhyChosing'
 
 
 function HomePage() {

@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const { root } = require('postcss');
 
 module.exports = {
   mode: "development",
@@ -31,6 +32,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    modules: [path.resolve(__dirname, 'client'), 'node_modules'],
+    extensions: ['', '.js', '.jsx'],
   }
 };

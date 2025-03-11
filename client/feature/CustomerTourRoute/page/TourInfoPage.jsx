@@ -1,11 +1,11 @@
-import { href, Link, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
-import Header from "../../../component/Header"
+import Header from "component/Header"
 
 import Container from "../component/TourInfoPage/Container"
 import OrderForm from "../component/TourInfoPage/OrderForm"
-import TourInfoHeader from "../component/TourInfoPage/TourInfoHeader"
 import TourDetail from "../component/TourInfoPage/TourDetail"
+import TourInfoHeader from "../component/TourInfoPage/TourInfoHeader"
 import TourList from "../component/TourInfoPage/TourList"
 
 const items = [

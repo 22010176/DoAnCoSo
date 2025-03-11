@@ -1,9 +1,8 @@
-import { faArrowRightToBracket, faBox, faFileInvoice, faFileInvoiceDollar, faGlobe, faUser, faUserGroup } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, List } from "antd";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import { faBox, faFileInvoice, faFileInvoiceDollar, faGlobe, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Outlet } from "react-router-dom";
+
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 
 const data = [

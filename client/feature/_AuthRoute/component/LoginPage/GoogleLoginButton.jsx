@@ -1,10 +1,9 @@
 import { faGoogle } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button, ConfigProvider } from "antd"
-import axios from "axios"
 
-import antTheme from "./antTheme"
 import { useEffect } from "react"
+import antTheme from "./antTheme"
 
 // 
 function GoogleLoginButton() {

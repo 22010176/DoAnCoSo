@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
-import Container from "../../../component/Container"
-import Header from "../../../component/Header"
+import Container from "component/Container"
+import Header from "component/Header"
 
 import GoogleLoginButton from "../component/LoginPage/GoogleLoginButton"
 import LoginForm from "../component/LoginPage/LoginForm"

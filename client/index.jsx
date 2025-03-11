@@ -4,9 +4,9 @@ import { Provider } from 'react-redux'
 
 import './styles.css'
 
-import App from './App'
-import store from './redux/store'
 import { BrowserRouter } from 'react-router-dom'
+import App from 'App'
+import store from 'redux/store'
 
 const root = createRoot(document.querySelector("#root"))
 root.render(

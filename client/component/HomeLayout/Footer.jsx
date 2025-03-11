@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight, faArrowRightArrowLeft, faClock, faLocationDot, faLocationPin, faLocationPinLock } from "@fortawesome/free-solid-svg-icons"
-import { Carousel, Collapse, ConfigProvider, Rate } from "antd"
 import { faFacebook, faGoogle, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Collapse, ConfigProvider } from "antd"
 
 const items = [
   {

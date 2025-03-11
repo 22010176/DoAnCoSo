@@ -1,12 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLock, faMoneyCheck, faQuestionCircle, faSliders, faStar, faUserCircle, faUserGroup, faUserShield } from "@fortawesome/free-solid-svg-icons"
-import { Avatar, Breadcrumb, Button, List } from "antd"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Breadcrumb, List } from "antd"
 import { Link } from "react-router-dom"
 
-import Container from "../component/CustomerAccountPage/Container"
 import CustomerAvartar from "../component/CustomerAccountPage/Avartar"
-import SettingCategoryItem from "../component/CustomerAccountPage/SettingCategoryItem"
+import Container from "../component/CustomerAccountPage/Container"
 import SettingCategory from "../component/CustomerAccountPage/SettingCategory"
+import SettingCategoryItem from "../component/CustomerAccountPage/SettingCategoryItem"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-lg font-semibold" to="/">Trang chủ</Link>, },

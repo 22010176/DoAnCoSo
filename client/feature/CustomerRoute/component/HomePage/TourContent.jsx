@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Rate } from "antd";
 import { Link } from "react-router-dom";
 
-import TourInfoVertical from "../../../../component/TourInfo/TourVertical";
+import TourInfoVertical from "component/TourInfo/TourVertical";
 
 export function GoodTour() {
   return (

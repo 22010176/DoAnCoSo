@@ -7,8 +7,6 @@ import { faList } from "@fortawesome/free-solid-svg-icons/faList"
 import { useEffect, useState } from "react"
 
 import AccountIcon from "./AccountIcon"
-import { useSelector } from "react-redux"
-import { getAccount, getUserInfo } from "../../redux/authSlice"
 
 const tourItems = [
   { key: 1, label: <Link className="pr-10">Tour trong nước</Link> },

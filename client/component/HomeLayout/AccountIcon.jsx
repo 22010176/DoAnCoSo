@@ -1,12 +1,12 @@
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Dropdown } from "antd";
-import { useEffect } from "react";
+import { Dropdown } from "antd";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAccount, getUserInfo } from "../../redux/authSlice";
 
-import API from "../../Api";
+import API from "Api";
+import { getAccount, getUserInfo } from "redux/authSlice";
 
 const guessAccount = [
   { key: '1', label: <Link className="pr-5" to="/account/login">Đăng nhập</Link> },

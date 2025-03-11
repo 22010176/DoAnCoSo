@@ -1,7 +1,5 @@
-import { faArrowRightToBracket, faBox, faFileInvoice, faFileInvoiceDollar, faGlobe, faUser, faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightToBracket, faBox, faFileInvoice, faFileInvoiceDollar, faGlobe, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, List } from "antd";
-
 
 const data = [
   { icon: faBox, text: "Bảng điều khiển" },

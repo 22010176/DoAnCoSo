@@ -1,4 +1,4 @@
-import { Checkbox, Collapse, ConfigProvider } from "antd"
+import { Collapse, ConfigProvider } from "antd";
 import { Link } from "react-router-dom";
 import OptionItem from "./OptionItem";
 

@@ -1,9 +1,12 @@
 import { Button, ConfigProvider, Input, notification } from "antd"
 import { Link, useNavigate } from "react-router-dom"
 
+import { getUserInfo } from "../../../../redux/authSlice"
 import { LoginUser } from "../../service/users"
+import { useDispatch } from "react-redux"
 
 function LoginForm() {
+  const dispatch = useDispatch()
   const [api, contextHolder] = notification.useNotification({ stack: { threshold: 1 } })
   const navigate = useNavigate()
 
@@ -18,7 +21,10 @@ function LoginForm() {
     if (!result.success) return api.error({ message: "Đăng nhập thất bại." })
 
     api.success({ message: "Đăng nhập thành công." })
-    setTimeout(function () { navigate('/') }, 1500)
+    setTimeout(function () {
+      dispatch(getUserInfo())
+      navigate('/')
+    }, 1500)
   }
 
   return (

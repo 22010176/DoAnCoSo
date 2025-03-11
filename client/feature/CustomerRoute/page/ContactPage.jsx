@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom"
+import { faLocationDot, faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faLocationDot, faLocationPin, faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { Button, Input } from "antd"
 import TextArea from "antd/es/input/TextArea"
+import { Link } from "react-router-dom"
 
-import Container from "../../../component/Container"
-import Header from "../../../component/Header"
+import Container from "component/Container"
+import Header from "component/Header"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },

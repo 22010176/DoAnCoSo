@@ -1,11 +1,10 @@
-import { faCalendar, faEarthAsia, faHotel, faLocationDot, faLocationPin, faLocationPinLock, faMapLocationDot, faPassport, faPlaneCircleExclamation, faPlaneDeparture, faSailboat } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Breadcrumb } from "antd"
-import { Link } from "react-router-dom"
+import { faEarthAsia, faHotel, faMapLocationDot, faPassport, faPlaneDeparture, faSailboat } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-import Header from "../../../component/Header";
-import Container from "../../../component/Container";
-import Content from '../component/IntroPage/Content'
+import Container from "component/Container";
+import Header from "component/Header";
+
+import Content from '../component/IntroPage/Content';
 import ServiceProvide from "../component/IntroPage/ServiceProvider";
 
 const items = [

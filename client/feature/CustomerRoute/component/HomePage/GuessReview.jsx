@@ -1,7 +1,4 @@
-import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Button, Rate } from "antd"
-import { useState } from "react"
+import { Rate } from "antd"
 
 function Review({ image, content, name, value }) {
   return (
