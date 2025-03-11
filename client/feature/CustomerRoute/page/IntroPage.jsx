@@ -1,8 +1,8 @@
 import { faEarthAsia, faHotel, faMapLocationDot, faPassport, faPlaneDeparture, faSailboat } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-import Container from "component/Container";
-import Header from "component/Header";
+import Container from "@/component/Container";
+import Header from "@/component/Header";
 
 import Content from '../component/IntroPage/Content';
 import ServiceProvide from "../component/IntroPage/ServiceProvider";
