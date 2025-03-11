@@ -43,16 +43,15 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  cookie: { maxAge: 1000 * 60 * 60 }, // 1 giờ
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 1 giờ
 }))
 app.use(express.static(publicFolder))
 
 
 // api route
 app.use('/api', require('./route'))
-app.use('/*', (req, res) => {
-  res.render('index')
-})
+app.use('/google', require('./route/googleAuth'))
+app.use('/*', (req, res) => res.render('index'))
 
 app.listen(process.env.PORT, () => {
   console.log('Server is running on http://localhost:3000')

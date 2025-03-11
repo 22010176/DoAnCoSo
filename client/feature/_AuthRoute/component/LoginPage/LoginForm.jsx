@@ -1,14 +1,17 @@
-import { Button, ConfigProvider, Input, notification } from "antd"
+import { Button, Input, notification } from "antd"
+import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 
-import { getUserInfo } from "../../../../redux/authSlice"
+import { getUserInfo, logInUser, getAccount } from "redux/authSlice"
+
 import { LoginUser } from "../../service/users"
-import { useDispatch } from "react-redux"
 
 function LoginForm() {
   const dispatch = useDispatch()
-  const [api, contextHolder] = notification.useNotification({ stack: { threshold: 1 } })
   const navigate = useNavigate()
+  const user = useSelector(getAccount)
+
+  const [api, contextHolder] = notification.useNotification({ stack: { threshold: 1 } })
 
   async function onSubmit(e) {
     e.preventDefault()

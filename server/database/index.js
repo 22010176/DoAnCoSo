@@ -10,7 +10,7 @@ const pool = mysql.createPool({
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_NAME,
   waitForConnections: true,
-  connectionLimit: 10,
+  connectionLimit: 20,
   queueLimit: 0,
 })
 
@@ -27,7 +27,7 @@ async function DatabaseQuery(query, params) {
 }
 
 module.exports = {
-  pool: pool,
+  pool,
   DatabaseQuery,
   GetDatabaseConnection,
 }

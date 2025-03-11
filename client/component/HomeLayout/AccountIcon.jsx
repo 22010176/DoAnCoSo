@@ -29,8 +29,8 @@ function LogoutButton() {
 }
 
 const authorizeAccount = [
-  { key: '1', label: <Link className="pr-5" to="/">Tài khoản</Link> },
-  { key: '2', label: <Link className="pr-5" to="/">Giỏ hàng</Link> },
+  { key: '1', label: <Link className="pr-5" to="/account">Tài khoản</Link> },
+  { key: '2', label: <Link className="pr-5" to="/orders">Giỏ hàng</Link> },
   { key: '3', label: <Link className="pr-5" to="/">Tour yêu thích</Link> },
   { key: '4', label: <LogoutButton /> },
 ]

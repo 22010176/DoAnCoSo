@@ -6,6 +6,7 @@ import { getAccount, getUserInfo } from "redux/authSlice"
 
 function ProtectAccountRoute({ children }) {
   const account = useSelector(getAccount)
+  const location = useLocation()
   const [Element, setElement] = useState()
 
   useEffect(function () {
@@ -14,7 +15,7 @@ function ProtectAccountRoute({ children }) {
       return
     }
     setElement(account ? children : <Navigate to="/" />)
-  }, [account])
+  }, [account, location])
 
   return Element
 }

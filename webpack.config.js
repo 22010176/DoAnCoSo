@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const { root } = require('postcss');
 
 module.exports = {
   mode: "development",
@@ -33,6 +32,9 @@ module.exports = {
   ],
   resolve: {
     modules: [path.resolve(__dirname, 'client'), 'node_modules'],
+    alias: {
+      '@': path.resolve('client'),
+    },
     extensions: ['', '.js', '.jsx'],
   }
 };
