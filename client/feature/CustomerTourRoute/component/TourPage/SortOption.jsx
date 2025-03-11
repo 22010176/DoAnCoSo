@@ -1,5 +1,6 @@
 import { Collapse, ConfigProvider } from "antd";
 import { Link } from "react-router-dom";
+
 import OptionItem from "./OptionItem";
 
 const theme = {
@@ -8,7 +9,6 @@ const theme = {
       /* here is your component tokens */
       headerPadding: "10px 0px",
       contentPadding: "0px 15px",
-      // padding: '0px'
     },
   },
 }

@@ -2,12 +2,13 @@ import { Route, Routes } from "react-router-dom"
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 
+import { logInUser } from "@/redux/authSlice"
+
 import _AuthRoute from '@/feature/_AuthRoute/page'
 import AdminRoute from "@/feature/AdminRoute/page"
 import CustomerOrderRoute from "@/feature/CustomerOrderRoute/page"
 import CustomerRoute from "@/feature/CustomerRoute/page"
 import CustomerTourRoute from "@/feature/CustomerTourRoute/page"
-import { logInUser } from "@/redux/authSlice"
 
 function App() {
   const dispatch = useDispatch()

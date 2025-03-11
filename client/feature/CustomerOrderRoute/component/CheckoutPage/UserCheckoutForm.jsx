@@ -1,8 +1,7 @@
-import { faCaretLeft, faMoneyCheckDollar, faTruck, faUserCircle } from "@fortawesome/free-solid-svg-icons"
+import { faMoneyCheckDollar, faTruck } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Badge, Button, Collapse, Input, Radio, Select } from "antd"
+import { Input, Radio, Select } from "antd"
 import TextArea from "antd/es/input/TextArea"
-import { Link } from "react-router-dom"
 
 function CheckboxOption({ title, affix }) {
   return (

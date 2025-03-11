@@ -1,11 +1,10 @@
-import { faCaretLeft, faMoneyCheckDollar, faTruck, faUserCircle } from "@fortawesome/free-solid-svg-icons"
+import { faCaretLeft } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Badge, Button, Collapse, Input, Radio, Select } from "antd"
-import TextArea from "antd/es/input/TextArea"
+import { Button } from "antd"
 import { Link } from "react-router-dom"
 
-import UserCheckoutForm from "../component/CheckoutPage/UserCheckoutForm"
 import OrderItems from "../component/CheckoutPage/OrderItems"
+import UserCheckoutForm from "../component/CheckoutPage/UserCheckoutForm"
 
 
 function CheckoutPage() {

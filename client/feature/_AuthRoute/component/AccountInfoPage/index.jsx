@@ -1,10 +1,11 @@
 import { List } from "antd"
 import { useSelector } from "react-redux"
 
-import { getAccount } from "redux/authSlice"
+import { getAccount } from "@/redux/authSlice"
+
 import SettingCategoryItem from "./SettingCategoryItem"
 
-function CustomerInfo() {
+function AccountInfoPage() {
   const customer = useSelector(getAccount)
   console.log(customer)
 
@@ -18,17 +19,14 @@ function CustomerInfo() {
   ]
 
   return (
-    <>
+    <div className="flex flex-col gap-10">
       <div className="flex justify-between items-center">
         <div className="leading-10">
           <p className="text-3xl font-bold">Thông tin cá nhân</p>
           <p className="text-gray-500">Cập nhật thông tin của bạn và tìm hiểu các thông tin này được sử dụng ra sao.</p>
         </div>
         <div className="min-w-20">
-          <label htmlFor="avarta">
-            <img className="size-20 rounded-full" src="\assets\imgs\bg.jpg" alt="" />
-          </label>
-          <input className="hidden" type="file" id="avarta" />
+          <img className="size-20 rounded-full" src="\assets\imgs\bg.jpg" alt="" />
         </div>
       </div>
 
@@ -38,8 +36,8 @@ function CustomerInfo() {
             <SettingCategoryItem item={item} />
           </List.Item>
         )} />
-    </>
+    </div>
   )
 }
 
-export default CustomerInfo
+export default AccountInfoPage

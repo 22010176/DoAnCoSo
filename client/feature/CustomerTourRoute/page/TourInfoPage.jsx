@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 
-import Header from "component/Header"
+import Header from "@/component/Header"
 
 import Container from "../component/TourInfoPage/Container"
 import OrderForm from "../component/TourInfoPage/OrderForm"

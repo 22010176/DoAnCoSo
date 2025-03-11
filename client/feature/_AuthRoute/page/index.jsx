@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom"
 
-import HomeLayout from "component/HomeLayout/HomeLayout"
-import ProtectAccountRoute from "component/ProtectedPage/ProtectedAccountRoute"
-import ProtectUnAccountRoute from "component/ProtectedPage/ProtectedUnAccountRoute"
+import HomeLayout from "@/component/HomeLayout/HomeLayout"
+import ProtectAccountRoute from "@/component/ProtectedPage/ProtectedAccountRoute"
+import ProtectUnAccountRoute from "@/component/ProtectedPage/ProtectedUnAccountRoute"
 
 import CustomerAccountPage from "./CustomerAccountPage"
 import LoginPage from "./LoginPage"

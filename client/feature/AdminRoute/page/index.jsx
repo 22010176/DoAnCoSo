@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
-import DashboardLayout from "component/DashboardLayout/DashboardLayout";
-import ProtectAdminRoute from "component/ProtectedPage/ProtectedAdminRoute";
+import DashboardLayout from "@/component/DashboardLayout/DashboardLayout";
+import ProtectAdminRoute from "@/component/ProtectedPage/ProtectedAdminRoute";
 
 import DashboardPage from "./DashboardPage";
 

@@ -2,7 +2,7 @@ import { Button, Input, notification } from "antd"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 
-import { getUserInfo, logInUser, getAccount } from "redux/authSlice"
+import { getAccount, getUserInfo } from "@/redux/authSlice"
 
 import { LoginUser } from "../../service/users"
 

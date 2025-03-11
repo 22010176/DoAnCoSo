@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
-import Header from "component/Header"
+import Header from "@/component/Header"
+
 import Container from '../component/CustomerOrder/Container'
 import ReceiveSetting from "../component/CustomerOrder/ReceiveSetting"
 import ItemTable from "../component/CustomerOrder/ItemTable"

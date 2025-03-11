@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux"
-import { Navigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { Navigate, useLocation } from "react-router-dom"
 
-import { getAccount, getUserInfo } from "redux/authSlice"
+import { getAccount } from "@/redux/authSlice"
 
 function ProtectAccountRoute({ children }) {
   const account = useSelector(getAccount)

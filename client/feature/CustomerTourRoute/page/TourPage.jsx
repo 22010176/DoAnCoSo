@@ -2,9 +2,9 @@ import { Pagination } from "antd"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
-import Header from "component/Header"
-import TourInfoHorVer from "component/TourInfo/TourHorVer"
-import TourInfoVertical from "component/TourInfo/TourVertical"
+import Header from "@/component/Header"
+import TourInfoHorVer from "@/component/TourInfo/TourHorVer"
+import TourInfoVertical from "@/component/TourInfo/TourVertical"
 
 import Container from "../component/TourPage/Container"
 import DisplayOption from "../component/TourPage/DisplayOption"
