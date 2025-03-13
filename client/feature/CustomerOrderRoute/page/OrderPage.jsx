@@ -11,7 +11,7 @@ const items = [
   { title: <p className="text-white font-bold text-xl">Giỏ hàng</p>, }
 ]
 
-function CustomerOrder() {
+function OrderPage() {
   return (
     <div className="mb-10">
       <Header Element={Container} items={items} />
@@ -25,4 +25,4 @@ function CustomerOrder() {
   )
 }
 
-export default CustomerOrder
+export default OrderPage

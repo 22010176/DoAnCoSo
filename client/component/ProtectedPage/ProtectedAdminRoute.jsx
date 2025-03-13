@@ -10,6 +10,8 @@ function ProtectAdminRoute({ children }) {
 
   const [Element, setElement] = useState()
 
+  return children
+
   useEffect(function () {
     if (account === 'pending') return
 

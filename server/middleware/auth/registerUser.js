@@ -39,7 +39,7 @@ async function CheckPhoneNumber(req, res, next) {
 async function HashPassword(req, res, next) {
   console.log("Hash password")
   const { matKhau } = req.body
-  console.log(matKhau)
+
   if (matKhau == null || matKhau.length === 0) return res.json({
     success: false,
     message: "Invalid password.",

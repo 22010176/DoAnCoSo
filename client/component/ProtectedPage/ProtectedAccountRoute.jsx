@@ -9,6 +9,7 @@ function ProtectAccountRoute({ children }) {
   const location = useLocation()
   const [Element, setElement] = useState()
 
+  console.log(account)
   useEffect(function () {
     if (account === 'pending') {
       console.log(account)

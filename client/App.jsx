@@ -11,6 +11,10 @@ import CustomerOrderRoute from "@/feature/CustomerOrderRoute/page"
 import CustomerRoute from "@/feature/CustomerRoute/page"
 import CustomerTourRoute from "@/feature/CustomerTourRoute/page"
 
+import ProtectAccountRoute from "./component/ProtectedPage/ProtectedAccountRoute"
+import ProtectAdminRoute from "./component/ProtectedPage/ProtectedAdminRoute"
+import ProtectUnAccountRoute from "./component/ProtectedPage/ProtectedUnAccountRoute"
+
 function App() {
   const dispatch = useDispatch()
 
@@ -20,13 +24,29 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/auth/*" element={<_AuthRoute />} />
+      <Route path="/auth/*" element={
+        <ProtectUnAccountRoute>
+          <_AuthRoute />
+        </ProtectUnAccountRoute>
+      } />
 
-      <Route path="/account/*" element={<_AccountRoute />} />
+      <Route path="/account/*" element={
+        <ProtectAccountRoute>
+          <_AccountRoute />
+        </ProtectAccountRoute>
+      } />
 
-      <Route path="/dashboard/*" element={<AdminRoute />} />
+      <Route path="/dashboard/*" element={
+        <ProtectAdminRoute>
+          <AdminRoute />
+        </ProtectAdminRoute>
+      } />
 
-      <Route path="/orders/*" element={<CustomerOrderRoute />} />
+      <Route path="/orders/*" element={
+        <ProtectAccountRoute>
+          <CustomerOrderRoute />
+        </ProtectAccountRoute>
+      } />
 
       <Route path="/tours/*" element={<CustomerTourRoute />} />
 

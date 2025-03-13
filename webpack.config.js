@@ -31,9 +31,14 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    modules: [path.resolve(__dirname, 'client'), 'node_modules'],
+    modules: [
+      path.resolve(__dirname, 'client/feature/AdminRoute'),
+      path.resolve(__dirname, 'client'),
+      'node_modules'
+    ],
     alias: {
       '@': path.resolve('client'),
+      '@admin': path.resolve('client/feature/AdminRoute'),
     },
     extensions: ['', '.js', '.jsx'],
   }

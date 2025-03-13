@@ -5,7 +5,7 @@ import { getAccount, logOutUser } from "@/redux/authSlice"
 
 import SettingCategoryItem from "../component/AccountInfoPage/SettingCategoryItem"
 
-function AccountInfoPage() {
+function InfoPage() {
   const dispatch = useDispatch()
   const customer = useSelector(getAccount)
 
@@ -43,4 +43,4 @@ function AccountInfoPage() {
   )
 }
 
-export default AccountInfoPage
+export default InfoPage

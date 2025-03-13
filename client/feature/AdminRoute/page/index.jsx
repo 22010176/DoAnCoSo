@@ -1,19 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-import AdminLayout from "@/component/AdminLayout/AdminLayout";
-import ProtectAdminRoute from "@/component/ProtectedPage/ProtectedAdminRoute";
+
+import AdminLayout from "@admin/component/AdminLayout/AdminLayout";
+import TourRoute from "@admin/feature/TourRoute/page/TourRoute";
 
 import DashboardPage from "./DashboardPage";
 
 function AdminRoute() {
   return (
     <Routes>
-      <Route path="/" element={
-        <ProtectAdminRoute>
-          <AdminLayout />
-        </ProtectAdminRoute>
-      }>
+      <Route path="/" element={<AdminLayout />}>
         <Route index element={<DashboardPage />} />
+
+        <Route path="/tours/*" element={<TourRoute />} />
       </Route>
     </Routes>
   )

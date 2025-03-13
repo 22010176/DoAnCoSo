@@ -4,10 +4,10 @@ import { faHouse, faLock, faShoppingCart, faUserCircle } from "@fortawesome/free
 import SettingCategory from "./SettingCategory";
 
 const data = [
-  { icon: faUserCircle, title: "Thông tin tài khoản" },
-  { icon: faHouse, title: "Địa chỉ" },
-  { icon: faShoppingCart, title: "Đơn hàng của bạn" },
-  { icon: faLock, title: "Đổi mật khẩu" },
+  { icon: faUserCircle, to: "", title: "Thông tin tài khoản" },
+  { icon: faHouse, to: "", title: "Địa chỉ" },
+  { icon: faShoppingCart, to: "", title: "Đơn hàng của bạn" },
+  { icon: faLock, to: "", title: "Đổi mật khẩu" },
 ];
 
 function Sidebar() {

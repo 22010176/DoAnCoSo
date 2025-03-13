@@ -1,13 +1,14 @@
 import { Route, Routes } from "react-router-dom"
 
-import AccountInfoLayout from "../component/AccountInfoLayout"
-import AccountInfoPage from "./AccountInfoPage"
+import AccountInfoLayout from "../component/AccountLayout"
+import InfoPage from "./InfoPage"
 
 function AccountRoute() {
   return (
     <Routes >
       <Route path="/" element={<AccountInfoLayout />}>
-        <Route index element={<AccountInfoPage />} />
+        <Route index element={<InfoPage />} />
+
       </Route>
     </Routes>
   )

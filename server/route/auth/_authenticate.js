@@ -1,9 +1,9 @@
 // /api/account/
-const { CheckUserSession } = require('../middleware/auth')
-const { CheckEmailExists, CheckEmailFormat, HashPassword, CreateRegisterErrorResponse, CreateUserInfo, CheckPhoneNumber, CreateAccountUser } = require('../middleware/auth/registerUser')
-const { CheckPassword, CreateResponse, GenereteAccessToken, GetUserInfoByEmail } = require('../middleware/auth/loginUser')
-const { GetUserInfo } = require('../middleware/auth/getUserInfo')
-const { DeleteUserSession, ErrorLogoutReponse } = require('../middleware/auth/LogoutUser')
+const { CheckUserSession, CheckOAuthUser } = require('../../middleware/authorizeUser')
+const { CheckEmailExists, CheckEmailFormat, HashPassword, CreateRegisterErrorResponse, CreateUserInfo, CheckPhoneNumber, CreateAccountUser } = require('../../middleware/auth/registerUser')
+const { CheckPassword, CreateResponse, GenereteAccessToken, GetUserInfoByEmail } = require('../../middleware/auth/loginUser')
+const { GetUserInfo, GetOAuthUserInfo } = require('../../middleware/auth/getUserInfo')
+const { DeleteUserSession, ErrorLogoutReponse } = require('../../middleware/auth/LogoutUser')
 
 const router = require('express').Router()
 
@@ -28,7 +28,9 @@ router.post('/login',
 
 // GET /api/account/info
 router.get('/info',
+  CheckOAuthUser,
   CheckUserSession,
+  GetOAuthUserInfo,
   GetUserInfo
 )
 

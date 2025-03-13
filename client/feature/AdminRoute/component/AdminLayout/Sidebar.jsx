@@ -3,12 +3,14 @@ import { faArrowRightToBracket, faBox, faFileInvoice, faFileInvoiceDollar, faGlo
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 
+import SidebarItem from "./SidebarItem";
+
 const data = [
-  { icon: faBox, text: "Bảng điều khiển" },
-  { icon: faUser, text: "Quản lý khách hàng" },
-  { icon: faGlobe, text: "Quản lý tour du lịch" },
-  { icon: faFileInvoice, text: "Quản lý đơn hàng" },
-  { icon: faFileInvoiceDollar, text: "Báo cáo doanh thu" },
+  { icon: faBox, to: "/dashboard", text: "Bảng điều khiển" },
+  { icon: faUser, to: "/dashboard/customers", text: "Quản lý khách hàng" },
+  { icon: faGlobe, to: "/dashboard/tours", text: "Quản lý tour du lịch" },
+  { icon: faFileInvoice, to: "/dashboard/orders", text: "Quản lý đơn hàng" },
+  { icon: faFileInvoiceDollar, to: "/dashboard/reports", text: "Báo cáo doanh thu" },
 ]
 
 function Sidebar() {
@@ -25,13 +27,7 @@ function Sidebar() {
       </div>
 
       <div className="flex flex-col gap-5 m-5 grow">
-        {data.map((item, j) => (
-
-          <div key={j} className="rounded-xl hover:bg-gray-50/10 px-4 py-3 items-center grid md:grid-cols-[auto_1fr] gap-3 text-white">
-            <FontAwesomeIcon icon={item.icon} className="text-2xl w-8" />
-            <p className="md:block hidden text-nowrap font-semibold">{item.text}</p>
-          </div>
-        ))}
+        {data.map((item, j) => <SidebarItem key={j} {...item} />)}
       </div>
 
       <button onClick={onLogOutClick} color="green" variant="text" className="text-white flex gap-5 items-center md:justify-start justify-center p-5 bg-green-700 hover:bg-green-800/50">
