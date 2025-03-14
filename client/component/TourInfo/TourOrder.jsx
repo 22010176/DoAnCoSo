@@ -1,8 +1,9 @@
 import { Badge } from "antd"
+import { Link } from "react-router-dom"
 
 function TourOrder() {
   return (
-    <div className="flex justify-between items-center gap-2">
+    <Link to="/tours/23" className="flex justify-between items-center gap-2">
       <div className="flex gap-5 items-center">
         <Badge color="blue" className="h-full " count="5">
           <img className="rounded min-w-30 size-full object-cover" src="https://bizweb.dktcdn.net/thumb/thumb/100/505/645/products/sp4-2b8e7737-fc0e-4787-8148-a6965456e80f.jpg?v=1703216777473" alt="" />
@@ -13,7 +14,7 @@ function TourOrder() {
         </div>
       </div>
       <p className="xl:text-lg text-gray-800 font-semibold">5.000.000₫</p>
-    </div>
+    </Link>
   )
 }
 

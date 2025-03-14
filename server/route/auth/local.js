@@ -1,13 +1,14 @@
-// /api/account/
-const { CheckUserSession, CheckOAuthUser } = require('../../middleware/authorizeUser')
-const { CheckEmailExists, CheckEmailFormat, HashPassword, CreateRegisterErrorResponse, CreateUserInfo, CheckPhoneNumber, CreateAccountUser } = require('../../middleware/auth/registerUser')
-const { CheckPassword, CreateResponse, GenereteAccessToken, GetUserInfoByEmail } = require('../../middleware/auth/loginUser')
-const { GetUserInfo, GetOAuthUserInfo } = require('../../middleware/auth/getUserInfo')
-const { DeleteUserSession, ErrorLogoutReponse } = require('../../middleware/auth/LogoutUser')
-
+// /api/auth/local/
+const passport = require('passport')
 const router = require('express').Router()
 
-// POST /api/account/register
+const { CheckUserSession, CheckOAuthUser } = require('../../middleware/authorizeUser')
+const { CheckEmailExists, CheckEmailFormat, HashPassword, CreateRegisterErrorResponse, CreateUserInfo, CheckPhoneNumber, CreateAccountUser } = require('../../middleware/auth/registerUser')
+const { GetUserInfo, GetOAuthUserInfo } = require('../../middleware/auth/getUserInfo')
+const { DeleteUserSession, ErrorLogoutReponse } = require('../../middleware/auth/LogoutUser')
+const { CheckPassword, CreateResponse, GenereteAccessToken, GetUserInfoByEmail } = require('../../middleware/auth/loginUser')
+
+// POST /api/auth/local/register
 router.post('/register',
   CheckEmailFormat,
   CheckEmailExists,
@@ -18,7 +19,7 @@ router.post('/register',
   CreateRegisterErrorResponse
 )
 
-// POST /api/account/login
+// POST /api/auth/local/login
 router.post('/login',
   GetUserInfoByEmail,
   CheckPassword,
@@ -26,7 +27,7 @@ router.post('/login',
   CreateResponse
 )
 
-// GET /api/account/info
+// GET /api/auth/local/info
 router.get('/info',
   CheckOAuthUser,
   CheckUserSession,
@@ -34,7 +35,7 @@ router.get('/info',
   GetUserInfo
 )
 
-// POST /api/account/logout
+// POST /api/auth/local/logout
 router.post('/logout',
   CheckUserSession,
   DeleteUserSession,
@@ -42,8 +43,8 @@ router.post('/logout',
 )
 
 
-// router.use(function (req, res) {
-//   res.json({ aa: 'ddd' })
-// })
+router.use(function (req, res) {
+  res.json({ aa: 'ddd' })
+})
 
 module.exports = router

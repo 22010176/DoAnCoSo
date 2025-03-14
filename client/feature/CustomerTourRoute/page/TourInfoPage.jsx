@@ -10,7 +10,7 @@ import TourList from "../component/TourInfoPage/TourList"
 
 const items = [
   { title: <Link to="/" style={{ color: "white" }} className="text-xl font-semibold" >Trang chủ</Link>, },
-  { title: <Link to="/tour" style={{ color: "white" }} className="text-white font-semibold text-xl">Sản phẩm</Link>, },
+  { title: <Link to="/tours" style={{ color: "white" }} className="text-white font-semibold text-xl">Sản phẩm</Link>, },
 ]
 
 const tabItem = [

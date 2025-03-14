@@ -8,8 +8,8 @@ async function GetUserInfoByEmail(req, res, next) {
   // const user = await DatabaseQuery(getUserByEmailQuery, [[[email]]])
   const result = await User.findOne({ email })
 
-  console.log(result)
-  if (!result) return res.json({
+  console.log({ result })
+  if (result == null) return res.json({
     success: false,
     message: "Cant find user.",
     data: null
@@ -20,16 +20,19 @@ async function GetUserInfoByEmail(req, res, next) {
 }
 
 async function CheckPassword(req, res, next) {
-  const { matKhau } = req.body
+  const { password } = req.body
   const { user } = res.locals
+  try {
+    const result = await bcrypt.compare(password, user.password)
 
-  const result = await bcrypt.compare(matKhau, user.password)
-
-  if (!result) return res.json({
-    success: false,
-    message: "Password or email is invalid.",
-    data: null
-  })
+    if (!result) throw new Error("dd")
+  } catch {
+    return res.json({
+      success: false,
+      message: "Password or email is invalid.",
+      data: null
+    })
+  }
 
   res.locals.id = user._id
   next()

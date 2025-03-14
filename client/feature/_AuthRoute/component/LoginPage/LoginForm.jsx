@@ -1,8 +1,8 @@
 import { Button, Input, notification } from "antd"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 
-import { getAccount, getUserInfo, logInUser } from "@/redux/authSlice"
+import { getUserInfo } from "@/redux/authSlice"
 
 import { LoginUser } from "../../service/users"
 
@@ -42,7 +42,7 @@ function LoginForm() {
         </div>
         <Input name="email" size="large" placeholder="email" />
         <div className="text-left grid gap-1" >
-          <Input name="matKhau" type="password" size="large" placeholder="Mật khẩu" />
+          <Input name="password" type="password" size="large" placeholder="Mật khẩu" />
           <Link to="/" size="large" className="w-min text-nowrap text-left text-blue-400">Quên mật khẩu</Link>
         </div>
         <Button htmlType="submit" size="large" className="flex px-5 py-2 border rounded-2xl items-center gap-5" >

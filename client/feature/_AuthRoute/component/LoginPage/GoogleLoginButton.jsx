@@ -24,7 +24,7 @@ function GoogleLoginButton() {
   }, [])
 
   function handleLogin() {
-    window.open("http://localhost:3000/google/auth", "_self");
+    window.open("/api/auth/google/login", "_self");
   }
 
   return (

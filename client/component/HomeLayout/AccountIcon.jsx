@@ -41,7 +41,7 @@ const authorizeAccount = [
 
 function AccountIcon({ }) {
   const account = useSelector(getAccount)
-  const items = account == null ? guessAccount : account.vaiTro === '1' ? adminAccount : authorizeAccount
+  const items = account == null || account === "pending..." ? guessAccount : account.vaiTro === '1' ? adminAccount : authorizeAccount
 
   return (
     <Dropdown menu={{ items }} placement="bottom" arrow>

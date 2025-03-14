@@ -13,7 +13,7 @@ function InfoPage() {
     { title: "Họ và tên", value: [customer?.ho, customer?.ten].join(' ') },
     { title: "Email", value: customer?.email },
     { title: "Số điện thoại", value: customer?.soDienThoai },
-    { title: "Ngày tạo", value: new Date(customer?.created_at).toLocaleString() },
+    { title: "Ngày tạo", value: customer?.created_at && new Date(customer?.created_at).toLocaleString() },
     { title: "Loại tài khoản", value: customer?.tenVaiTro },
   ]
 
