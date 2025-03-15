@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 
-
 import AdminLayout from "@/feature/AdminRoute/component/AdminLayout";
 
 import CustomerRoute from "@admin/feature/CustomerRoute";

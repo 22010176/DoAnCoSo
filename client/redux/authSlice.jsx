@@ -1,11 +1,14 @@
 import { GoogleAuth, LocalAuth } from "@/Api";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+export const defaultPending = 'pending...'
+
 export const getUserInfo = createAsyncThunk(
   'authentication/getUserInfo',
   async function (params, thunkAPI) {
     const response = await LocalAuth.get('/info')
       .then(response => response.data)
+
 
     return response.data
   }
@@ -67,21 +70,21 @@ const authSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(getUserInfo.pending, (state, action) => {
-      state.account = 'pending...'
+      state.account = defaultPending
     })
     builder.addCase(getUserInfo.fulfilled, (state, action) => {
       state.account = action.payload?.[0]
     })
 
     builder.addCase(logInUser.pending, (state, action) => {
-      state.account = 'pending...'
+      state.account = defaultPending
     })
     builder.addCase(logInUser.fulfilled, (state, action) => {
       state.account = action.payload?.[0]
     })
 
     builder.addCase(getGoogleUserInfo.pending, (state, action) => {
-      state.account = 'pending...'
+      state.account = defaultPending
     })
     builder.addCase(getGoogleUserInfo.fulfilled, (state, action) => {
       console.log(action)

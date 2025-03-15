@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { Navigate, useLocation } from "react-router-dom"
 
-import { getAccount } from "@/redux/authSlice"
+import { defaultPending, getAccount } from "@/redux/authSlice"
 
 function ProtectUnAccountRoute({ children }) {
   const account = useSelector(getAccount)
@@ -10,9 +10,9 @@ function ProtectUnAccountRoute({ children }) {
   const [Element, setElement] = useState(children)
 
   useEffect(function () {
-    if (account === ('pending...')) return
+    // if (account === defaultPending) return
 
-    setElement(!account ? children : <Navigate to="/" />)
+    // setElement(!account ? children : <Navigate to="/" />)
   }, [account, location])
 
   return Element
