@@ -12,8 +12,9 @@ import StatisticPage from "./page/StatisticPage";
 function AdminRoute() {
   return (
     <Routes>
-      <Route path="/" element={<AdminLayout />}>
-        <Route index element={<DashboardPage />} />
+      <Route index element={<DashboardPage />} />
+
+      <Route element={<AdminLayout />}>
         <Route path="/statistic" element={<StatisticPage />} />
 
         <Route path="/tours/*" element={<ToursRoute />} />

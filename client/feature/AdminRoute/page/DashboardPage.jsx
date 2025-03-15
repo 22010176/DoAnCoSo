@@ -6,6 +6,7 @@ import { Bar, Line, Pie } from 'react-chartjs-2';
 import { faDollar, faRectangleList, faUser } from '@fortawesome/free-solid-svg-icons';
 
 import Header from "../component/Header";
+import Sidebar from '@admin/component/AdminLayout/Sidebar';
 
 const lineData = {
   labels: ['Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7'],
@@ -87,41 +88,49 @@ function DashboardPage() {
   };
 
   return (
-    <div className='grow overflow-y-auto flex flex-col gap-5 -m-5 p-5'>
-      <Header className="z-1 w-full">Tổng quan trong tháng </Header>
 
-      <div className="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-4">
-        <Card size='default' className="text-center" title={<FontAwesomeIcon className='text-green-500 text-4xl' icon={faUser} />}>
-          <p className="text-2xl font-bold">333030</p>
-          <p>Tổng khách hàng</p>
-        </Card>
-        <Card size='default' className="text-center" title={<FontAwesomeIcon className='text-orange-500 text-4xl' icon={faRectangleList} />}>
-          <p className="text-2xl font-bold">333030</p>
-          <p>Tổng đơn hàng</p>
-        </Card>
-        <Card size='default' className="text-center 2xl:col-span-1 lg:col-span-2" title={<FontAwesomeIcon className='text-blue-500 text-4xl' icon={faDollar} />}>
-          <p className="text-2xl font-bold">333030</p>
-          <p>Tổng doanh thu</p>
-        </Card>
-        <Card title="Tình trạng đơn hàng" className='p-0 lg:col-span-2 2xl:col-span-3'>
-          <Table columns={orderColumns} dataSource={orderData} pagination={false} rowKey="id" className='m-0' />
-        </Card>
-        <Card title="Thống kê doanh thu 6 tháng">
-          <Bar data={revenueData} />
-        </Card>
-        <Card title="Thống kê đơn hàng và khách hàng trong 6 tháng">
-          <Line data={lineData} />
-        </Card>
+    <div className="w-screen h-screen overflow-hidden flex">
+      {/* sidebar */}
+      <Sidebar />
 
-        <Card title="Tỉ lệ tour">
-          <Pie data={tourData} />
-        </Card>
-        <Card title="Tỉ lệ đơn hàng">
-          <Pie data={orderStatusData} />
-        </Card>
+      {/* main content */}
+      <div className="h-full grow bg-gray-200 flex flex-col gap-5 p-5 relative overflow-auto">
+        <Header className="z-1 w-full">Tổng quan trong tháng </Header>
+
+        <div className="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-4">
+          <Card size='default' className="text-center" title={<FontAwesomeIcon className='text-green-500 text-4xl' icon={faUser} />}>
+            <p className="text-2xl font-bold">333030</p>
+            <p>Tổng khách hàng</p>
+          </Card>
+          <Card size='default' className="text-center" title={<FontAwesomeIcon className='text-orange-500 text-4xl' icon={faRectangleList} />}>
+            <p className="text-2xl font-bold">333030</p>
+            <p>Tổng đơn hàng</p>
+          </Card>
+          <Card size='default' className="text-center 2xl:col-span-1 lg:col-span-2" title={<FontAwesomeIcon className='text-blue-500 text-4xl' icon={faDollar} />}>
+            <p className="text-2xl font-bold">333030</p>
+            <p>Tổng doanh thu</p>
+          </Card>
+          <Card title="Tình trạng đơn hàng" className='p-0 lg:col-span-2 2xl:col-span-3'>
+            <Table columns={orderColumns} dataSource={orderData} pagination={false} rowKey="id" className='m-0' />
+          </Card>
+          <Card title="Thống kê doanh thu 6 tháng">
+            <Bar data={revenueData} />
+          </Card>
+          <Card title="Thống kê đơn hàng và khách hàng trong 6 tháng">
+            <Line data={lineData} />
+          </Card>
+
+          <Card title="Tỉ lệ tour">
+            <Pie data={tourData} />
+          </Card>
+          <Card title="Tỉ lệ đơn hàng">
+            <Pie data={orderStatusData} />
+          </Card>
+        </div>
+
       </div>
-
     </div>
+
   );
 }
 

@@ -20,7 +20,7 @@ function Sidebar() {
   }
 
   return (
-    <div className="h-full md:w-70 bg-green-700 text-white flex flex-col relative">
+    <div className="h-full w-min bg-green-700 text-white flex flex-col relative">
       <div className="flex md:flex-row flex-col md:gap-4 gap-2 items-center py-5 mx-5 border-b border-white">
         <img className="rounded-full md:size-18 size-15" src="\assets\imgs\bg.jpg" alt="" />
         <p className="md:text-2xl sm:block hidden text-xl font-bold">User</p>
