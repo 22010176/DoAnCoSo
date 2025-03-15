@@ -10,7 +10,7 @@ const data = [
   { icon: faUser, to: "/dashboard/customers", text: "Quản lý khách hàng" },
   { icon: faGlobe, to: "/dashboard/tours", text: "Quản lý tour du lịch" },
   { icon: faFileInvoice, to: "/dashboard/orders", text: "Quản lý đơn hàng" },
-  { icon: faFileInvoiceDollar, to: "/dashboard/reports", text: "Báo cáo doanh thu" },
+  { icon: faFileInvoiceDollar, to: "/dashboard/statistic", text: "Báo cáo doanh thu" },
 ]
 
 function Sidebar() {

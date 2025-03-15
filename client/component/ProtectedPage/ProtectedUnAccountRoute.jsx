@@ -6,14 +6,14 @@ import { getAccount } from "@/redux/authSlice"
 
 function ProtectUnAccountRoute({ children }) {
   const account = useSelector(getAccount)
-  const [Element, setElement] = useState(children)
   const location = useLocation()
+  const [Element, setElement] = useState(children)
 
-  // useEffect(function () {
-  //   if (account === ('pending...')) return
-  //   console.log(account)
-  //   setElement(!account ? children : <Navigate to="/" />)
-  // }, [account, location])
+  useEffect(function () {
+    if (account === ('pending...')) return
+
+    setElement(!account ? children : <Navigate to="/" />)
+  }, [account, location])
 
   return Element
 }
