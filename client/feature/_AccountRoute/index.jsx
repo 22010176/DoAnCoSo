@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 
-import AccountInfoLayout from "../component/AccountLayout"
-import InfoPage from "./InfoPage"
+import AccountInfoLayout from "./component/AccountLayout"
+import InfoPage from "./page/InfoPage"
 
 function AccountRoute() {
   return (

@@ -1,5 +1,5 @@
+import { GoogleAuth, LocalAuth } from "@/Api";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import API, { GoogleAuth, LocalAuth } from "@/Api";
 
 export const getUserInfo = createAsyncThunk(
   'authentication/getUserInfo',

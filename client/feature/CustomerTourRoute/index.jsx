@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom"
 
-import HomeLayout from "@/component/HomeLayout/HomeLayout"
+import HomeLayout from "@/component/HomeLayout"
 
-import TourInfoPage from "./TourInfoPage"
-import TourPage from "./TourPage"
+import TourInfoPage from "./page/TourInfoPage"
+import TourPage from "./page/TourPage"
 
 function CustomerTourRoute() {
   return (

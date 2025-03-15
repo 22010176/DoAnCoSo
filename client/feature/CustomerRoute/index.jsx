@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
-import HomeLayout from '@/component/HomeLayout/HomeLayout';
+import HomeLayout from '@/component/HomeLayout';
 
-import ContactPage from "./ContactPage";
-import HomePage from "./HomePage";
-import IntroPage from "./IntroPage";
+import ContactPage from "./page/IntroPage";
+import HomePage from "./page/HomePage";
+import IntroPage from "./page/IntroPage";
 
 function CustomerRoute() {
   return (

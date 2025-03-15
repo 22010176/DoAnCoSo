@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-import HomeLayout from "component/HomeLayout/HomeLayout";
-
-import CheckoutPage from "./CheckoutPage";
-import OrderPage from "./OrderPage";
+import HomeLayout from "@/component/HomeLayout";
 import ProtectAccountRoute from "@/component/ProtectedPage/ProtectedAccountRoute";
+
+import CheckoutPage from "./page/CheckoutPage";
+import OrderPage from "./page/OrderPage";
 
 
 function CustomerOrderRoute() {

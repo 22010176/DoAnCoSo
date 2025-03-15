@@ -9,11 +9,11 @@ function ProtectUnAccountRoute({ children }) {
   const [Element, setElement] = useState(children)
   const location = useLocation()
 
-  useEffect(function () {
-    if (account === ('pending...')) return
-    console.log(account)
-    setElement(!account ? children : <Navigate to="/" />)
-  }, [account, location])
+  // useEffect(function () {
+  //   if (account === ('pending...')) return
+  //   console.log(account)
+  //   setElement(!account ? children : <Navigate to="/" />)
+  // }, [account, location])
 
   return Element
 }
