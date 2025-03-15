@@ -172,9 +172,9 @@ function ManageToursPage() {
 
   return (
     <>
-      <Header className="mx-5 mt-5">Quản lý tour du lịch</Header>
+      <Header >Quản lý tour du lịch</Header>
 
-      <Container className="mx-5 mb-5 p-5 flex flex-col">
+      <Container className="flex flex-col">
         <div className="flex flex-wrap justify-between items-center mb-6">
           <div className="flex space-x-2">
             <Button type="primary" className="bg-green-500 hover:bg-green-600 border-green-500" icon={<DownloadOutlined />}            >
@@ -210,12 +210,7 @@ function ManageToursPage() {
           />
         </div>
 
-        <Table className="bg-white rounded shadow"
-          dataSource={dataSource}
-          columns={columns} bordered
-          scroll={{ y: 450 }}  // This enables the fixed header with vertical scrolling
-          sticky  // This ensures the header stays fixed at the top during scrolling
-        />
+        <Table className="bg-white rounded shadow" dataSource={dataSource} columns={columns} bordered />
       </Container>
     </>
   );

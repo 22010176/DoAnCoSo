@@ -3,11 +3,11 @@
     "baseUrl": ".",
     "module": "NodeNext",
     "paths": {
-      "@/*": [
-        "./client/*"
-      ],
       "@admin/*": [
         "./client/feature/AdminRoute/*"
+      ],
+      "@/*": [
+        "./client/*"
       ],
     }
   }

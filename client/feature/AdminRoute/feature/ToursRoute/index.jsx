@@ -4,7 +4,7 @@ import CreateTourPage from "./page/CreateTourPage"
 import ManageToursPage from "./page/ManageToursPage"
 import TourDetailsPage from "./page/TourDetailsPage"
 
-function AdminTourRoute() {
+function ToursRoute() {
   return (
     <Routes>
       <Route index element={<ManageToursPage />} />
@@ -14,4 +14,4 @@ function AdminTourRoute() {
   )
 }
 
-export default AdminTourRoute
+export default ToursRoute

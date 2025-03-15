@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
-import AdminLayout from "@/feature/AdminRoute/component/AdminLayout";
+import AdminLayout from "@admin/component/AdminLayout";
 
-import CustomerRoute from "@admin/feature/CustomerRoute";
-import OrderRoute from "@admin/feature/OrderRoute";
-import TourRoute from "@admin/feature/TourRoute";
+import CustomersRoute from "@admin/feature/CustomersRoute";
+import OrdersRoute from "@admin/feature/OrdersRoute";
+import ToursRoute from "@admin/feature/ToursRoute";
 
 import DashboardPage from "./page/DashboardPage";
 import StatisticPage from "./page/StatisticPage";
@@ -16,9 +16,9 @@ function AdminRoute() {
         <Route index element={<DashboardPage />} />
         <Route path="/statistic" element={<StatisticPage />} />
 
-        <Route path="/tours/*" element={<TourRoute />} />
-        <Route path="/orders/*" element={<OrderRoute />} />
-        <Route path="/customers/*" element={<CustomerRoute />} />
+        <Route path="/tours/*" element={<ToursRoute />} />
+        <Route path="/orders/*" element={<OrdersRoute />} />
+        <Route path="/customers/*" element={<CustomersRoute />} />
       </Route>
     </Routes>
   )

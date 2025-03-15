@@ -87,7 +87,7 @@ function DashboardPage() {
   };
 
   return (
-    <div className='grow overflow-y-auto flex flex-col gap-5 p-5'>
+    <div className='grow overflow-y-auto flex flex-col gap-5 -m-5 p-5'>
       <Header className="z-1 w-full">Tổng quan trong tháng </Header>
 
       <div className="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-4">

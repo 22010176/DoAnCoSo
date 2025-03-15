@@ -11,7 +11,7 @@ function AdminLayout() {
       <Sidebar />
 
       {/* main content */}
-      <div className="h-full grow bg-gray-200 flex flex-col gap-5 relative">
+      <div className="h-full grow bg-gray-200 flex flex-col gap-5 relative p-5">
         <Outlet />
       </div>
     </div>

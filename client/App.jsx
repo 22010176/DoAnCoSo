@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
 import { Route, Routes } from "react-router-dom"
 
 import _AccountRoute from '@/feature/_AccountRoute'
@@ -14,12 +12,6 @@ import ProtectAdminRoute from "./component/ProtectedPage/ProtectedAdminRoute"
 import ProtectUnAccountRoute from "./component/ProtectedPage/ProtectedUnAccountRoute"
 
 function App() {
-  const dispatch = useDispatch()
-
-  useEffect(function () {
-
-  }, [])
-
   return (
     <Routes>
       <Route path="/auth/*" element={<ProtectUnAccountRoute children={<_AuthRoute />} />} />
