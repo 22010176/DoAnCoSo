@@ -10,18 +10,16 @@ import CustomerOrderRoute from "@/feature/CustomerOrderRoute/page"
 import CustomerRoute from "@/feature/CustomerRoute/page"
 import CustomerTourRoute from "@/feature/CustomerTourRoute/page"
 
-import { GoogleAuth } from "./Api"
 import ProtectAccountRoute from "./component/ProtectedPage/ProtectedAccountRoute"
 import ProtectAdminRoute from "./component/ProtectedPage/ProtectedAdminRoute"
 import ProtectUnAccountRoute from "./component/ProtectedPage/ProtectedUnAccountRoute"
-import { getGoogleUserInfo } from "./redux/authSlice"
 
 function App() {
   const dispatch = useDispatch()
 
   useEffect(function () {
     // dispatch(logInUser({ email: "testt", password: "test" }))
-    dispatch(getGoogleUserInfo())
+
     // const result = GoogleAuth.get('/profile')
     //   .then(res => console.log(res.data))
   }, [])

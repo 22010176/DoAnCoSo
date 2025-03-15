@@ -9,7 +9,7 @@ function AdminTourRoute() {
   return (
     <Routes>
       <Route index element={<ManageToursPage />} />
-      <Route path="/create" element={<CreateTourPage />} />
+      <Route path="/create" element={<UpdateTourPage />} />
       <Route path="/details/:tourId" element={<TourDetailsPage />} />
       <Route path="/update/:tourId" element={<UpdateTourPage />} />
     </Routes>

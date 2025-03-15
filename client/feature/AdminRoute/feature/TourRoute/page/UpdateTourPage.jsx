@@ -8,15 +8,6 @@ import { faArrowLeft, faSave } from '@fortawesome/free-solid-svg-icons';
 import TourForm from '../component/UpdateTourPage/TourForm';
 
 const UpdateTourPage = () => {
-  const [tourName, setTourName] = useState('Du lịch Nha Trang - WinWorders Nha Trang - Hòn Mụn 3N2Đ');
-  const [departure, setDeparture] = useState('HCM');
-  const [destination, setDestination] = useState('Nha Trang');
-  const [days, setDays] = useState('3 ngày');
-  const [adultPrice, setAdultPrice] = useState('1.000.000');
-  const [childPrice, setChildPrice] = useState('800.000');
-  const [infantPrice, setInfantPrice] = useState('500.000');
-  const [description, setDescription] = useState('Thành phố Nha Trang nổi tiếng du khách không chỉ bởi vẻ đẹp của các bãi biển, những trải nghiệm thú vị khó quên, hay sự mến khách của người dân địa phương mà còn bởi những món ăn ngon đậm đà hương vị miền Trung. Bên cạnh đó, vùng đất đầy nắng và gió - Ninh Thuận,');
-  const [transport, setTransport] = useState('Máy bay');
   const [images, setImages] = useState([
     '/api/placeholder/640/360',
     '/api/placeholder/640/360'
@@ -34,8 +25,8 @@ const UpdateTourPage = () => {
 
   return (
     <>
-      <Header>Quản lý tour du lịch</Header>
-      <Container className="p-5">
+      <Header className="mx-5 mt-5">Quản lý tour du lịch</Header>
+      <Container className="p-5 mx-5 mb-5">
         <div className="flex gap-4 mb-2">
           <Button className='px-5 flex gap-2 items-center' size='large' color='blue' variant='outlined'>
             <FontAwesomeIcon icon={faArrowLeft} />

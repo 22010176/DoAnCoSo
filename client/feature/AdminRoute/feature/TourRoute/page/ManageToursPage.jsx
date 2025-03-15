@@ -5,6 +5,7 @@ import { SearchOutlined, PlusOutlined, DownloadOutlined, InfoCircleOutlined } fr
 
 import Header from "@admin/component/Header"
 import Container from "@admin/component/Container"
+import { Link } from 'react-router-dom';
 
 
 
@@ -171,9 +172,9 @@ function ManageToursPage() {
 
   return (
     <>
-      <Header>Quản lý tour du lịch</Header>
+      <Header className="mx-5 mt-5">Quản lý tour du lịch</Header>
 
-      <Container className="p-5 flex flex-col">
+      <Container className="mx-5 mb-5 p-5 flex flex-col">
         <div className="flex flex-wrap justify-between items-center mb-6">
           <div className="flex space-x-2">
             <Button type="primary" className="bg-green-500 hover:bg-green-600 border-green-500" icon={<DownloadOutlined />}            >
@@ -187,9 +188,11 @@ function ManageToursPage() {
           <div className="flex space-x-2">
             <Input placeholder="Tìm kiếm tour" className="w-64 rounded-lg"
               prefix={<SearchOutlined className="text-gray-400" />} />
-            <Button type="primary" className="bg-blue-500 hover:bg-blue-600 border-blue-500" icon={<PlusOutlined />}            >
-              Thêm mới tour du lịch
-            </Button>
+            <Link to="/dashboard/tours/create">
+              <Button type="primary" className="bg-blue-500 hover:bg-blue-600 border-blue-500" icon={<PlusOutlined />}            >
+                Thêm mới tour du lịch
+              </Button>
+            </Link>
           </div>
         </div>
 

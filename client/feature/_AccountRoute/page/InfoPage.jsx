@@ -28,7 +28,7 @@ function InfoPage() {
           <p className="text-3xl font-bold">Thông tin cá nhân</p>
           <p className="text-gray-500">Cập nhật thông tin của bạn và tìm hiểu các thông tin này được sử dụng ra sao.</p>
         </div>
-        <img className="size-20 rounded-full" src="\assets\imgs\bg.jpg" alt="" />
+        <img className="size-20 rounded-full" src={customer?.hinhAnh || "/assets/imgs/bg.jpg"} alt="" />
 
       </div>
 

@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import API, { GoogleAuth } from "@/Api";
+import API, { GoogleAuth, LocalAuth } from "@/Api";
 
 export const getUserInfo = createAsyncThunk(
   'authentication/getUserInfo',
   async function (params, thunkAPI) {
-    const response = await API.get('/auth/local/info')
+    const response = await LocalAuth.get('/info')
       .then(response => response.data)
 
     return response.data
@@ -14,15 +14,13 @@ export const getUserInfo = createAsyncThunk(
 export const logInUser = createAsyncThunk(
   'authentication/login',
   async function ({ email, password }, thunkAPI) {
-    const temp = await API.post('/auth/local/login', { email, password })
+    const temp = await LocalAuth.post('/login', { email, password })
       .then(function (response) { return response.data })
-    console.log(temp)
 
     if (!temp.success) return
 
-    const response = await API.get('/auth/local/info')
+    const response = await LocalAuth.get('/info')
       .then(response => response.data)
-
 
     return response
   }
@@ -53,7 +51,7 @@ export const getGoogleUserInfo = createAsyncThunk(
 export const logOutUser = createAsyncThunk(
   'authentication/logout',
   async function (params, thunkAPI) {
-    const result = await API.post('/auth/local/logout')
+    const result = await LocalAuth.post('/logout')
       .then(function (response) {
         return response.data
       })
