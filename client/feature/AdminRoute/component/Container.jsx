@@ -1,8 +1,8 @@
-function Container({ children, className, ...props }) {
+function Container({ As = 'div', children, className, ...props }) {
   return (
-    <div {...props} className={[className, "bg-white rounded-xl shadow p-5"].join(' ')}>
+    <As {...props} className={[className, "bg-white rounded-xl shadow p-5"].join(' ')}>
       {children}
-    </div>
+    </As>
   )
 }
 
