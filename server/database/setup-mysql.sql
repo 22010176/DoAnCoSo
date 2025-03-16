@@ -1,13 +1,13 @@
 DROP DATABASE IF EXISTS quanLyBooking;
 CREATE DATABASE quanLyBooking;
+
 USE quanLyBooking;
 
 -- ___________________________________________________________________________________________________________________________
 -- Tour du lich_______________________________________________________________________________________________________________
 -- ___________________________________________________________________________________________________________________________
 DROP TABLE IF EXISTS diaDiem;
-CREATE TABLE diaDiem
-(
+CREATE TABLE diaDiem (
   id VARCHAR(256) PRIMARY KEY,
   tenDiaDiem VARCHAR(256),
   quocGia VARCHAR(256),
@@ -44,45 +44,23 @@ VALUES
   ('2', 'hoat_dong', 'hoạt động');
 
 DROP TABLE IF EXISTS tour;
-CREATE TABLE tour
-(
-  id VARCHAR(256) PRIMARY KEY,
-  tenTour VARCHAR(256),
-  soNgay SMALLINT DEFAULT 1,
-  giaNguoiLon INT,
-  giaTreEm INT,
-  giaEmBe INT,
-  xuatPhat VARCHAR(256),
-  diemDen VARCHAR(256),
-  phuongTien VARCHAR(256),
-  trangThai VARCHAR(256),
-
-  FOREIGN KEY(xuatPhat) REFERENCES diaDiem(id),
-  FOREIGN KEY(diemDen) REFERENCES diaDiem(id),
-  FOREIGN KEY(phuongTien) REFERENCES phuongTien(id),
-  FOREIGN KEY(trangThai) REFERENCES trangThaiTour(id)
-);
-
-DROP TABLE IF EXISTS bangGia;
-CREATE TABLE bangGia
-(
-  id VARCHAR(256) PRIMARY KEY,
-  doiTuong VARCHAR(256),
-  giaCa INT,
-  capNhatLanCuoi DATETIME DEFAULT CURRENT_TIMESTAMP,
-  tour VARCHAR(256),
-
-  FOREIGN KEY(tour) REFERENCES tour(id)
-);
-
-DROP TABLE IF EXISTS moTaTour;
-CREATE TABLE moTaTour
-(
-  id VARCHAR(256) PRIMARY KEY,
-  noiDung VARCHAR(256),
-  tour VARCHAR(256),
-
-  FOREIGN KEY(tour) REFERENCES tour(id)
+CREATE TABLE tour (
+    id VARCHAR(256) PRIMARY KEY,
+    tenTour VARCHAR(256),
+    soNgay SMALLINT DEFAULT 1,
+    giaNguoiLon INT UNSIGNED,
+    giaTreEm INT UNSIGNED,
+    giaEmBe INT UNSIGNED,
+    xuatPhat VARCHAR(256),
+    diemDen VARCHAR(256),
+    phuongTien VARCHAR(256),
+    trangThai VARCHAR(256) DEFAULT '2',
+    moTa VARCHAR(1024),
+    ngayTao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (phuongTien)
+        REFERENCES phuongTien (id),
+    FOREIGN KEY (trangThai)
+        REFERENCES trangThaiTour (id)
 );
 
 DROP TABLE IF EXISTS hinhAnhTour;
@@ -90,9 +68,9 @@ CREATE TABLE hinhAnhTour
 (
   id VARCHAR(256) PRIMARY KEY,
   hinhAnh VARCHAR(256),
-  moTaTour VARCHAR(256),
+  tour VARCHAR(256),
 
-  FOREIGN KEY(moTaTour) REFERENCES moTaTour(id)
+  FOREIGN KEY(tour) REFERENCES tour(id)
 );
 
 DROP TABLE IF EXISTS lichTrinhTour;
@@ -100,12 +78,14 @@ CREATE TABLE lichTrinhTour
 (
   id VARCHAR(256) PRIMARY KEY,
   thuTuNgay SMALLINT DEFAULT 1,
-  noiDung VARCHAR(256),
-  moTaTour VARCHAR(256),
+  deMuc VARCHAR(256),
+  noiDung VARCHAR(1024),
+  tour VARCHAR(256),
+  
+  UNIQUE(tour, thuTuNgay),
 
-  FOREIGN KEY(moTaTour) REFERENCES moTaTour(id)
+  FOREIGN KEY(tour) REFERENCES tour(id)
 );
-
 
 -- ___________________________________________________________________________________________________________________________
 -- Thong tin tai khoan________________________________________________________________________________________________________
@@ -122,7 +102,6 @@ INSERT INTO vaiTro
 VALUES
   ('1', 'admin', 'Quản trị viên'),
   ('2', 'guess', 'Khách hàng');
-
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users

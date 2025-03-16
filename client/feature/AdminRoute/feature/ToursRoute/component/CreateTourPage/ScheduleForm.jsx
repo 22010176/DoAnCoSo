@@ -1,13 +1,12 @@
-import { Button, Tabs } from "antd"
-import { useRef, useState } from "react";
-import ScheduleFormItem from "./ScheduleItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "antd";
+import { useContext } from "react";
 
-
+import TourContext from "./CreateTourContext";
 
 function ScheduleForm() {
-
+  const [state, dispatch] = useContext(TourContext)
 
   return (
     <div className="flex flex-col gap-5">
@@ -18,11 +17,6 @@ function ScheduleForm() {
         </Button>
       </div>
 
-      <ScheduleFormItem />
-      <ScheduleFormItem />
-      <ScheduleFormItem />
-      <ScheduleFormItem />
-      <ScheduleFormItem />
     </div>
   )
 }
