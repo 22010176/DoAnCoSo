@@ -4,7 +4,7 @@ import { Button } from "antd";
 import { useContext } from "react";
 
 import TourContext from "./CreateTourContext";
-import ScheduleFormItem from "./ScheduleItem";
+import ScheduleFormItem from "../ScheduleItem";
 
 function ScheduleForm() {
   const [state, dispatch] = useContext(TourContext)

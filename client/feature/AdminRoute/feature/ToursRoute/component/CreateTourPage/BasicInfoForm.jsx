@@ -1,11 +1,10 @@
-import { faTrash } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Button, Input, Select } from "antd"
+import { Input, Select } from "antd"
 import TextArea from "antd/es/input/TextArea"
 import { useContext, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 
 import { GetResource, TourResource } from "@/Api"
+import ImageInput from "../ImageInput"
 import TourContext from "./CreateTourContext"
 
 function BasicInfoForm() {
@@ -17,15 +16,13 @@ function BasicInfoForm() {
     GetResource.get('/phuong-tien')
       .then(res => res.data)
       .then(data => {
-        // console.log(data)
-        setVehicle(data.data.map(i => ({
-          value: i.id,
-          label: i.tenPhuongTien,
+        setVehicle(data.data.map(({ id, tenPhuongTien }) => ({
+          value: id,
+          label: tenPhuongTien,
           name: 'phuongTien'
         })))
       })
   }, [location])
-  // console.log(vehicle)
 
   function onChange(e) {
     const elem = e.target
@@ -47,7 +44,6 @@ function BasicInfoForm() {
     dispatch({ type: "updateImage", payload: result.data })
   }
 
-  console.log(state)
 
   return (
     <div className="flex gap-5">
@@ -59,20 +55,9 @@ function BasicInfoForm() {
           </label>
           <input accept="image/*" onChange={onUploadPicture} id="image-input" type="file" className="hidden" multiple />
         </div>
-        {state?.images?.map((i, j) => {
-          function onClick() { dispatch({ type: 'deleteImage', payload: i }) }
-
-          return (
-            <div key={j} className="grid border-b pb-1 grid-cols-[1fr_auto] gap-2 items-center mb-2">
-              <img className="max-h-20 w-auto" key={j} src={i} alt="" />
-              <Button onClick={onClick} size="small" color="red" variant="outlined">
-                <FontAwesomeIcon icon={faTrash} />
-              </Button>
-            </div>
-          )
-        })}
-        <div className="flex flex-cols gap-5">
-        </div>
+        {state?.images?.map((i, j) => (
+          <ImageInput key={j} src={i} onClick={e => dispatch({ type: 'deleteImage', payload: i })} />
+        ))}
       </div>
 
       <div className="grow grid grid-cols-3 gap-10 border-l border-gray-300 px-5">

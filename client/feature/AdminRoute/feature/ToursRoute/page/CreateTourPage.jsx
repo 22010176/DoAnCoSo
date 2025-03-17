@@ -2,11 +2,12 @@ import { faArrowLeft, faSave } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, message, Tabs } from "antd";
 import { useReducer } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { TourResource } from "@/Api";
 import Container from "@admin/component/Container";
 import Header from "@admin/component/Header";
+
 import BasicInfoForm from "../component/CreateTourPage/BasicInfoForm";
 import TourContext, { initialState, reducer } from "../component/CreateTourPage/CreateTourContext";
 import ScheduleForm from "../component/CreateTourPage/ScheduleForm";
@@ -17,7 +18,6 @@ const items = [
 ];
 
 function CreateTourPage() {
-  const navigate = useNavigate()
   const [messageApi, contextHolder] = message.useMessage();
   const [state, dispatch] = useReducer(reducer, initialState)
 

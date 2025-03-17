@@ -11,7 +11,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { TourResource } from '@/Api';
 
 const columns = [
-  { title: 'Mã Tour', dataIndex: 'maTour', key: 'maTour', width: '8%', render: i => i.slice(0, 5) + "..." },
+  { title: 'Mã Tour', dataIndex: 'maTour', key: 'maTour', width: '20%', },
   { title: 'Tên Tour', dataIndex: 'tenTour', key: 'tenTour', width: '40%', },
   { title: 'Thời gian', dataIndex: 'thoiGian', key: 'thoiGian', width: '8%', render: value => `${value} ngày ${value - 1} đêm` },
   { title: 'Nơi khởi hành', dataIndex: 'noiKhoiHanh', key: 'noiKhoiHanh', width: '8%', },
@@ -31,7 +31,7 @@ const columns = [
     key: 'action',
     width: '7%',
     render: (_, item) => (
-      <Link to={`/dashboard/tours/${item.maTour}`}>
+      <Link to={`/dashboard/tours/details/${item.maTour}`}>
         <Button variant='outlined' color='blue'>
           <FontAwesomeIcon icon={faInfoCircle} />
         </Button>
@@ -90,6 +90,7 @@ function ManageToursPage() {
           />
         </div>
       </Container>
+
       <Container className="flex flex-col overflow-auto">
         <Table
           bordered
