@@ -1,14 +1,14 @@
 // /api/tour
-
-const { CreateCreateTourErrorResponse, SaveTourImages, SaveTourInfo, SaveTourSchedule } = require('../middleware/tour/createTour')
-
 const { v4 } = require('uuid')
 const { existsSync, mkdirSync, read, writeFileSync } = require('fs')
 const multer = require('multer')
 const path = require('path')
 
-const router = require('express').Router()
 const { publicFolder, resourceFolder } = require('../constant')
+
+const router = require('express').Router()
+const { CreateCreateTourErrorResponse, SaveTourImages, SaveTourInfo, SaveTourSchedule } = require('../middleware/tour/createTour')
+const { getTourList } = require("../middleware/tour/tourList")
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -40,4 +40,8 @@ router.post('/create',
   CreateCreateTourErrorResponse
 )
 
+// GET /api/tour/list
+router.get('/list',
+  getTourList
+)
 module.exports = router

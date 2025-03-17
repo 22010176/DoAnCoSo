@@ -72,7 +72,9 @@ export function reducer(state, action) {
           "moTa": Randomstring.generate({ length: 1000 })
         }
       }
-      break
+
+    case 'clearInput':
+      return JSON.parse(JSON.stringify(initialState))
 
     default:
       break;

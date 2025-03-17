@@ -37,9 +37,8 @@ function CreateTourPage() {
       type: 'success',
       content: 'Tạo tour mới thành công',
     });
-    setTimeout(function () {
-      navigate('/dashboard/tours')
-    }, 1500)
+
+    dispatch({ type: "clearInput" })
   }
 
   function genRandom() { dispatch({ type: 'genRandom' }) }
