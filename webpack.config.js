@@ -40,6 +40,6 @@ module.exports = {
       '@': path.resolve('client'),
       '@admin': path.resolve('client/feature/AdminRoute'),
     },
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx']
   }
 };

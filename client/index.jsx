@@ -10,13 +10,13 @@ import store from '@/redux/store'
 
 const root = createRoot(document.querySelector("#root"))
 root.render(
-  <StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
-  </StrictMode>
+  // <StrictMode>
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
+  // </StrictMode>
 )
 
 if (module.hot) module.hot.accept();

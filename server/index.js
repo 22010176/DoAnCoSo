@@ -1,5 +1,6 @@
 
 
+
 const path = require('path')
 const fs = require('fs')
 const MongoStore = require("connect-mongo");
@@ -32,12 +33,10 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-
-const publicFolder = path.resolve(__dirname, '../public')
+const { publicFolder, viewFolder, resourceFolder } = require('./constant');
 if (!fs.existsSync(publicFolder)) fs.mkdirSync(publicFolder)
-
-const viewFolder = path.resolve(publicFolder, 'dist')
 if (!fs.existsSync(viewFolder)) fs.mkdirSync(viewFolder)
+if (!fs.existsSync(resourceFolder)) fs.mkdirSync(resourceFolder)
 
 app.use(express.static(publicFolder))
 

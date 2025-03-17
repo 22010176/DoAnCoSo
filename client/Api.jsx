@@ -17,5 +17,5 @@ export const GetResource = axios.create({
 
 export const TourResource = axios.create({
   withCredentials: true,
-  baseURL: "/api/tour"
+  baseURL: "/api/tour",
 })

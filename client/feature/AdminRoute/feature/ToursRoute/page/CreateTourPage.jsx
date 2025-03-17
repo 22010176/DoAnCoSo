@@ -8,6 +8,7 @@ import Header from "@admin/component/Header";
 import BasicInfoForm from "../component/CreateTourPage/BasicInfoForm";
 import TourContext, { initialState, reducer } from "../component/CreateTourPage/CreateTourContext";
 import ScheduleForm from "../component/CreateTourPage/ScheduleForm";
+import { TourResource } from "@/Api";
 
 const items = [
   { key: '1', label: <p className="font-semibold">Thông tin cơ bản</p>, children: <BasicInfoForm /> },
@@ -16,12 +17,14 @@ const items = [
 
 function CreateTourPage() {
   const [state, dispatch] = useReducer(reducer, initialState)
-  console.log(state)
-
   function onSubmit(e) {
     e.preventDefault()
-    console.log(state)
 
+    console.log(state)
+    // TourResource.post('/create', state)
+    //   .then(function (res) {
+    //     console.log(res)
+    //   })
 
 
   }

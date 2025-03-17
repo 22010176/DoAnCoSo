@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 
-import AdminLayout from "@admin/component/AdminLayout";
 import OrderDetailPage from "./page/OrderDetailPage";
 
 function OrderRoute() {
@@ -12,4 +11,4 @@ function OrderRoute() {
   );
 }
 
-export default OrderRoute
+export default OrderRoute 

@@ -1,22 +1,38 @@
 // /api/tour
-const { existsSync, mkdirSync } = require('fs')
+
+const { v4 } = require('uuid')
+const { existsSync, mkdirSync, read, writeFileSync } = require('fs')
 const multer = require('multer')
 const path = require('path')
 
 const router = require('express').Router()
+const { publicFolder, resourceFolder } = require('../constant')
 
-const uploadPath = path.resolve(__dirname, "../../public/storage")
-if (!existsSync(uploadPath)) mkdirSync(uploadPath, { recursive: true })
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, resourceFolder); // Lưu vào thư mục 'uploads/'
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + "_" + v4() + path.extname(file.originalname));
+    }
+  })
+})
 
-const upload = multer({ dest: uploadPath, })
+// POST /api/tour/upload-image
+router.post('/upload-image',
+  upload.single('image'),
+  function (req, res) {
+    res.json({
+      mesage: "Success",
+      success: true,
+      data: "\\" + path.relative(publicFolder, req.file.path)
+    })
+  })
 
 // POST /api/tour/create
-router.post('/image',
-  upload.any(),
-  async function (req, res) {
-    console.log(req.file)
-    res.json({ mesage: "tét" })
-  }
+router.post('/create',
+
 )
 
 module.exports = router
