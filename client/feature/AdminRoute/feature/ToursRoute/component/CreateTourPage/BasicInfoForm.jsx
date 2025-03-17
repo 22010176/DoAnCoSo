@@ -1,14 +1,31 @@
-import { Button, Input } from "antd"
-import TextArea from "antd/es/input/TextArea"
-import { useContext } from "react"
-
-import { TourResource } from "@/Api"
-import TourContext from "./CreateTourContext"
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTractor, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { Button, Input, Select } from "antd"
+import TextArea from "antd/es/input/TextArea"
+import { useContext, useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
+
+import { GetResource, TourResource } from "@/Api"
+import TourContext from "./CreateTourContext"
 
 function BasicInfoForm() {
+  const location = useLocation()
   const [state, dispatch] = useContext(TourContext)
+  const [vehicle, setVehicle] = useState([])
+
+  useEffect(function () {
+    GetResource.get('/phuong-tien')
+      .then(res => res.data)
+      .then(data => {
+        // console.log(data)
+        setVehicle(data.data.map(i => ({
+          value: i.id,
+          label: i.tenPhuongTien,
+          name: 'phuongTien'
+        })))
+      })
+  }, [location])
+  // console.log(vehicle)
 
   function onChange(e) {
     const elem = e.target
@@ -43,9 +60,7 @@ function BasicInfoForm() {
           <input accept="image/*" onChange={onUploadPicture} id="image-input" type="file" className="hidden" multiple />
         </div>
         {state?.images?.map((i, j) => {
-          function onClick() {
-            dispatch({ type: 'deleteImage', payload: i })
-          }
+          function onClick() { dispatch({ type: 'deleteImage', payload: i }) }
 
           return (
             <div key={j} className="grid border-b pb-1 grid-cols-[1fr_auto] gap-2 items-center mb-2">
@@ -63,35 +78,37 @@ function BasicInfoForm() {
       <div className="grow grid grid-cols-3 gap-10 border-l border-gray-300 px-5">
         <div className="col-span-3">
           <label className="text-lg font-semibold">Tên tour </label>
-          <Input name="tenTour" value={state?.info?.tenTour} onChange={onChange} />
+          <Input required name="tenTour" value={state?.info?.tenTour} onChange={onChange} />
         </div>
         <div >
           <label className="text-lg font-semibold">Khởi hành </label>
-          <Input value={state?.info?.xuatPhat} name="xuatPhat" onChange={onChange} />
+          <Input required value={state?.info?.xuatPhat} name="xuatPhat" onChange={onChange} />
         </div>
         <div >
           <label className="text-lg font-semibold">Điểm đến</label>
-          <Input value={state?.info?.diemDen} name="diemDen" onChange={onChange} />
+          <Input required value={state?.info?.diemDen} name="diemDen" onChange={onChange} />
         </div>
         <div >
           <label className="text-lg font-semibold">Di chuyển bằng</label>
-          <Input value={state?.info?.phuongTien} name="phuongTien" onChange={onChange} />
+          <Select required name="phuongTien" value={state?.info?.phuongTien} className="w-full" options={vehicle} onChange={e => {
+            dispatch({ type: "updateInput", payload: { name: "phuongTien", value: e } })
+          }} />
         </div>
         <div >
           <label className="text-lg font-semibold">Vé người lớn </label>
-          <Input value={state?.info?.giaNguoiLon} name="giaNguoiLon" type="number" onChange={onChange} />
+          <Input required value={state?.info?.giaNguoiLon} name="giaNguoiLon" type="number" onChange={onChange} />
         </div>
         <div >
           <label className="text-lg font-semibold">Vé trẻ em</label>
-          <Input value={state?.info?.giaTreEm} name="giaTreEm" type="number" onChange={onChange} />
+          <Input required value={state?.info?.giaTreEm} name="giaTreEm" type="number" onChange={onChange} />
         </div>
         <div >
           <label className="text-lg font-semibold">Vé em bé </label>
-          <Input value={state?.info?.giaEmBe} name="giaEmBe" type="number" onChange={onChange} />
+          <Input required value={state?.info?.giaEmBe} name="giaEmBe" type="number" onChange={onChange} />
         </div>
         <div className="col-span-3">
           <label className="text-lg font-semibold">Mô tả</label>
-          <TextArea name="moTa" value={state?.info?.moTa} showCount maxLength={1024} autoSize={{ maxRows: 6, minRows: 6 }} onChange={onChange} />
+          <TextArea required name="moTa" value={state?.info?.moTa} showCount maxLength={1024} autoSize={{ maxRows: 6, minRows: 6 }} onChange={onChange} />
         </div>
       </div>
     </div>

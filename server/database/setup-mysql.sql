@@ -6,15 +6,6 @@ USE quanLyBooking;
 -- ___________________________________________________________________________________________________________________________
 -- Tour du lich_______________________________________________________________________________________________________________
 -- ___________________________________________________________________________________________________________________________
-DROP TABLE IF EXISTS diaDiem;
-CREATE TABLE diaDiem (
-  id VARCHAR(256) PRIMARY KEY,
-  tenDiaDiem VARCHAR(256),
-  quocGia VARCHAR(256),
-
-  UNIQUE(tenDiaDiem, quocGia)
-);
-
 DROP TABLE IF EXISTS phuongTien;
 CREATE TABLE phuongTien
 (
@@ -47,7 +38,6 @@ DROP TABLE IF EXISTS tour;
 CREATE TABLE tour (
     id VARCHAR(256) PRIMARY KEY,
     tenTour VARCHAR(256),
-    soNgay SMALLINT DEFAULT 1,
     giaNguoiLon INT UNSIGNED,
     giaTreEm INT UNSIGNED,
     giaEmBe INT UNSIGNED,

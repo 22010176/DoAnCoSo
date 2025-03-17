@@ -1,5 +1,7 @@
 // /api/tour
 
+const { CreateCreateTourErrorResponse, SaveTourImages, SaveTourInfo, SaveTourSchedule } = require('../middleware/tour/createTour')
+
 const { v4 } = require('uuid')
 const { existsSync, mkdirSync, read, writeFileSync } = require('fs')
 const multer = require('multer')
@@ -32,7 +34,10 @@ router.post('/upload-image',
 
 // POST /api/tour/create
 router.post('/create',
-
+  SaveTourInfo,
+  SaveTourImages,
+  SaveTourSchedule,
+  CreateCreateTourErrorResponse
 )
 
 module.exports = router
