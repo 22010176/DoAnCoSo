@@ -25,7 +25,7 @@ function ScheduleInfo() {
             </div>
             <div className="grow">
               <label className="text-lg font-semibold">Lịch trình</label>
-              <TextArea name="content" value={noiDung} autoSize={{ maxRows: 3, minRows: 3 }} />
+              <TextArea className="pointer-events-none" name="content" value={noiDung} autoSize={{ maxRows: 3, minRows: 3 }} />
             </div>
           </div>
         </div>

@@ -20,7 +20,6 @@ function TourForm() {
             </div>
           ))}
         </div>
-
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 grow h-min">
@@ -70,10 +69,8 @@ function TourForm() {
 
         <div className="md:col-span-3">
           <label className="block mb-2 font-semibold">Mô tả</label>
-          <textarea className="w-full p-2 border rounded h-32" />
+          <textarea className=" w-full p-2 border rounded h-32" />
         </div>
-
-
       </div>
     </div>
   )

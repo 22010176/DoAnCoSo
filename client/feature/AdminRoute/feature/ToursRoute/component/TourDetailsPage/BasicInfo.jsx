@@ -24,31 +24,31 @@ function BasicInfo() {
         </div>
         <div className="col-span-1">
           <label className="text-lg font-semibold">Trạng thái</label>
-          <p disabled >
+          <p>
             {state?.info.tenTrangThai}
           </p>
         </div>
         <div className="col-span-3">
           <label className="text-lg font-semibold">Tên tour </label>
-          <p disabled >
+          <p >
             {state?.info.tenTour}
           </p>
         </div>
         <div >
           <label className="text-lg font-semibold">Khởi hành </label>
-          <p disabled >
+          <p >
             {state?.info?.xuatPhat}
           </p>
         </div>
         <div >
           <label className="text-lg font-semibold">Điểm đến</label>
-          <p disabled >
+          <p >
             {state?.info?.diemDen}
           </p>
         </div>
         <div >
           <label className="text-lg font-semibold">Di chuyển bằng</label>
-          <p disabled >
+          <p >
             {state?.info?.tenPhuongTien}
           </p>
         </div>
@@ -72,7 +72,7 @@ function BasicInfo() {
         </div>
         <div className="col-span-3">
           <label className="text-lg font-semibold">Mô tả</label>
-          <TextArea value={state?.info?.moTa} autoSize={{ maxRows: 8, minRows: 8 }} />
+          <TextArea className="pointer-events-none" value={state?.info?.moTa} autoSize={{ maxRows: 8, minRows: 8 }} />
         </div>
       </div>
     </div>
