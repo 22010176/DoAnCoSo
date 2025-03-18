@@ -10,6 +10,8 @@ export const getUserInfo = createAsyncThunk(
       .then(response => response.data)
 
 
+    console.log(response)
+
     return response.data
   }
 )

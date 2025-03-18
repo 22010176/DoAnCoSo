@@ -1,6 +1,6 @@
 const createAccountQuery = `
 INSERT INTO 
-  users (id, ho, ten, email, hinhAnh, soDienThoai, vaiTro)
+  users (id, ho, ten, email, hinhAnh, soDienThoai)
 VALUES ?;`
 
 const getUserByEmailQuery = `

@@ -12,7 +12,7 @@ async function CheckUserSession(req, res, next) {
 
 async function CheckOAuthUser(req, res, next) {
   const { user } = req
-  console.log(user)
+  // console.log(user)
   // return res.json(user)
   next()
 }

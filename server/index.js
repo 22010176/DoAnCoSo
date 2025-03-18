@@ -22,13 +22,13 @@ app.use(cookieParser())
 
 // application middleware
 app.use(cors({ credentials: true }))
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  // store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  // cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 1 giờ
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 1 giờ
 }))
 app.use(passport.initialize())
 app.use(passport.session())

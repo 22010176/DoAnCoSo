@@ -1,8 +1,4 @@
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { Navigate, useLocation } from "react-router-dom"
 
-import { defaultPending, getAccount } from "@/redux/authSlice"
 
 function ProtectUnAccountRoute({ children }) {
   // const account = useSelector(getAccount)

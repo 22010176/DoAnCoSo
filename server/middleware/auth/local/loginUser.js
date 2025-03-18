@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 
-const User = require('../../model/User')
+const User = require('../../../model/User')
 
 async function GetUserInfoByEmail(req, res, next) {
   const { email } = req.body
@@ -8,7 +8,7 @@ async function GetUserInfoByEmail(req, res, next) {
   // const user = await DatabaseQuery(getUserByEmailQuery, [[[email]]])
   const result = await User.findOne({ email })
 
-  console.log({ result })
+  // console.log({ result })
   if (result == null) return res.json({
     success: false,
     message: "Cant find user.",

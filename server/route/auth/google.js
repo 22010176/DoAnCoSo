@@ -1,4 +1,4 @@
-const { CreateAccessToken, SaveGoogleAccountInfo, SaveOAuthInfo } = require('../../middleware/auth/googleLogin');
+const { CreateAccessToken, SaveGoogleAccountInfo, SaveOAuthInfo, CheckAccount } = require('../../middleware/auth/google/googleLogin');
 
 // /api/auth/google
 const passport = require('passport')
@@ -19,7 +19,11 @@ router.get('/login',
 // GET /api/auth/google/callback
 router.get("/callback",
   passport.authenticate("google", { failureRedirect: `http://localhost:3000/` }),
+  CheckAccount,
+  SaveGoogleAccountInfo,
+  SaveOAuthInfo,
   function (req, res) {
+    console.log(req.user)
     res.redirect('/')
   }
 );

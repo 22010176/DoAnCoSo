@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt')
 const { v4 } = require('uuid')
 
-const { getUserByEmailQuery, createAccountQuery } = require("../../model/Account")
-const { DatabaseQuery } = require("../../database")
-const User = require('../../model/User')
+const { getUserByEmailQuery, createAccountQuery } = require("../../../model/Account")
+const User = require('../../../model/User')
+const { DatabaseQuery } = require("../../../database")
 
 async function CheckEmailFormat(req, res, next) {
   const { email } = req.body

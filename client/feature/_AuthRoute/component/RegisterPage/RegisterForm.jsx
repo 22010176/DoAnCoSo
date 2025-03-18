@@ -17,7 +17,7 @@ function RegisterForm() {
       return api.error({ message: "Tạo tài khoản thất bại." })
 
     api.success({ message: "Tạo tài khoản thành công." })
-    setTimeout(function () { navigate('/account/login') }, 1500)
+    setTimeout(function () { navigate('/auth/login') }, 1500)
   }
 
   return (

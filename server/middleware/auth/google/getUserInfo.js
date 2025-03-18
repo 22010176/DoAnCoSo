@@ -1,6 +1,6 @@
-const { DatabaseQuery } = require("../../database")
-const { getUserByEmailQuery } = require("../../model/Account")
-const User = require("../../model/User")
+const { DatabaseQuery } = require("../../../database")
+const { getUserByEmailQuery } = require("../../../model/Account")
+const User = require("../../../model/User")
 
 async function GetOAuthUserInfo(req, res, next) {
 
@@ -17,8 +17,6 @@ async function GetUserInfo(req, res, next) {
     data: userInfo
   })
 }
-
-
 
 module.exports = {
   GetOAuthUserInfo,

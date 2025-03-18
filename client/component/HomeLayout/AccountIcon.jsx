@@ -45,7 +45,7 @@ function AccountIcon({ }) {
 
   return (
     <Dropdown menu={{ items }} placement="bottom" arrow>
-      <Link to={account == null ? "/account/login" : "/account"}><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
+      <Link to={account == null ? "/auth/login" : "/account"}><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
     </Dropdown>
   )
 }

@@ -3,10 +3,10 @@ const passport = require('passport')
 const router = require('express').Router()
 
 const { CheckUserSession, CheckOAuthUser } = require('../../middleware/authorizeUser')
-const { CheckEmailExists, CheckEmailFormat, HashPassword, CreateRegisterErrorResponse, CreateUserInfo, CheckPhoneNumber, CreateAccountUser } = require('../../middleware/auth/registerUser')
-const { GetUserInfo, GetOAuthUserInfo } = require('../../middleware/auth/getUserInfo')
-const { DeleteUserSession, ErrorLogoutReponse } = require('../../middleware/auth/LogoutUser')
-const { CheckPassword, CreateResponse, GenereteAccessToken, GetUserInfoByEmail } = require('../../middleware/auth/loginUser')
+const { CheckEmailExists, CheckEmailFormat, HashPassword, CreateRegisterErrorResponse, CreateUserInfo, CheckPhoneNumber, CreateAccountUser } = require('../../middleware/auth/local/registerUser')
+const { GetUserInfo, GetOAuthUserInfo } = require('../../middleware/auth/google/getUserInfo')
+const { DeleteUserSession, ErrorLogoutReponse } = require('../../middleware/auth/local/LogoutUser')
+const { CheckPassword, CreateResponse, GenereteAccessToken, GetUserInfoByEmail } = require('../../middleware/auth/local/loginUser')
 
 // POST /api/auth/local/register
 router.post('/register',

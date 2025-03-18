@@ -113,7 +113,7 @@ CREATE TABLE OAuthUser
 (
   id VARCHAR(256) PRIMARY KEY,
   provider VARCHAR(256),
-  accessToken VARCHAR(1024),
+  refreshToken VARCHAR(1024),
   taiKhoan VARCHAR(256) UNIQUE,
 
   FOREIGN KEY(taiKhoan) REFERENCES users(id)
