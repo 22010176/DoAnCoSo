@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "NodeNext",
+    // "module": "NodeNext",
     "paths": {
       "@admin/*": [
         "./client/feature/AdminRoute/*"

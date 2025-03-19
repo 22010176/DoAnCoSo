@@ -1,16 +1,15 @@
 // /api
 const router = require('express').Router()
 
+router.use(function (req, res, next) {
+  console.log("user session", req.session)
+
+  next()
+})
+
 router.use('/auth', require('./auth'))
 router.use('/tour', require('./tours'))
 router.use('/resource', require('./resources'))
 
-router.use(function (req, res, next) {
-  res.json({
-    message: "Hello from server!",
-    success: false,
-    data: null
-  })
-})
 
 module.exports = router

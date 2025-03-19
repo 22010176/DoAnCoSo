@@ -56,10 +56,13 @@ async function CreateUserInfo(req, res, next) {
   try {
     const id = v4()
     await DatabaseQuery(createAccountQuery, [[
-      [id, ho, ten, email, undefined, soDienThoai, '2']
+      [id, ho, ten, email, undefined, soDienThoai]
     ]])
     res.locals.id = id
-  } catch (error) { res.locals.error = error }
+  } catch (error) {
+    console.log(error)
+    res.locals.error = error
+  }
 
   next()
 }

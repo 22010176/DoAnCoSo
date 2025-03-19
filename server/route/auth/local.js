@@ -1,5 +1,4 @@
 // /api/auth/local/
-const passport = require('passport')
 const router = require('express').Router()
 
 const { CheckUserSession, CheckOAuthUser } = require('../../middleware/authorizeUser')
@@ -41,7 +40,6 @@ router.post('/logout',
   DeleteUserSession,
   ErrorLogoutReponse
 )
-
 
 router.use(function (req, res) {
   res.json({ aa: 'ddd' })

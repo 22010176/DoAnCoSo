@@ -10,6 +10,18 @@ async function CheckUserSession(req, res, next) {
   next()
 }
 
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) return next();
+
+  res.redirect('/')
+}
+
+function isUnauthenticated(req, res, next) {
+  if (!req.isAuthenticated()) return next();
+
+  res.redirect('/')
+}
+
 async function CheckOAuthUser(req, res, next) {
   const { user } = req
   // console.log(user)
@@ -29,5 +41,7 @@ async function CheckGuessRole(req, res, next) { }
 
 module.exports = {
   CheckOAuthUser,
-  CheckUserSession
+  CheckUserSession,
+  isAuthenticated,
+  isUnauthenticated
 }
