@@ -59,6 +59,9 @@ INNER JOIN tour t ON t.id = h.tour
 WHERE t.id = ?
 ORDER BY thuTuNgay;`
 
+const getTourCustomerQuery = `
+SELECT *
+FROM tour`
 
 module.exports = {
   insertImageQuery,
@@ -67,5 +70,6 @@ module.exports = {
   getTourList_DashboardPageQuery,
   getTourInfoQuery,
   getTourImageQuery,
-  getTourScheduleQuery
+  getTourScheduleQuery,
+  getTourCustomerQuery
 }

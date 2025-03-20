@@ -53,5 +53,10 @@ router.get('/details/:tourId',
   CreateReponseMessage
 )
 
+// GET /api/tour/customer
+router.get('/customer',
+
+)
+
 
 module.exports = router

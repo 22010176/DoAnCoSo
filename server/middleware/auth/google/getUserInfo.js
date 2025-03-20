@@ -8,9 +8,8 @@ async function GetOAuthUserInfo(req, res, next) {
 
 async function GetUserInfo(req, res, next) {
   const userAuth = await User.findById(req.session.userId)
-  console.log(userAuth)
   const userInfo = await DatabaseQuery(getUserByEmailQuery, [[[userAuth?.email]]])
-  console.log(userInfo)
+
   res.json({
     message: "Successful",
     success: userInfo.length > 0,
