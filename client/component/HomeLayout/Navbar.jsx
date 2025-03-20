@@ -1,12 +1,51 @@
-import { faCaretDown, faMagnifyingGlass, faShoppingBag } from "@fortawesome/free-solid-svg-icons"
+import { faCaretDown, faCircleUser, faMagnifyingGlass, faShoppingBag } from "@fortawesome/free-solid-svg-icons"
 import { faList } from "@fortawesome/free-solid-svg-icons/faList"
 import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button, Drawer, Dropdown } from "antd"
 import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation } from "react-router-dom"
 
-import AccountIcon from "./AccountIcon"
+import { getAccount, logOutUser } from "@/redux/authSlice"
+
+
+function LogoutButton() {
+  const dispatch = useDispatch()
+  function onClick(e) { dispatch(logOutUser()) }
+
+  return <button className="pr-5" onClick={onClick}>Đăng xuất</button>
+}
+
+const guessAccount = [
+  { key: '1', label: <Link className="pr-5" to="/auth/login">Đăng nhập</Link> },
+  { key: '2', label: <Link className="pr-5" to="/auth/register">Đăng kí</Link> },
+]
+
+const adminAccount = [
+  { key: '1', label: <Link className="pr-5" to="/account">Tài khoản</Link> },
+  { key: '2', label: <Link className="pr-5" to="/orders">Giỏ hàng</Link> },
+  { key: '3', label: <Link className="pr-5" to="/">Tour yêu thích</Link> },
+  { key: '4', label: <Link className="pr-5" to="/dashboard">Quản lý</Link> },
+  { key: '5', label: <LogoutButton /> },
+]
+const authorizeAccount = [
+  { key: '1', label: <Link className="pr-5" to="/account">Tài khoản</Link> },
+  { key: '2', label: <Link className="pr-5" to="/orders">Giỏ hàng</Link> },
+  { key: '3', label: <Link className="pr-5" to="/">Tour yêu thích</Link> },
+  { key: '4', label: <LogoutButton /> },
+]
+
+function AccountIcon({ }) {
+  const account = useSelector(getAccount)
+  const items = account == null || account === "pending..." ? guessAccount : account.vaiTro === '1' ? adminAccount : authorizeAccount
+
+  return (
+    <Dropdown menu={{ items }} placement="bottom" arrow>
+      <Link to={account == null ? "/auth/login" : "/account"}><FontAwesomeIcon icon={faCircleUser} size="2xl" /></Link>
+    </Dropdown>
+  )
+}
 
 const tourItems = [
   { key: 1, label: <Link className="pr-10">Tour trong nước</Link> },

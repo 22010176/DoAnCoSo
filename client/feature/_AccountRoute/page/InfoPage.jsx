@@ -38,7 +38,7 @@ function InfoPage() {
             <SettingCategoryItem item={item} />
           </List.Item>
         )} />
-      <Button onClick={onLogOut} size="large" color="red" variant="solid" className="w-25">Đăng suất</Button>
+      <Button onClick={onLogOut} size="large" color="red" variant="solid" className="w-25">Đăng xuất</Button>
     </div>
   )
 }

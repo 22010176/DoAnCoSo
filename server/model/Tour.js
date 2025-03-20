@@ -39,6 +39,7 @@ SELECT  t.id,
         t.diemDen,
         t.moTa,
         t.ngayTao,
+        p.maPhuongTien,
         p.tenPhuongTien,
         th.tenTrangThai
 FROM tour t
