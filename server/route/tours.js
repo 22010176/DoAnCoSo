@@ -65,5 +65,11 @@ router.get('/customer',
   GetCustomerTourList
 )
 
-
+// GET /api/tour/customer/:tourId
+router.get('/customer/:tourId',
+  getTourInfo,
+  getTourImage,
+  getTourScheduleInfo,
+  CreateReponseMessage
+)
 module.exports = router

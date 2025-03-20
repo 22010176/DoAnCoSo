@@ -21,8 +21,10 @@ const tabItem = [
 ]
 
 function TourInfoPage() {
-  const id = useParams()
+  const { id } = useParams()
 
+
+  console.log(id)
   return (
     <div className="mb-10 flex flex-col gap-5">
       <Header Element={Container} items={items.concat({ title: <p className="text-white font-bold text-xl">{id.id}</p> })} />

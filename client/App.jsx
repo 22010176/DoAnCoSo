@@ -16,11 +16,11 @@ import ProtectUnAccountRoute from "./component/ProtectedPage/ProtectedUnAccountR
 
 function App() {
   const dispatch = useDispatch()
-  const location = useLocation()
+  // const location = useLocation()
 
   useEffect(function () {
     dispatch(getUserInfo())
-  }, [location])
+  }, [])
 
   return (
     <Routes>

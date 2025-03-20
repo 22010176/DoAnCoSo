@@ -14,7 +14,7 @@ function BookingWith() {
   return (
     <div className="py-20 flex flex-col gap-15 items-center text-center">
       <div className="leading-8">
-        <h1 className="font-bold text-4xl">Booking cùng ND Travel</h1>
+        <h1 className="font-bold text-4xl">Booking cùng ChillTravel</h1>
         <p className="text-gray-600 text-lg">Chỉ với 3 bước đơn giản và dễ dàng có ngay trải nghiệm tuyệt vời !</p>
       </div>
 

@@ -1,10 +1,10 @@
-import { Link, useLocation } from "react-router-dom"
-import { Button, Drawer, Dropdown, Popover } from "antd"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCaretDown, faMagnifyingGlass, faRightLeft, faShoppingBag, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
-import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone"
+import { faCaretDown, faMagnifyingGlass, faShoppingBag } from "@fortawesome/free-solid-svg-icons"
 import { faList } from "@fortawesome/free-solid-svg-icons/faList"
+import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Button, Drawer, Dropdown } from "antd"
 import { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 
 import AccountIcon from "./AccountIcon"
 

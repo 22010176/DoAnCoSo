@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function TourInfoHorVer({ image, id, name, time, start, price, vehicle }) {
   return (
-    <Link to="/tours/23" className="lg:grid lg:grid-cols-[2fr_3fr_1fr] flex flex-col gap-5 border border-gray-300 p-3 rounded-xl">
+    <Link to={`/tours/${id}`} className="lg:grid lg:grid-cols-[2fr_3fr_1fr] flex flex-col gap-5 border border-gray-300 p-3 rounded-xl">
       <div className="relative">
         <img className="lg:h-full lg:w-auto size-full object-center rounded-xl" src={image} alt="" />
         <div className="absolute right-3 top-3 text-white bg-black/50 hover:bg-black/70 size-8 rounded flex justify-center items-center">
