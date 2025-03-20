@@ -6,6 +6,9 @@
       "@admin/*": [
         "./client/feature/AdminRoute/*"
       ],
+      "#server/*": [
+        "./server/*"
+      ],
       "@/*": [
         "./client/*"
       ],

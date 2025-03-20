@@ -1,9 +1,10 @@
-import { faClock, faHeart, faLocationDot, faPlane } from "@fortawesome/free-solid-svg-icons";
+import { faBus, faClock, faHeart, faLocationDot, faPlane, faShip, faTrain } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Rate } from "antd";
 import { Link } from "react-router-dom";
 
-function TourInfoHorVer({ image, id, name, time, start, price }) {
+
+function TourInfoHorVer({ image, id, name, time, start, price, vehicle }) {
   return (
     <Link to="/tours/23" className="lg:grid lg:grid-cols-[2fr_3fr_1fr] flex flex-col gap-5 border border-gray-300 p-3 rounded-xl">
       <div className="relative">
@@ -12,7 +13,10 @@ function TourInfoHorVer({ image, id, name, time, start, price }) {
           <FontAwesomeIcon icon={faHeart} />
         </div>
         <div className="absolute right-0 bottom-0 rounded-br-xl rounded-tr text-white bg-black/50 hover:bg-black/70 size-8 flex justify-center items-center">
-          <FontAwesomeIcon icon={faPlane} />
+          {vehicle === '1' && <FontAwesomeIcon icon={faBus} />}
+          {vehicle === '2' && <FontAwesomeIcon icon={faPlane} />}
+          {vehicle === '3' && <FontAwesomeIcon icon={faShip} />}
+          {vehicle === '4' && <FontAwesomeIcon icon={faTrain} />}
         </div>
       </div>
       <div className="flex flex-col gap-3">

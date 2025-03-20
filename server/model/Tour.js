@@ -60,8 +60,32 @@ WHERE t.id = ?
 ORDER BY thuTuNgay;`
 
 const getTourCustomerQuery = `
-SELECT *
-FROM tour`
+SELECT 	t.id,
+		    t.tenTour,
+        t.giaNguoiLon,
+        t.giaTreEm,
+        t.giaEmBe,
+        t.xuatPhat,
+        t.diemDen,
+        t.phuongTien,
+		    pt.tenPhuongTien,
+        (
+			    SELECT COUNT(*)
+          FROM lichtrinhtour
+          WHERE tour = t.id
+        ) thoiGian,
+        (
+			    SELECT hinhAnh
+          FROM hinhanhtour 
+          WHERE tour = t.id
+          LIMIT 1
+        ) hinhAnh
+FROM tour t 
+INNER JOIN phuongtien pt ON pt.id = t.phuongTien
+INNER JOIN trangthaitour tt ON tt.id = t.trangThai
+INNER JOIN lichtrinhtour lt ON lt.tour = t.id	
+WHERE t.trangThai = '2'
+GROUP BY t.id;`
 
 module.exports = {
   insertImageQuery,

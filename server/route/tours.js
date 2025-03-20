@@ -9,6 +9,10 @@ const router = require('express').Router()
 const { CreateCreateTourErrorResponse, SaveTourImages, SaveTourInfo, SaveTourSchedule } = require('../middleware/tour/createTour')
 const { getTourList } = require("../middleware/tour/tourList")
 const { CreateReponseMessage, getTourImage, getTourInfo, getTourScheduleInfo } = require('../middleware/tour/getTourDetails')
+const { getTourCustomerQuery } = require('../model/Tour')
+const { DatabaseQuery } = require('../database')
+
+const { GetCustomerTourList } = require('#server/middleware/tour/customer')
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -55,7 +59,10 @@ router.get('/details/:tourId',
 
 // GET /api/tour/customer
 router.get('/customer',
+  // authorize route
 
+  // Un authorize route
+  GetCustomerTourList
 )
 
 
