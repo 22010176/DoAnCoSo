@@ -6,10 +6,10 @@ import LoveButton from "./LoveBtn";
 
 function TourInfoVertical({ id, image, love, start, name, time, loveCallback }) {
   return (
-    <div to="/tours/23" className="tour-item border border-blue-500 rounded-xl overflow-hidden p-3 flex flex-col gap-2 min-w-60">
+    <div className="tour-item border border-blue-500 rounded-xl overflow-hidden p-3 flex flex-col gap-2 min-w-60">
       <div className="relative">
         <LoveButton id={id} love={love} callback={loveCallback} />
-        <Link to="/tours/23">
+        <Link to={`/tours/${id}`}>
           <img className="md:h-full md:w-auto size-full rounded-xl" src={image} alt="" />
         </Link>
         <div className="absolute right-0 bottom-0 rounded-br-xl rounded-tr text-white bg-black/50 hover:bg-black/70 size-8 flex justify-center items-center">
