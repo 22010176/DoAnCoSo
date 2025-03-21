@@ -13,6 +13,9 @@ const { getTourCustomerQuery } = require('../model/Tour')
 const { DatabaseQuery } = require('../database')
 
 const { GetCustomerTourList } = require('#server/middleware/tour/customer')
+const { CheckUser, InsertTourFavourite, CreateAddFavouriteErrorResponse } = require('#server/middleware/tour/addFavourite')
+const { DeleteTourFavourite, CreateDeleteFavouriteErrorResponse } = require('#server/middleware/tour/deleteFavourite')
+const { getFavouriteTour, CreateGetFavTourErrorResponse } = require('#server/middleware/tour/getFavourite')
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -72,4 +75,23 @@ router.get('/customer/:tourId',
   getTourScheduleInfo,
   CreateReponseMessage
 )
+
+// GET /api/tour/favourite
+router.get('/favourite',
+  CheckUser,
+  getFavouriteTour,
+  CreateGetFavTourErrorResponse
+)
+
+// POST /api/tour/favourite
+router.post('/favourite',
+  CheckUser,
+  InsertTourFavourite,
+  CreateAddFavouriteErrorResponse)
+
+// DELETE /api/tour/favourite
+router.delete('/favourite',
+  CheckUser,
+  DeleteTourFavourite,
+  CreateDeleteFavouriteErrorResponse)
 module.exports = router

@@ -29,10 +29,11 @@ const adminAccount = [
   { key: '4', label: <Link className="pr-5" to="/dashboard">Quản lý</Link> },
   { key: '5', label: <LogoutButton /> },
 ]
+
 const authorizeAccount = [
   { key: '1', label: <Link className="pr-5" to="/account">Tài khoản</Link> },
   { key: '2', label: <Link className="pr-5" to="/orders">Giỏ hàng</Link> },
-  { key: '3', label: <Link className="pr-5" to="/">Tour yêu thích</Link> },
+  { key: '3', label: <Link className="pr-5" to="/tours/favourite">Tour yêu thích</Link> },
   { key: '4', label: <LogoutButton /> },
 ]
 

@@ -13,18 +13,23 @@ import { TourResource } from "@/Api"
 
 const items = [
   { title: <Link style={{ color: "white" }} className="text-xl font-semibold" to="/">Trang chủ</Link>, },
-  { title: <p className="text-white font-bold text-xl">Tất cả sản phẩm</p>, }
+  { title: <p className="text-white font-bold text-xl">Tất cả tour</p>, }
 ]
 
 function TourPage() {
   const [list, setList] = useState([])
-  const [view, setView] = useState('list')
+  const [view, setView] = useState('grid')
 
-
-  useEffect(function () {
+  function updateList() {
+    console.log('test')
+    setList([])
     TourResource.get('/customer')
       .then(res => res.data)
       .then(data => setList(data.data))
+  }
+
+  useEffect(function () {
+    updateList()
   }, [])
 
   console.log(list)
@@ -50,7 +55,9 @@ function TourPage() {
                   price={i.giaNguoiLon}
                   image={i.hinhAnh}
                   name={i.tenTour}
+                  love={i.yeuThich > 0}
                   vehicle={i.phuongTien}
+                  loveCallback={updateList}
                 />
               )) : <p>Không có tour nào</p>}
             </div>
@@ -58,7 +65,19 @@ function TourPage() {
 
           {view.toLowerCase() === 'grid' && (
             <div className="grid 2xl:grid-cols-3 md:grid-cols-2 gap-5 py-5">
-              {list?.map((i, j) => <TourInfoVertical key={j} image="\assets\imgs\sp2.webp" start="Vinh" name="Phượng Hoàng Cổ Trấn - Trương Gia Giới - Vũ Lăng Nguyên 6N5Đ" time="6N5Đ" />)}
+              {list?.map((i, j) =>
+                <TourInfoVertical
+                  key={j}
+                  id={i.id}
+                  image={i.hinhAnh}
+                  start={i.xuatPhat}
+                  name={i.tenTour}
+                  time={`${i.thoiGian}N${i.thoiGian - 1}Đ`}
+                  love={i.yeuThich > 0}
+                  vehicle={i.phuongTien}
+                  loveCallback={updateList}
+                />
+              )}
             </div>
           )}
           {/* <Pagination align="center" defaultCurrent={1} total={50} defaultPageSize={8} /> */}

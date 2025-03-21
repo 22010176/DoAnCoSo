@@ -1,3 +1,18 @@
+const { DatabaseQuery } = require("#server/database/index")
+const { getUserByEmailQuery } = require("#server/model/Account")
+const User = require("#server/model/User")
+
+async function getUserFromSession(req) {
+  const { userId } = req.session
+  if (userId == null) return null
+  try {
+    const user = await User.findById(req.session.userId)
+    const result = (await DatabaseQuery(getUserByEmailQuery, [[[user.email]]]))[0]
+
+    return result
+  } catch (error) { console.log(error) }
+  return null
+}
 
 async function CheckUserSession(req, res, next) {
   const { userId } = req.session
@@ -43,5 +58,6 @@ module.exports = {
   CheckOAuthUser,
   CheckUserSession,
   isAuthenticated,
-  isUnauthenticated
+  isUnauthenticated,
+  getUserFromSession
 }

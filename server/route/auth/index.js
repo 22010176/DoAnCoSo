@@ -7,7 +7,7 @@ router.use('/google', require('./google'))
 // get /api/auth/info
 router.get('/info',
   async function (req, res) {
-    console.log(req.session)
+    // console.log(req.session)
     res.json(req.session)
   }
 )

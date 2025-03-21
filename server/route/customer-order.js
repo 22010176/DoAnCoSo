@@ -1,5 +1,4 @@
 // /api/customer-order
-
 const { CheckUserAccount } = require('#server/middleware/customer-order/index')
 const { GetOrderTourInfo, InsertTourInfo, CreateOrderTourErrorResponse, CheckSameOrderTourExists } = require('#server/middleware/customer-order/create')
 const { getCustomerOrderList, createGetCustomerOrderListErrorResponse } = require('#server/middleware/customer-order/read')

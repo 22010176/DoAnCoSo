@@ -15,7 +15,7 @@ async function CheckAccount(req, res, next) {
 }
 
 async function SaveGoogleAccountInfo(req, res, next) {
-  console.log('ddddd', req.user)
+  // console.log('ddddd', req.user)
   // const { profile: { _json: user } } = req.user
 
   // const { sub, name, given_name, family_name, picture, email } = user

@@ -178,4 +178,3 @@ CREATE TABLE phieuDatTour (
     FOREIGN KEY (taiKhoan)
         REFERENCES users (id)
 );
-

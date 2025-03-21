@@ -1,9 +1,12 @@
 const { DatabaseQuery } = require('../../database')
 const { getTourInfoQuery, getTourImageQuery, getTourScheduleQuery } = require('../../model/Tour')
+const { getUserFromSession } = require('../authorizeUser')
 
 async function getTourInfo(req, res, next) {
+  console.log(req.params)
   try {
-    res.locals.tourInfo = (await DatabaseQuery(getTourInfoQuery, req.params.tourId))[0]
+    const user = await getUserFromSession(req)
+    res.locals.tourInfo = (await DatabaseQuery(getTourInfoQuery, [user.id, req.params.tourId]))[0]
   } catch (error) {
     res.locals.tourInfo = {}
     console.log(error)

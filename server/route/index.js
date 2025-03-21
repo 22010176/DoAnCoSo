@@ -2,7 +2,7 @@
 const router = require('express').Router()
 
 router.use(function (req, res, next) {
-  console.log("user session", req.session)
+  // console.log("user session", req.session)
 
   next()
 })

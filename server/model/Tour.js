@@ -41,11 +41,15 @@ SELECT  t.id,
         t.ngayTao,
         p.maPhuongTien,
         p.tenPhuongTien,
-        th.tenTrangThai
+        th.tenTrangThai,
+        COUNT(tyt.id) > 0 yeuThich
 FROM tour t
 INNER JOIN phuongTien p ON p.id = t.phuongTien
 INNER JOIN trangThaiTour th ON th.id = T.trangThai
-WHERE t.id = ?`
+LEFT JOIN users u ON u.id = ? 
+LEFT JOIN tourYeuThich tyt ON tyt.tour = t.id
+GROUP BY t.id
+HAVING t.id = ?`
 
 const getTourImageQuery = `
 SELECT h.*
@@ -80,13 +84,63 @@ SELECT 	t.id,
           FROM hinhanhtour 
           WHERE tour = t.id
           LIMIT 1
-        ) hinhAnh
+        ) hinhAnh,
+        IF (COUNT(tyt.id) > 0, TRUE, FALSE) yeuThich
 FROM tour t 
 INNER JOIN phuongtien pt ON pt.id = t.phuongTien
 INNER JOIN trangthaitour tt ON tt.id = t.trangThai
 INNER JOIN lichtrinhtour lt ON lt.tour = t.id	
+LEFT JOIN touryeuthich tyt ON tyt.tour = t.id
+LEFT JOIN users u ON u.id = tyt.taiKhoan
 WHERE t.trangThai = '2'
 GROUP BY t.id;`
+
+const addFavoriteTourQuery = `
+INSERT INTO touryeuthich
+  (id, taiKhoan, tour)
+VALUES
+  ?`
+
+const deleteFavouriteTourQuery = `
+DELETE FROM touryeuthich
+WHERE 
+	taiKhoan = ?
+	AND tour = ?`
+
+const getFavouriteTourQuery = `
+SELECT  t.id,
+        t.tenTour,
+        t.giaNguoiLon,
+        t.giaTreEm,
+        t.giaEmBe,
+        t.xuatPhat,
+        t.diemDen,
+        t.moTa,
+        t.ngayTao,
+        p.maPhuongTien,
+        p.tenPhuongTien,
+        th.tenTrangThai,
+        COUNT(tyt.id) > 0 yeuThich,
+        (
+			    SELECT hinhAnh 
+          FROM hinhAnhTour h 
+          WHERE h.tour = t.id 
+          LIMIT 1
+        ) hinhAnh,
+        (
+			    SELECT COUNT(*) 
+          FROM lichtrinhtour l 
+          WHERE l.tour = t.id
+        ) thoiGian
+FROM tour t
+INNER JOIN phuongTien p ON p.id = t.phuongTien
+INNER JOIN trangThaiTour th ON th.id = T.trangThai
+INNER JOIN tourYeuThich tyt ON tyt.tour = t.id
+INNER JOIN users u ON u.id = tyt.taiKhoan
+WHERE 
+	u.id = ? 
+	AND th.id = '2'
+GROUP BY t.id`
 
 module.exports = {
   insertImageQuery,
@@ -96,5 +150,8 @@ module.exports = {
   getTourInfoQuery,
   getTourImageQuery,
   getTourScheduleQuery,
-  getTourCustomerQuery
+  getTourCustomerQuery,
+  addFavoriteTourQuery,
+  deleteFavouriteTourQuery,
+  getFavouriteTourQuery
 }

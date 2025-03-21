@@ -1,8 +1,8 @@
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Tabs } from "antd";
 import { useContext, useEffect, useState } from "react";
 
+import { TourResource } from "@/Api";
+import LoveButton from "@/component/TourInfo/LoveBtn";
 import TourInfoContext from "./TourInfoContext";
 
 function TourDetail() {
@@ -28,11 +28,6 @@ function TourDetail() {
         ))}
       </div>,
     },
-    // {
-    //   key: '3',
-    //   label: <p className="font-bold">Vị trí</p>,
-    //   children: <div className="h-50 p-3 rounded-b-xl">Vị trí</div>,
-    // },
     {
       key: '4',
       label: <p className="font-bold">Đánh giá tour</p>,
@@ -41,6 +36,14 @@ function TourDetail() {
       </div>,
     },
   ]
+
+  function LoveCallback() {
+    TourResource.get(`/customer/${tour.info?.id}`)
+      .then(res => res.data)
+      .then(data => {
+        dispatch({ type: 'init', payload: data.data })
+      })
+  }
 
   useEffect(function () {
     setImage(0)
@@ -51,8 +54,9 @@ function TourDetail() {
       <div className="flex flex-col gap-5">
         <div className="relative w-full">
           <img className="rounded-xl w-full" src={state.images?.[image]?.hinhAnh} alt="" />
-          <div className="absolute right-2 bottom-2 bg-black/50 size-12 rounded-2xl text-white flex justify-center items-center"><FontAwesomeIcon icon={faHeart} /></div>
+          <LoveButton id={state.info?.id} love={state.info?.yeuThich > 0} callback={LoveCallback} />
         </div>
+
         <div className="grid grid-cols-5 gap-5">
           {state.images.slice(0, 5).map((img, index) => (
             <button
@@ -66,6 +70,7 @@ function TourDetail() {
           ))}
         </div>
       </div>
+
       <Tabs className="shadow-xl w-150 overflow-hidden rounded-b-xl" type="card" defaultActiveKey="1" items={tabItem} />
     </div>
 
