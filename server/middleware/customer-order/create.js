@@ -10,7 +10,7 @@ const { insertCustomerOrder, getCustomerOrderTour, updateCustomerOrderTour } = r
 
 // res.locals = { user, }
 async function CheckSameOrderTourExists(req, res, next) {
-  const { tour } = req.body
+  const { tour, date, nguoiLon, treEm, emBe } = req.body
   const userId = res.locals.user.id
 
   try {
@@ -21,9 +21,9 @@ async function CheckSameOrderTourExists(req, res, next) {
       }, {}))[0]
     if (currentTour == null) return next()
 
-    const { id, ngayDat, ngayDi, soNguoiLon, soTreEm, soEmBe } = currentTour
+    const { id, ngayDat } = currentTour
     await DatabaseQuery(updateCustomerOrderTour, [
-      ngayDat, ngayDi, soNguoiLon, soTreEm, soEmBe, id
+      ngayDat, date, +nguoiLon, +treEm, +emBe, id
     ])
 
     return res.json({ message: "Update Success", success: true, data: id })

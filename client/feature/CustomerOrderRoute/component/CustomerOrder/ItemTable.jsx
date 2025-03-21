@@ -1,5 +1,4 @@
 import { CustomerOrderResource } from "@/Api";
-import { width } from "@fortawesome/free-solid-svg-icons/faList";
 import { Button, Input, Table } from "antd";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";

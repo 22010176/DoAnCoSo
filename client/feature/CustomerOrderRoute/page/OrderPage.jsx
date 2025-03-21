@@ -12,8 +12,6 @@ const items = [
 ]
 
 function OrderPage() {
-
-
   function onSubmit(e) { }
 
   return (
