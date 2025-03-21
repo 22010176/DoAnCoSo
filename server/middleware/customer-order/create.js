@@ -22,10 +22,12 @@ async function CheckUserAccount(req, res, next) {
   next()
 }
 
+// res.locals = { user, }
 function CheckSameOrderTourExists(req, res, next) {
   next()
 }
 
+// res.locals = { user, }
 async function GetOrderTourInfo(req, res, next) {
   // console.log(req.body)
   // try {
@@ -38,6 +40,7 @@ async function GetOrderTourInfo(req, res, next) {
   next()
 }
 
+// res.locals = { user, tourInfo }
 async function InsertTourInfo(req, res, next) {
   const userId = res.locals.user.id
   const id = "CustomrCart-" + Randomstring.generate(10)
@@ -56,6 +59,7 @@ async function InsertTourInfo(req, res, next) {
   next()
 }
 
+// res.locals = { user, tourInfo }
 async function CreateOrderTourErrorResponse(req, res, next) {
   res.json({
     message: "Failed",

@@ -18,7 +18,9 @@ function OrderPage() {
 
       <Container Element="form" className="grid xl:grid-cols-[1fr_auto] gap-5 my-5">
         <p className="text-2xl font-bold xl:col-span-2">Giỏ hàng của bạn</p>
+
         <ReceiveSetting />
+
         <ItemTable />
       </Container>
     </div>

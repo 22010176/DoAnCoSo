@@ -41,7 +41,12 @@ const data = [
 function ItemTable() {
   return (
     <div className="flex flex-col items-end gap-3">
-      <Table className="w-full" pagination={{ hideOnSinglePage: true }} columns={columns} dataSource={data} />
+      <Table
+        className="w-full"
+        pagination={{ hideOnSinglePage: true }}
+        columns={columns}
+        dataSource={data} />
+
       <div className="grid gap-3">
         <div className="flex w-full gap-2 justify-between text-lg">
           <p>Tổng tiền:</p>
