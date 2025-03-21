@@ -6,6 +6,7 @@ function ReceiveSetting() {
       <p className=" text-lg font-bold">Thời gian nhận</p>
       <div className="flex gap-5">
         <DatePicker placeholder="Chọn ngày" className="w-35" />
+
         <Select className="w-40" placeholder="Chọn thời gian nhận"
           options={[
             { value: '8_12', label: '8h00-12h00' },

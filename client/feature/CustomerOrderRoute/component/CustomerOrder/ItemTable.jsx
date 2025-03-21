@@ -1,56 +1,94 @@
+import { CustomerOrderResource } from "@/Api";
+import { width } from "@fortawesome/free-solid-svg-icons/faList";
 import { Button, Input, Table } from "antd";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 
 const columns = [
   {
     title: <p className="text-lg">Thông tin sản phẩm</p>,
-    render(item) {
-      return "d"
-    },
+    render(item) { return item.tenTour },
+    width: "25%"
   },
   {
     title: <p className="text-lg">Đơn giá</p>,
     render(item) {
-      return "test"
-    }
+      return (
+        <div className="grid grid-cols-3 gap-2 items-center text-center">
+          <div>
+            <p className="font-semibold">Người lớn</p>
+            <p>{item.giaNguoiLon}</p>
+          </div>
+          <div>
+            <p className="font-semibold">Trẻ em</p>
+            <p>{item.giaTreEm}</p>
+          </div>
+          <div>
+            <p className="font-semibold">Em bé</p>
+            <p>{item.giaEmBe}</p>
+          </div>
+        </div>
+      )
+    },
+    width: "30%"
   },
   {
     title: <p className="text-lg">Số lượng</p>,
     render(item) {
       return (
-        <Input style={{ width: "80px" }} type="number" min={1} defaultValue={1} />
+        <div className="flex gap-2">
+          <div>
+            <label className="font-semibold">Người lớn</label>
+            <Input size="small" type="number" min={1} value={item.soNguoiLon} />
+          </div>
+          <div>
+            <label className="font-semibold">Trẻ em</label>
+            <Input size="small" type="number" min={1} value={item.soTreEm} />
+          </div>
+          <div>
+            <label className="font-semibold">Em bé</label>
+            <Input size="small" type="number" min={1} value={item.soEmBe} />
+          </div>
+        </div>
       )
-    }
+    },
+    width: "30%"
   },
   {
     title: <p className="text-lg">Thành tiền</p>,
-    render(item) {
-      return 100
-    }
+    render(item) { return item.thanhTien },
+    width: "15%"
   },
 ];
 
-const data = [
-  { key: 1 },
-  { key: 2 },
-  { key: 3 },
-  { key: 4 },
-]
-
 function ItemTable() {
+  const location = useLocation()
+  const [list, setList] = useState([])
+
+  useEffect(function () {
+    CustomerOrderResource.get('/')
+      .then(res => res.data)
+      .then(data => setList(data.data.map(i => ({ ...i, key: i.id }))))
+
+    return () => {
+      console.log("unmount")
+    }
+  }, [location])
+  console.log(list)
+
   return (
     <div className="flex flex-col items-end gap-3">
       <Table
         className="w-full"
         pagination={{ hideOnSinglePage: true }}
         columns={columns}
-        dataSource={data} />
+        dataSource={list} />
 
       <div className="grid gap-3">
         <div className="flex w-full gap-2 justify-between text-lg">
           <p>Tổng tiền:</p>
-          <p className="font-bold text-blue-500">20.000.000₫</p>
+          <p className="font-bold text-blue-500">{list.reduce((acc, i) => acc + i.thanhTien, 0)}</p>
         </div>
         <Link to="/orders/checkout">
           <Button className="w-70 " size="large" variant="solid" color="geekblue">Thanh toán</Button>

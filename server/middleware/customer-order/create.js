@@ -1,29 +1,34 @@
 const Randomstring = require("randomstring")
 
-const { DatabaseQuery } = require("#server/database/index")
-const { insertCustomerOrder } = require("#server/model/CustomerOrder")
-const { getTourInfoQuery } = require("#server/model/Tour")
 const User = require("#server/model/User")
-const { GetUserInfoByEmail } = require("../auth/local/loginUser")
+const { DatabaseQuery } = require("#server/database/index")
+
+const { getTourInfoQuery } = require("#server/model/Tour")
 const { getUserByEmailQuery } = require("#server/model/Account")
 
-async function CheckUserAccount(req, res, next) {
-  if (req.session.userId == null)
-    return res.json({ message: "Invalid request!", success: false, data: null })
-
-  try {
-    const user = await User.findById(req.session.userId)
-    res.locals.user = (await DatabaseQuery(getUserByEmailQuery, [[[user.email]]]))[0]
-
-  } catch (error) {
-    return res.json({ message: "Invalid request!", success: false, data: null })
-  }
-
-  next()
-}
+const { insertCustomerOrder, getCustomerOrderTour, updateCustomerOrderTour } = require("#server/model/CustomerOrder")
 
 // res.locals = { user, }
-function CheckSameOrderTourExists(req, res, next) {
+async function CheckSameOrderTourExists(req, res, next) {
+  const { tour } = req.body
+  const userId = res.locals.user.id
+
+  try {
+    const currentTour = Object.values((await DatabaseQuery(getCustomerOrderTour, [userId, tour]))
+      .reduce((acc, cur) => {
+        acc[cur.tour] = cur
+        return acc
+      }, {}))[0]
+    if (currentTour == null) return next()
+
+    const { id, ngayDat, ngayDi, soNguoiLon, soTreEm, soEmBe } = currentTour
+    await DatabaseQuery(updateCustomerOrderTour, [
+      ngayDat, ngayDi, soNguoiLon, soTreEm, soEmBe, id
+    ])
+
+    return res.json({ message: "Update Success", success: true, data: id })
+  } catch (error) { console.log(error) }
+
   next()
 }
 
@@ -52,9 +57,7 @@ async function InsertTourInfo(req, res, next) {
     ]])
 
     return res.json({ message: "Success", success: true, data: id })
-  } catch (error) {
-    console.log(error)
-  }
+  } catch (error) { console.log(error) }
 
   next()
 }
@@ -69,7 +72,6 @@ async function CreateOrderTourErrorResponse(req, res, next) {
 }
 
 module.exports = {
-  CheckUserAccount,
   CheckSameOrderTourExists,
   GetOrderTourInfo,
   InsertTourInfo,

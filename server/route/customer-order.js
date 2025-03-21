@@ -1,13 +1,16 @@
-const { GetOrderTourInfo, InsertTourInfo, CheckUserAccount, CreateOrderTourErrorResponse, CheckSameOrderTourExists } = require('#server/middleware/customer-order/create')
-
 // /api/customer-order
+
+const { CheckUserAccount } = require('#server/middleware/customer-order/index')
+const { GetOrderTourInfo, InsertTourInfo, CreateOrderTourErrorResponse, CheckSameOrderTourExists } = require('#server/middleware/customer-order/create')
+const { getCustomerOrderList, createGetCustomerOrderListErrorResponse } = require('#server/middleware/customer-order/read')
+
 const router = require('express').Router()
 
 // GET /api/customer-order
 router.get('/',
-  function (req, res) {
-    res.send('dd')
-  })
+  CheckUserAccount,
+  getCustomerOrderList,
+  createGetCustomerOrderListErrorResponse)
 
 // POST /api/customer-order
 router.post('/',
