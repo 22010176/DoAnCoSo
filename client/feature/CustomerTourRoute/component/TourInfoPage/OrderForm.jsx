@@ -4,18 +4,29 @@ import { Button, DatePicker, Input } from "antd";
 import { useContext } from "react";
 
 import TourInfoContext from "./TourInfoContext";
+import { CustomerOrderResource } from "@/Api";
 
 function OrderForm() {
   const [state, dispatch] = useContext(TourInfoContext)
-  const {
-    form: { emBe, nguoiLon, treEm },
-    info: { giaEmBe, giaNguoiLon, giaTreEm }
-  } = state
+
+  const emBe = state.form?.emBe || 0
+  const nguoiLon = state.form?.nguoiLon || 0
+  const treEm = state.form?.treEm || 0
+
+  const giaEmBe = state.info?.giaEmBe || 0
+  const giaNguoiLon = state.info?.giaNguoiLon || 0
+  const giaTreEm = state.info?.giaTreEm || 0
+
 
   function onSubmit(e) {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.target))
+    data.tour = state.info.id
+
     console.log(data)
+    CustomerOrderResource.post('/', data)
+      .then(res => res.data)
+      .then(data => console.log(data))
   }
 
   function onChange(e) {

@@ -17,8 +17,6 @@ const items = [
   { title: <Link to="/tours" style={{ color: "white" }} className="text-white font-semibold text-xl">Sản phẩm</Link>, },
 ]
 
-
-
 function TourInfoPage() {
   const { id } = useParams()
 

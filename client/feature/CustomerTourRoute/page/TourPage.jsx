@@ -28,17 +28,7 @@ function TourPage() {
   }, [])
 
   console.log(list)
-  /*
-  
-  diemDen: "sbWmkWmFXtrWARsnVTPS"
-  giaEmBe: 14910
-  giaNguoiLon: 81321
-  giaTreEm: 82236
-  id: "4d3b7eae-ca25-467e-9f4e-710f179d0e72"
-  tenPhuongTien: "máy bay"
-  tenTour: "9V3Xa1MCpwjNJ5k3Zwoq"
-  xuatPhat: "FsTm8tLrAAWb4YmUKPyU"
-  */
+
   return (
     <div className="mb-20 min-h-250">
       <Header Element={Container} items={items} />
@@ -51,7 +41,7 @@ function TourPage() {
 
           {view.toLowerCase() === 'list' && (
             <div className="flex flex-col gap-5 py-5">
-              {list?.map((i, j) => (
+              {list.length > 0 ? list?.map((i, j) => (
                 <TourInfoHorVer
                   key={j}
                   id={i.id}
@@ -62,7 +52,7 @@ function TourPage() {
                   name={i.tenTour}
                   vehicle={i.phuongTien}
                 />
-              ))}
+              )) : <p>Không có tour nào</p>}
             </div>
           )}
 

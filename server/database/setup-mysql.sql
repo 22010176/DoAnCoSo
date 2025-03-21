@@ -142,3 +142,40 @@ CREATE TABLE tourYeuThich
   FOREIGN KEY(taiKhoan) REFERENCES users(id),
   FOREIGN KEY(tour) REFERENCES tour(id)
 );
+
+-- ___________________________________________________________________________________________________________________________
+-- Thong tin tai khoan________________________________________________________________________________________________________
+-- ___________________________________________________________________________________________________________________________
+DROP TABLE IF EXISTS trangThaiDon;
+CREATE TABLE trangThaiDon
+(
+  id VARCHAR(256) PRIMARY KEY,
+  maTrangThai VARCHAR(256) UNIQUE,
+  tenTrangThai VARCHAR(256) UNIQUE
+);
+INSERT INTO trangThaiDon
+  (id, maTrangThai, tenTrangThai)
+VALUES
+  ('1', 'chua_xac_nhan', 'Chưa xác nhận'),
+  ('2', 'da_xac_nhan', 'Đã xác nhận'),
+  ('3', 'da_huy', 'Đã hủy'),
+  ('4', 'dang_giao_hang', 'Đang giao hàng'),
+  ('5', 'da_giao_hang', 'Đã giao hàng');
+
+
+DROP TABLE IF EXISTS phieuDatTour;
+CREATE TABLE phieuDatTour (
+    id VARCHAR(256) PRIMARY KEY,
+    ngayDat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ngayDi TIMESTAMP,
+    soNguoiLon SMALLINT UNSIGNED DEFAULT 0,
+    soTreEm SMALLINT UNSIGNED DEFAULT 0,
+    soEmBe SMALLINT UNSIGNED DEFAULT 0,
+    tour VARCHAR(256),
+    taiKhoan VARCHAR(256),
+    FOREIGN KEY (tour)
+        REFERENCES tour (id),
+    FOREIGN KEY (taiKhoan)
+        REFERENCES users (id)
+);
+

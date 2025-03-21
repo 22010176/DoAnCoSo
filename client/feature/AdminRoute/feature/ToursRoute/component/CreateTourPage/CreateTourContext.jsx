@@ -20,6 +20,27 @@ export const initialState = {
   }
 }
 
+export function GenerateTour() {
+  return {
+    "images": new Array(randInt(5, 2)).fill().map(i => "\\storage\\1742224751940_2ac68eb5-9503-41d8-b185-1c4a2481994a.png"),
+    "schedules": new Array(randInt(10, 1)).fill().map((i, j) => ({
+      "index": j,
+      "title": Randomstring.generate(50),
+      "content": Randomstring.generate(1000)
+    })),
+    "info": {
+      "tenTour": Randomstring.generate({ length: 20 }),
+      "xuatPhat": Randomstring.generate({ length: 20 }),
+      "diemDen": Randomstring.generate({ length: 20 }),
+      "phuongTien": randInt(5, 1),
+      "giaNguoiLon": randInt(),
+      "giaTreEm": randInt(),
+      "giaEmBe": randInt(),
+      "moTa": Randomstring.generate({ length: 1000 })
+    }
+  }
+}
+
 export function reducer(state, action) {
   const _state = JSON.parse(JSON.stringify(state))
 
@@ -59,7 +80,9 @@ export function reducer(state, action) {
       return {
         "images": new Array(randInt(5, 2)).fill().map(i => "\\storage\\1742224751940_2ac68eb5-9503-41d8-b185-1c4a2481994a.png"),
         "schedules": new Array(randInt(10, 1)).fill().map((i, j) => ({
-          "index": j, "title": Randomstring.generate(50), "content": Randomstring.generate(100)
+          "index": j,
+          "title": Randomstring.generate(50),
+          "content": Randomstring.generate(100)
         })),
         "info": {
           "tenTour": Randomstring.generate({ length: 20 }),

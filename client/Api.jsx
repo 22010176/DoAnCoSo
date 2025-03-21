@@ -19,3 +19,8 @@ export const TourResource = axios.create({
   withCredentials: true,
   baseURL: "/api/tour",
 })
+
+export const CustomerOrderResource = axios.create({
+  withCredentials: true,
+  baseURL: "/api/customer-order",
+})

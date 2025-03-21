@@ -1,11 +1,13 @@
 const { v4 } = require("uuid")
+const Randomstring = require("randomstring")
+
 
 const { insertTourQuery, insertImageQuery, insertTourScheduleQuery } = require("../../model/Tour")
 const { DatabaseQuery } = require("../../database")
 
 async function SaveTourInfo(req, res, next) {
   try {
-    const id = v4()
+    const id = "Tour-" + Randomstring.generate(5)
     const { info } = req.body
     const { tenTour, xuatPhat, diemDen, phuongTien, giaNguoiLon, giaTreEm, giaEmBe, moTa } = info
     await DatabaseQuery(insertTourQuery,
@@ -14,6 +16,7 @@ async function SaveTourInfo(req, res, next) {
       ]]])
     res.locals.tour = id
   } catch (error) {
+    console.log(error)
     return res.json({
       message: "Error create tour",
       success: false,
