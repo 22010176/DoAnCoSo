@@ -1,3 +1,4 @@
+import { useEffect, useReducer } from "react"
 import { Link, useParams } from "react-router-dom"
 
 import Header from "@/component/Header"
@@ -8,9 +9,8 @@ import TourDetail from "../component/TourInfoPage/TourDetail"
 import TourInfoHeader from "../component/TourInfoPage/TourInfoHeader"
 import TourList from "../component/TourInfoPage/TourList"
 
-import TourInfoContext, { initialState, reducer } from "../component/TourInfoPage/TourInfoContext"
-import { useEffect, useReducer } from "react"
 import { TourResource } from "@/Api"
+import TourInfoContext, { initialState, reducer } from "../component/TourInfoPage/TourInfoContext"
 
 const items = [
   { title: <Link to="/" style={{ color: "white" }} className="text-xl font-semibold" >Trang chủ</Link>, },
