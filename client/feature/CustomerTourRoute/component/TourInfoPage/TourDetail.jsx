@@ -4,11 +4,8 @@ import { Tabs } from "antd";
 import { useContext, useEffect, useState } from "react";
 
 import TourInfoContext from "./TourInfoContext";
-import TextArea from "antd/es/input/TextArea";
 
-
-
-function TourDetail({ items }) {
+function TourDetail() {
   const [state] = useContext(TourInfoContext)
   const [image, setImage] = useState(0)
 

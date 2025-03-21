@@ -6,6 +6,11 @@ export const initialState = {
   info: {},
   images: [],
   schedules: [],
+  form: {
+    emBe: 0,
+    nguoiLon: 0,
+    treEm: 0,
+  }
 }
 
 export function reducer(state, action) {
@@ -18,6 +23,10 @@ export function reducer(state, action) {
       _state.info = payload.info
       _state.images = payload.images
       _state.schedules = payload.schedules
+      break
+
+    case 'updateForm':
+      _state.form[payload.name] = +payload.value
       break
     default:
   }
