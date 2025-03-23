@@ -10,6 +10,7 @@ export const initialState = {
     emBe: 0,
     nguoiLon: 0,
     treEm: 0,
+    date: ""
   }
 }
 
@@ -28,10 +29,16 @@ export function reducer(state, action) {
     case 'updateForm':
       _state.form[payload.name] = +payload.value
       break
+
+    case 'resetForm':
+      _state.form = { ...initialState.form }
+      break
+
     default:
+
   }
 
-  return _state
+  return { ..._state }
 }
 
 export default TourInfoContext

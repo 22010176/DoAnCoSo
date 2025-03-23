@@ -64,7 +64,7 @@ export function reducer(state, action) {
 
     case 'addSchedule':
       const newSchedule = {
-        index: _state.schedules?.length,
+        index: _state.schedules?.length + 1,
         title: "",
         content: ""
       }
@@ -73,14 +73,14 @@ export function reducer(state, action) {
 
     case 'scheduleUpdate':
       ({ index, name, value } = action.payload)
-      _state.schedules[index][name] = value
+      _state.schedules[index - 1][name] = value
       break
 
     case 'genRandom':
       return {
         "images": new Array(randInt(5, 2)).fill().map(i => "\\storage\\1742224751940_2ac68eb5-9503-41d8-b185-1c4a2481994a.png"),
-        "schedules": new Array(randInt(10, 1)).fill().map((i, j) => ({
-          "index": j,
+        "schedules": new Array(randInt(10, 2)).fill().map((i, j) => ({
+          "index": j + 1,
           "title": Randomstring.generate(50),
           "content": Randomstring.generate(100)
         })),

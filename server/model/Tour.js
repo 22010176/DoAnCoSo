@@ -51,6 +51,26 @@ LEFT JOIN tourYeuThich tyt ON tyt.tour = t.id
 GROUP BY t.id
 HAVING t.id = ?`
 
+const getTourInfoQuery2 = `
+SELECT  t.id,
+        t.tenTour,
+        t.giaNguoiLon,
+        t.giaTreEm,
+        t.giaEmBe,
+        t.xuatPhat,
+        t.diemDen,
+        t.moTa,
+        t.ngayTao,
+        p.maPhuongTien,
+        p.tenPhuongTien,
+        th.tenTrangThai
+FROM tour t
+INNER JOIN phuongTien p ON p.id = t.phuongTien
+INNER JOIN trangThaiTour th ON th.id = T.trangThai 
+LEFT JOIN tourYeuThich tyt ON tyt.tour = t.id
+GROUP BY t.id
+HAVING t.id = ?`
+
 const getTourImageQuery = `
 SELECT h.*
 FROM hinhanhtour h
@@ -153,5 +173,6 @@ module.exports = {
   getTourCustomerQuery,
   addFavoriteTourQuery,
   deleteFavouriteTourQuery,
-  getFavouriteTourQuery
+  getFavouriteTourQuery,
+  getTourInfoQuery2
 }

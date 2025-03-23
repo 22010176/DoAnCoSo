@@ -6,7 +6,7 @@ import LoveButton from "@/component/TourInfo/LoveBtn";
 import TourInfoContext from "./TourInfoContext";
 
 function TourDetail() {
-  const [state] = useContext(TourInfoContext)
+  const [state, dispatch] = useContext(TourInfoContext)
   const [image, setImage] = useState(0)
 
   const tabItem = [
@@ -38,9 +38,10 @@ function TourDetail() {
   ]
 
   function LoveCallback() {
-    TourResource.get(`/customer/${tour.info?.id}`)
+    TourResource.get(`/customer/${state.info?.id}`)
       .then(res => res.data)
       .then(data => {
+        console.log(data)
         dispatch({ type: 'init', payload: data.data })
       })
   }

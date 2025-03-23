@@ -30,7 +30,7 @@ function ScheduleForm() {
         </Button>
       </div>
       {state?.schedules?.map((i, j) => (
-        <ScheduleFormItem key={j} {...i} onChange={onItemChange} />
+        <ScheduleFormItem key={j + 1} {...i} onChange={onItemChange} />
       ))}
     </div>
   )

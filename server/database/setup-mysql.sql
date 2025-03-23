@@ -45,7 +45,7 @@ CREATE TABLE tour (
     diemDen VARCHAR(256),
     phuongTien VARCHAR(256),
     trangThai VARCHAR(256) DEFAULT '2',
-    moTa VARCHAR(1024),
+    moTa TEXT,
     ngayTao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (phuongTien)
         REFERENCES phuongTien (id),
@@ -69,7 +69,7 @@ CREATE TABLE lichTrinhTour
   id VARCHAR(256) PRIMARY KEY,
   thuTuNgay SMALLINT DEFAULT 1,
   deMuc VARCHAR(256),
-  noiDung VARCHAR(1024),
+  noiDung TEXT,
   tour VARCHAR(256),
   
   UNIQUE(tour, thuTuNgay),
@@ -113,7 +113,7 @@ CREATE TABLE OAuthUser
 (
   oauth_id VARCHAR(256) PRIMARY KEY,
   provider VARCHAR(256),
-  refreshToken VARCHAR(1024),
+  refreshToken VARCHAR(4096),
   taiKhoan VARCHAR(256) UNIQUE,
 
   FOREIGN KEY(taiKhoan) REFERENCES users(id)

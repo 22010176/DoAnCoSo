@@ -37,7 +37,7 @@ function LoginForm() {
           <p className="text-3xl uppercase font-bold">Đăng nhập</p>
           <p className="flex gap-1 justify-center">
             Nếu bạn chưa có tài khoản,
-            <Link to="/account/register" className="text-blue-400">đăng ký tại đây</Link>
+            <Link to="/auth/register" className="text-blue-400">đăng ký tại đây</Link>
           </p>
         </div>
         <Input name="email" size="large" placeholder="email" />

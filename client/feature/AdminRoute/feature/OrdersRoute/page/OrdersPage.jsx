@@ -3,6 +3,7 @@ import { Table, Input, Button, Dropdown, Space, Pagination } from 'antd';
 import { SearchOutlined, DownOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import Header from '@admin/component/Header';
 import Container from '@admin/component/Container';
+import { Link } from 'react-router-dom';
 
 
 function OrderPage() {
@@ -73,7 +74,9 @@ function OrderPage() {
       width: 100,
       render: () => (
         <div className="flex justify-center">
-          <Button type="text" icon={<InfoCircleOutlined className="text-blue-500 text-xl" />} />
+          <Link to="/dashboard/orders/33">
+            <Button type="text" icon={<InfoCircleOutlined className="text-blue-500 text-xl" />} />
+          </Link>
         </div>
       ),
     },
