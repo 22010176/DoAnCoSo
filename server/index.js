@@ -30,10 +30,11 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-const { publicFolder, viewFolder, resourceFolder } = require('./constant');
+const { publicFolder, viewFolder, resourceFolder, paymentFolder } = require('./constant');
 if (!fs.existsSync(publicFolder)) fs.mkdirSync(publicFolder)
 if (!fs.existsSync(viewFolder)) fs.mkdirSync(viewFolder)
 if (!fs.existsSync(resourceFolder)) fs.mkdirSync(resourceFolder)
+if (!fs.existsSync(paymentFolder)) fs.mkdirSync(paymentFolder)
 
 app.use(express.static(publicFolder))
 

@@ -178,3 +178,36 @@ CREATE TABLE phieuDatTour (
     FOREIGN KEY (taiKhoan)
         REFERENCES users (id)
 );
+
+DROP TABLE IF EXISTS HoaDonThanhToan;
+CREATE TABLE hoaDonThanhToan (
+  id VARCHAR(256) PRIMARY KEY,
+  ngayDat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+  mail VARCHAR(256),
+  name VARCHAR(256),
+  phone VARCHAR(256),
+  address VARCHAR(256),
+  description TEXT,
+
+  minhChungThanhToan VARCHAR(256),
+  users VARCHAR(256),
+
+  FOREIGN KEY (user) REFERENCES taiKhoan(id)
+);
+
+DROP TABLE IF EXISTS tour_hoaDon;
+CREATE TABLE tour_hoaDon (
+  id VARCHAR(256) PRIMARY KEY,
+
+  ngayDi TIMESTAMP,
+  soNguoiLon SMALLINT UNSIGNED DEFAULT 0,
+  soTreEm SMALLINT UNSIGNED DEFAULT 0,
+  soEmBe SMALLINT UNSIGNED DEFAULT 0,
+
+  tour VARCHAR(256),
+  hoaDonThanhToan VARCHAR(256),
+
+  FOREIGN KEY (tour) REFERENCES tour(id),
+  FOREIGN KEY (hoaDonThanhToan) REFERENCES hoaDonThanhToan(id)
+);

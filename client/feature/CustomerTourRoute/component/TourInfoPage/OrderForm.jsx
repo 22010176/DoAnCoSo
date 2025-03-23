@@ -1,10 +1,11 @@
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, DatePicker, Input, message, Result } from "antd";
+import { Button, Input, message } from "antd";
 import { useContext } from "react";
 
-import TourInfoContext from "./TourInfoContext";
 import { CustomerOrderResource } from "@/Api";
+
+import TourInfoContext from "./TourInfoContext";
 
 function OrderForm() {
   const [messageApi, contextHolder] = message.useMessage()
@@ -19,7 +20,6 @@ function OrderForm() {
   const giaNguoiLon = state.info?.giaNguoiLon || 0
   const giaTreEm = state.info?.giaTreEm || 0
 
-
   async function onSubmit(e) {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.target))
@@ -29,7 +29,6 @@ function OrderForm() {
     const result = await CustomerOrderResource.post('/', data)
       .then(res => res.data)
 
-    console.log(result)
     if (!result.success) return messageApi.error("Thêm vào giỏ hàng thất bại.")
 
     messageApi.info("Thêm vào giỏ hàng thành công!!!")
@@ -38,7 +37,7 @@ function OrderForm() {
 
   function onChange(e) {
     const elem = e.target
-    console.log(elem.value, elem.name)
+
     dispatch({
       type: 'updateForm',
       payload: {
@@ -46,10 +45,7 @@ function OrderForm() {
         value: elem.name === 'date' ? new Date(elem.value) : elem.value
       }
     })
-
   }
-
-
 
   return (
     <>

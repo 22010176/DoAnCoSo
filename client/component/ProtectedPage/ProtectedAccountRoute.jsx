@@ -5,17 +5,17 @@ import { Navigate, useLocation } from "react-router-dom"
 import { defaultPending, getAccount } from "@/redux/authSlice"
 
 function ProtectAccountRoute({ children }) {
-  // const account = useSelector(getAccount)
-  // const location = useLocation()
-  // const [Element, setElement] = useState(children)
+  const account = useSelector(getAccount)
+  const location = useLocation()
+  const [Element, setElement] = useState(children)
 
-  // useEffect(function () {
-  //   if (account === defaultPending) return
+  useEffect(function () {
+    if (account === defaultPending) return
 
-  //   setElement(account ? children : <Navigate to="/" />)
-  // }, [account, location])
+    setElement(account ? children : <Navigate to="/" />)
+  }, [account, location])
 
-  return children
+  return Element
 }
 
 export default ProtectAccountRoute

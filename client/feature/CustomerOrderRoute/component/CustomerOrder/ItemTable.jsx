@@ -1,10 +1,21 @@
 import { CustomerOrderResource } from "@/Api";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Input, Table } from "antd";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 
 const columns = [
+  {
+    title: <p className="text-lg"></p>,
+    render(item) {
+      return (
+        <Button size="small" variant="solid" color="red"><FontAwesomeIcon icon={faX} /></Button>
+      )
+    },
+    width: "5%"
+  },
   {
     title: <p className="text-lg">Thông tin sản phẩm</p>,
     render(item) { return item.tenTour },
@@ -39,15 +50,15 @@ const columns = [
         <div className="flex gap-2">
           <div>
             <label className="font-semibold">Người lớn</label>
-            <Input size="small" type="number" min={1} value={item.soNguoiLon} />
+            <Input disabled size="small" type="number" min={1} value={item.soNguoiLon} />
           </div>
           <div>
             <label className="font-semibold">Trẻ em</label>
-            <Input size="small" type="number" min={1} value={item.soTreEm} />
+            <Input disabled size="small" type="number" min={1} value={item.soTreEm} />
           </div>
           <div>
             <label className="font-semibold">Em bé</label>
-            <Input size="small" type="number" min={1} value={item.soEmBe} />
+            <Input disabled size="small" type="number" min={1} value={item.soEmBe} />
           </div>
         </div>
       )
@@ -59,6 +70,7 @@ const columns = [
     render(item) { return item.thanhTien },
     width: "15%"
   },
+
 ];
 
 function ItemTable() {
@@ -68,7 +80,7 @@ function ItemTable() {
   useEffect(function () {
     CustomerOrderResource.get('/')
       .then(res => res.data)
-      .then(data => setList(data.data.map(i => ({ ...i, key: i.id }))))
+      .then(data => setList(data.data.map((i, j) => ({ ...i, key: j }))))
 
     return () => {
       console.log("unmount")

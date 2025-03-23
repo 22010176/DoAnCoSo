@@ -33,11 +33,18 @@ SELECT
     tdt.soNguoiLon,
     tdt.soTreEm,
     tdt.soEmBe,
-    soNguoiLon * giaNguoiLon + soTreEm * giaTreEm + soEmBe * giaEmBe thanhTien
+    tdt.ngayDi,
+    soNguoiLon * giaNguoiLon + soTreEm * giaTreEm + soEmBe * giaEmBe thanhTien,
+    (
+      SELECT hinhAnh
+      FROM hinhanhtour hat
+      WHERE hat.tour = t.id
+      LIMIT 1
+    ) hinhAnh
 FROM phieudattour tdt
 INNER JOIN tour t ON t.id = tdt.tour
 INNER JOIN users u ON u.id = tdt.taiKhoan
-HAVING u.id = ?;`
+WHERE u.id = ?;`
 
 module.exports = {
   insertCustomerOrder,

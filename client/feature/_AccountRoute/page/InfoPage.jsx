@@ -20,6 +20,7 @@ function InfoPage() {
   function onLogOut() {
     dispatch(logOutUser())
   }
+  console.log(customer)
 
   return (
     <div className="flex flex-col gap-5">
