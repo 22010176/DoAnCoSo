@@ -1,8 +1,8 @@
 import { faCaretLeft } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Button } from "antd"
+import { Button, message } from "antd"
 import { useEffect, useReducer } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import { CustomerOrderResource } from "@/Api"
 
@@ -12,7 +12,9 @@ import UserCheckoutForm from "../component/CheckoutPage/UserCheckoutForm"
 
 
 function CheckoutPage() {
+  const navigate = useNavigate()
   const location = useLocation()
+  const [messageApi, contextHolder] = message.useMessage()
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const total = state.orderList.reduce((acc, i) => acc + i.thanhTien, 0)
@@ -28,10 +30,27 @@ function CheckoutPage() {
     }
   }, [location])
 
+  async function onCheckout(e) {
+    let result;
+    try {
+      result = await CustomerOrderResource.post('/checkout', state.form)
+        .then(function (res) { return res.data })
 
+    } catch (error) {
+      return messageApi.error("Hệ thống không thể ghi nhận đơn hàng của bạn!")
+    }
+
+    if (!result.success) return messageApi.error("Hệ thống không thể ghi nhận đơn hàng của bạn!")
+
+    messageApi.info("Đã ghi nhận đơn hàng của bạn!")
+    setTimeout(function () {
+      navigate('/')
+    }, 1500)
+  }
 
   return (
     <CheckoutContext.Provider value={[state, dispatch]}>
+      {contextHolder}
       <div className="w-screen h-screen  grid xl:grid-cols-[3fr_2fr] bg-gray-50 overflow-x-hidden">
         <div className="p-15 flex flex-col gap-5">
           <p className="text-4xl font-bold text-blue-500 ">ChillTravel </p>
@@ -60,7 +79,7 @@ function CheckoutPage() {
             </div>
             <div className="flex justify-between items-center">
               <Link to="/orders"><FontAwesomeIcon icon={faCaretLeft} /> Quay về giỏ hàng</Link>
-              <Button variant="solid" color="blue" size="large" className="uppercase w-40">ĐẶT HÀNG</Button>
+              <Button onClick={onCheckout} variant="solid" color="blue" size="large" className="uppercase w-40">ĐẶT HÀNG</Button>
             </div>
           </div>
 

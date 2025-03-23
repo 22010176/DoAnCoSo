@@ -94,4 +94,5 @@ router.delete('/favourite',
   CheckUser,
   DeleteTourFavourite,
   CreateDeleteFavouriteErrorResponse)
+
 module.exports = router

@@ -24,6 +24,7 @@ WHERE id = ?;`
 
 const getCustomerOrdersList = `
 SELECT 
+    tdt.id maGioHang,
 	  t.id maTour,
     u.id maKhachHang,
     t.tenTour,
@@ -46,9 +47,14 @@ INNER JOIN tour t ON t.id = tdt.tour
 INNER JOIN users u ON u.id = tdt.taiKhoan
 WHERE u.id = ?;`
 
+const deleteCustomerOrderList = `
+DELETE FROM phieudattour
+WHERE taiKhoan = ?`
+
 module.exports = {
   insertCustomerOrder,
   getCustomerOrdersList,
   getCustomerOrderTour,
-  updateCustomerOrderTour
+  updateCustomerOrderTour,
+  deleteCustomerOrderList
 }

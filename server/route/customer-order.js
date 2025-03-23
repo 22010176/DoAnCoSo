@@ -7,6 +7,7 @@ const { CheckUserAccount } = require('#server/middleware/customer-order/index')
 const { GetOrderTourInfo, InsertTourInfo, CreateOrderTourErrorResponse, CheckSameOrderTourExists } = require('#server/middleware/customer-order/create')
 const { getCustomerOrderList, createGetCustomerOrderListErrorResponse } = require('#server/middleware/customer-order/read')
 const { paymentFolder, publicFolder } = require('#server/constant')
+const { CreateCheckout, InsertOrderItem, CleanUpCustomerCart, CreateCheckoutErrorResponse, getOrderItem } = require('#server/middleware/customer-order/checkout')
 
 const router = require('express').Router()
 
@@ -33,7 +34,6 @@ router.post('/checkout-image',
   }
 )
 
-
 // GET /api/customer-order
 router.get('/',
   CheckUserAccount,
@@ -59,8 +59,12 @@ router.delete('/', function (req, res) {
 })
 
 // POST /api/customer-order/checkout
-router.post('/checkout', function (req, res) {
-  res.send('dd')
-})
+router.post('/checkout',
+  CheckUserAccount,
+  getOrderItem,
+  CreateCheckout,
+  InsertOrderItem,
+  CleanUpCustomerCart,
+  CreateCheckoutErrorResponse)
 
 module.exports = router

@@ -191,9 +191,9 @@ CREATE TABLE hoaDonThanhToan (
   description TEXT,
 
   minhChungThanhToan VARCHAR(256),
-  users VARCHAR(256),
+  taiKhoan VARCHAR(256),
 
-  FOREIGN KEY (user) REFERENCES taiKhoan(id)
+  FOREIGN KEY (taiKhoan) REFERENCES users(id)
 );
 
 DROP TABLE IF EXISTS tour_hoaDon;
