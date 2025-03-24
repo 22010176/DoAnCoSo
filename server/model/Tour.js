@@ -26,6 +26,7 @@ SELECT 	t.id maTour,
 		    COUNT(lt.id) thoiGian
 FROM tour t
 INNER JOIN lichtrinhtour lt ON lt.tour = t.id
+AND t.trangThai = '2'
 GROUP BY t.id;`
 
 
@@ -160,7 +161,13 @@ INNER JOIN users u ON u.id = tyt.taiKhoan
 WHERE 
 	u.id = ? 
 	AND th.id = '2'
+  AND t.trangThai = '2'
 GROUP BY t.id`
+
+const deleteTourQuery = `
+UPDATE tour
+SET trangThai = '1'
+WHERE id = ?`
 
 module.exports = {
   insertImageQuery,
@@ -174,5 +181,6 @@ module.exports = {
   addFavoriteTourQuery,
   deleteFavouriteTourQuery,
   getFavouriteTourQuery,
-  getTourInfoQuery2
+  getTourInfoQuery2,
+  deleteTourQuery
 }

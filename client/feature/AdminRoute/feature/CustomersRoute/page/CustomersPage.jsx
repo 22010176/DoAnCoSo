@@ -43,7 +43,7 @@ function CustomersPage() {
 
         <div className="flex justify-end ">
           <div className="flex items-center">
-            <span className="mr-2">Note: sắp xếp theo số lượng đơn hàng</span>
+            {/* <span className="mr-2">Note: sắp xếp theo số lượng đơn hàng</span> */}
             <Button icon={<SortDescendingOutlined />}>
               Sắp xếp
             </Button>

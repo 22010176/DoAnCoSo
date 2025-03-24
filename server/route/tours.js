@@ -16,6 +16,8 @@ const { GetCustomerTourList } = require('#server/middleware/tour/customer')
 const { CheckUser, InsertTourFavourite, CreateAddFavouriteErrorResponse } = require('#server/middleware/tour/addFavourite')
 const { DeleteTourFavourite, CreateDeleteFavouriteErrorResponse } = require('#server/middleware/tour/deleteFavourite')
 const { getFavouriteTour, CreateGetFavTourErrorResponse } = require('#server/middleware/tour/getFavourite')
+const { CheckUserAccount } = require('#server/middleware/customer-order/index')
+const { DeleteTour, CreateDeleteTourErrorMessage } = require('#server/middleware/tour/deleteTour')
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -30,6 +32,7 @@ const upload = multer({
 
 // POST /api/tour/upload-image
 router.post('/upload-image',
+  CheckUserAccount,
   upload.single('image'),
   function (req, res) {
     res.json({
@@ -41,6 +44,7 @@ router.post('/upload-image',
 
 // POST /api/tour/create
 router.post('/create',
+  CheckUserAccount,
   SaveTourInfo,
   SaveTourImages,
   SaveTourSchedule,
@@ -49,8 +53,14 @@ router.post('/create',
 
 // GET /api/tour/list
 router.get('/list',
-  getTourList
-)
+  CheckUserAccount,
+  getTourList)
+
+// DELETE /api/tour
+router.delete('/',
+  CheckUserAccount,
+  DeleteTour,
+  CreateDeleteTourErrorMessage)
 
 // GET /api/tour/details/:tourId
 router.get('/details/:tourId',

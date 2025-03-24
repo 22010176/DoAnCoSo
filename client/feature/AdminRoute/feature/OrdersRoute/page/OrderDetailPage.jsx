@@ -3,6 +3,7 @@ import { LeftOutlined } from '@ant-design/icons';
 
 import Container from "@admin/component/Container"
 import Header from "@admin/component/Header"
+import { Link } from 'react-router-dom';
 
 function OrderDetailPage() {
   const { Option } = Select;
@@ -67,9 +68,11 @@ function OrderDetailPage() {
       <Container>
 
         <div className="flex justify-between mb-4">
-          <Button type="primary" icon={<LeftOutlined />} className="text-blue-500 border-blue-500 bg-white">
-            Quay lại
-          </Button>
+          <Link to="/dashboard/orders">
+            <Button type="primary" icon={<LeftOutlined />} className="text-blue-500 border-blue-500 bg-white">
+              Quay lại
+            </Button>
+          </Link>
           <div className="space-x-2">
             <Button type="primary" className="border-green-500 bg-white text-green-500">
               Xuất Excel

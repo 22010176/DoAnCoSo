@@ -25,11 +25,11 @@ function CustomerDetailPage() {
     { title: 'Giá trị đơn hàng (đ)', dataIndex: 'orderValue', key: 'orderValue', width: 160, align: 'right', },
     {
       title: 'Trạng thái', dataIndex: 'status', key: 'status', width: 120, align: 'center',
-      render: () => <Button type="link" size="small">xem ở dưới</Button>,
+      render: () => <Button variant='solid' color='blue' size="small">Chờ thanh toán</Button>,
     },
     {
       title: 'Thanh toán', dataIndex: 'payment', key: 'payment', width: 120, align: 'center',
-      render: () => <Button type="link" size="small">xem ở dưới</Button>,
+      render: () => <Button variant='solid' color='blue' size="small">Chờ thanh toán</Button>,
     },
     { title: 'Ghi chú', dataIndex: 'note', key: 'note', width: 120, },
   ];
