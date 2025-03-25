@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import Randomstring from "randomstring";
+import Randomstring, { generate } from "randomstring";
 
 import { randInt } from "@/utils/random";
 
@@ -20,9 +20,17 @@ export const initialState = {
   }
 }
 
+const images = [
+  '/assets/imgs/a.webp',
+  '/assets/imgs/b.jpg',
+  '/assets/imgs/bg.jpg',
+  '/assets/imgs/bg2.jpg',
+  '/assets/imgs/dd.webp',
+  '/assets/imgs/sp4.webp'
+]
 export function GenerateTour() {
   return {
-    "images": new Array(randInt(5, 2)).fill().map(i => "\\storage\\1742224751940_2ac68eb5-9503-41d8-b185-1c4a2481994a.png"),
+    "images": new Array(randInt(5, 2)).fill().map(i => images[Math.floor(Math.random() * images.length)]),
     "schedules": new Array(randInt(10, 1)).fill().map((i, j) => ({
       "index": j,
       "title": Randomstring.generate(50),
@@ -77,24 +85,7 @@ export function reducer(state, action) {
       break
 
     case 'genRandom':
-      return {
-        "images": new Array(randInt(5, 2)).fill().map(i => "\\storage\\1742224751940_2ac68eb5-9503-41d8-b185-1c4a2481994a.png"),
-        "schedules": new Array(randInt(10, 2)).fill().map((i, j) => ({
-          "index": j + 1,
-          "title": Randomstring.generate(50),
-          "content": Randomstring.generate(100)
-        })),
-        "info": {
-          "tenTour": Randomstring.generate({ length: 20 }),
-          "xuatPhat": Randomstring.generate({ length: 20 }),
-          "diemDen": Randomstring.generate({ length: 20 }),
-          "phuongTien": randInt(5, 1),
-          "giaNguoiLon": randInt(),
-          "giaTreEm": randInt(),
-          "giaEmBe": randInt(),
-          "moTa": Randomstring.generate({ length: 1000 })
-        }
-      }
+      return GenerateTour()
 
     case 'clearInput':
       return JSON.parse(JSON.stringify(initialState))

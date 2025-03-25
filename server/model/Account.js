@@ -38,9 +38,14 @@ INNER JOIN vaitro v	ON u.vaiTro = v.id
 INNER JOIN OAuthUser o ON o.taiKhoan = u.id
 WHERE u.id IN ?`
 
+const getAccountByIdQuery = `
+SELECT * FROM users 
+WHERE u.id = ?`
+
 module.exports = {
   createAccountQuery,
   getUserByEmailQuery,
   getUserOAuthInfoQuery,
-  getUserOAuthInfoByIdQuery
+  getUserOAuthInfoByIdQuery,
+  getAccountByIdQuery
 }

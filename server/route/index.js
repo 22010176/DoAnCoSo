@@ -11,5 +11,6 @@ router.use('/auth', require('./auth'))
 router.use('/tour', require('./tours'))
 router.use('/resource', require('./resources'))
 router.use('/customer-order', require('./customer-order'))
+router.use('/orders', require('./orders'))
 
 module.exports = router

@@ -24,3 +24,8 @@ export const CustomerOrderResource = axios.create({
   withCredentials: true,
   baseURL: "/api/customer-order",
 })
+
+export const AdminOrders = axios.create({
+  withCredentials: true,
+  baseURL: "/api/orders"
+})
