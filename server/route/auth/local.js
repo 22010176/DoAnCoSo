@@ -15,8 +15,7 @@ router.post('/register',
   HashPassword,
   CreateUserInfo,
   CreateAccountUser,
-  CreateRegisterErrorResponse
-)
+  CreateRegisterErrorResponse)
 
 // POST /api/auth/local/login
 router.post('/login',

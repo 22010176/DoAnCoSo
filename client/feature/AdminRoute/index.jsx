@@ -7,7 +7,7 @@ import OrdersRoute from "@admin/feature/OrdersRoute";
 import ToursRoute from "@admin/feature/ToursRoute";
 
 import DashboardPage from "./page/DashboardPage";
-import StatisticPage from "./page/StatisticPage";
+import TourManagementDashboard from "./page/StatisticPage";
 
 function AdminRoute() {
   return (
@@ -15,7 +15,8 @@ function AdminRoute() {
       <Route index element={<DashboardPage />} />
 
       <Route element={<AdminLayout />}>
-        <Route path="/statistic" element={<StatisticPage />} />
+        <Route path="/statistic" element={<TourManagementDashboard />} />
+        <Route path="/statistic-order" element={<TourManagementDashboard />} />
 
         <Route path="/tours/*" element={<ToursRoute />} />
         <Route path="/orders/*" element={<OrdersRoute />} />

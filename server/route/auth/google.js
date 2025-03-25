@@ -31,6 +31,13 @@ router.get("/profile",
   }
 )
 
+router.put('/change-password',
+  isAuthenticated,
+  async function (req, res) {
+    res.json(req.body)
+  }
+)
+
 router.get("/refresh-token",
   isAuthenticated,
   async function (req, res) {
