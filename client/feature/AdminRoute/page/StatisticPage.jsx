@@ -53,9 +53,7 @@ function DoanhThu() {
       x: { grid: { display: true, color: 'rgba(0, 0, 0, 0.05)', }, },
       y: {
         min: 0, max: 100, grid: { display: true, color: 'rgba(0, 0, 0, 0.05)', },
-        ticks: {
-          callback: function (value) { return value; }
-        }
+        ticks: { callback: function (value) { return value; } }
       }
     },
     plugins: {

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 
 import SidebarItem from "./SidebarItem";
+import { Link } from "react-router-dom";
 
 const data = [
   { icon: faBox, to: "/dashboard", text: "Bảng điều khiển" },
@@ -21,10 +22,10 @@ function Sidebar() {
 
   return (
     <div className="h-full w-min bg-green-700 text-white flex flex-col relative">
-      <div className="flex md:flex-row flex-col md:gap-4 gap-2 items-center py-5 mx-5 border-b border-white">
+      <Link to="/dashboard/account" className="flex md:flex-row flex-col md:gap-4 gap-2 items-center py-5 mx-5 border-b border-white">
         <img className="rounded-full md:size-18 size-15" src="\assets\imgs\bg.jpg" alt="" />
         <p className="md:text-2xl sm:block hidden text-xl font-bold">User</p>
-      </div>
+      </Link>
 
       <div className="flex flex-col gap-5 m-5 grow">
         {data.map((item, j) => <SidebarItem key={j} {...item} />)}
